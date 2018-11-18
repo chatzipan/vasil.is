@@ -18,37 +18,46 @@ typeof window !== 'undefined' && require('intersection-observer')
 class Layout extends Component {
   constructor(props) {
     super(props)
-
+    const theme = localStorage.getItem('theme')
     this.state = {
-      theme: 'light',
+      theme: theme || 'light',
       changeTheme: this.changeTheme,
     }
+    !theme && localStorage.setItem('theme', 'light')
   }
 
-  changeTheme = () =>
+  changeTheme = () => {
+    const theme = this.state.theme === 'light' ? 'dark' : 'light'
+    localStorage.setItem('theme', theme)
     this.setState({
-      theme: this.state.theme === 'light' ? 'dark' : 'light',
+      theme,
     })
+  }
 
   render() {
-    const { children, data } = this.props
+    const {
+      children,
+      data: {
+        site: {
+          siteMetadata: { title, description, keywords },
+        },
+      },
+    } = this.props
     const { theme } = this.state
+    const meta = [
+      {
+        name: 'description',
+        content: description,
+      },
+      {
+        name: 'keywords',
+        content: keywords,
+      },
+    ]
+
     return (
       <>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: 'Freelance Developer based in Hamburg, Germany',
-            },
-            {
-              name: 'keywords',
-              content:
-                'freelancer, web, software engineer, frontend, react.js, remote, hamburg, javascript',
-            },
-          ]}
-        />
+        <Helmet title={title} meta={meta} />
         <ThemeContext.Provider value={this.state}>
           <div className={cx(styles.layout, styles[theme])}>
             <Header />
@@ -71,6 +80,8 @@ export default props => (
         site {
           siteMetadata {
             title
+            description
+            keywords
           }
         }
       }

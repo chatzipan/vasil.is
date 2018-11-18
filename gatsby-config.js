@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Vasilis Chatzipanagiotis - Freelance Developer',
+    description: 'Freelance Developer based in Hamburg, Germany',
+    keywords:
+      'freelancer, web, software engineer, frontend, react.js, remote, hamburg, javascript',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
