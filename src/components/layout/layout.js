@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import 'intersection-observer'
 import cx from 'classnames'
 
 import { ThemeContext } from '../../utils/themeContext'
@@ -13,6 +12,8 @@ import '../../styles/layout.css'
 import '../../styles/fonts.css'
 import '../../styles/typography.css'
 import styles from './layout.module.css'
+
+typeof window !== 'undefined' && require('intersection-observer')
 
 class Layout extends Component {
   constructor(props) {
