@@ -1,0 +1,133 @@
+.page {
+  display: flex;
+}
+
+.column {
+  width: calc(1 / 3 * 100%);
+
+  &:first-child {
+    padding-left: 4vw;
+  }
+
+  &:last-child {
+    padding-right: 4vw;
+  }
+}
+
+.info {
+  width: calc(1 / 3 * 100%);
+  top: 0;
+  position: fixed;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.name {
+  text-align: left;
+  font-family: inherit;
+  font-weight: normal;
+  font-size: 3.45vw;
+  transition: transform 0.5s;
+
+  &.scrolled {
+    transform: translateY(-5vw) scale(0.6);
+  }
+}
+
+.first {
+  display: block;
+  animation: revealName 2.5s ease-in;
+  transition: all 0.5s;
+
+  &.scrolled {
+    transform: translateX(-7vw);
+  }
+}
+
+.last {
+  display: block;
+  animation: revealName 3s ease-in;
+  transition: all 0.5s;
+  font-size: 3.45vw;
+
+  &.scrolled {
+    transform: translate(8.5vw, -3.82vw);
+  }
+}
+
+.occupation {
+  font-size: 1.8vw;
+  animation: reveal 3.25s ease-in;
+  transition: color 0.5s;
+}
+
+.works {
+  font-size: 1.5vw;
+  animation: reveal 3.5s ease-in;
+  transition: color 0.5s;
+}
+
+.spacer {
+  height: 120vh;
+}
+
+.scrollIcon {
+  position: absolute;
+  opacity: 0;
+  bottom: 1vw;
+  left: 48%;
+}
+
+.show {
+  animation: icon 2s ease-in 3s 1 forwards;
+}
+
+.text {
+  color: white;
+  background-color: black;
+}
+
+@keyframes icon {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes revealName {
+  from {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  80% {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal {
+  from {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  75% {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

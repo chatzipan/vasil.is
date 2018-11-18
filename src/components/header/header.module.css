@@ -1,0 +1,26 @@
+.header {
+  text-align: right;
+  padding: 2vw 4vw;
+  top: 0;
+  width: 100%;
+  transform: translateX(10px);
+  opacity: 0;
+  filter: blur(1px);
+  animation: reveal 1s ease-in 1s;
+  animation-fill-mode: forwards;
+  transition: all 0.5s;
+}
+
+.item {
+  text-decoration: none;
+  padding-left: 2vw;
+  color: inherit;
+}
+
+@keyframes reveal {
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
