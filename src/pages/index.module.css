@@ -33,7 +33,7 @@
   transition: transform 0.5s;
 
   &.scrolled {
-    transform: translateY(-5vw) scale(0.6);
+    transform: translateY(-9vh) scale(0.6);
   }
 }
 
@@ -61,13 +61,21 @@
 .occupation {
   font-size: 1.8vw;
   animation: reveal 3.25s ease-in;
-  transition: color 0.5s;
+  transition: all 0.5s;
+
+  &.scrolled {
+    transform: translateY(-40vh);
+  }
 }
 
 .works {
   font-size: 1.5vw;
   animation: reveal 3.5s ease-in;
-  transition: color 0.5s;
+  transition: all 0.5s;
+
+  &.scrolled {
+    transform: translateY(11vh);
+  }
 }
 
 .spacer {

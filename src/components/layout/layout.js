@@ -4,8 +4,9 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 
-import { ThemeContext } from '../../utils/themeContext'
+import { ThemeContext, UiContext } from '../../utils'
 import ThemeSideBar from '../themeSideBar'
+import SocialSideBar from '../socialSideBar'
 import Header from '../header'
 
 import '../../styles/layout.css'
@@ -16,13 +17,35 @@ import styles from './layout.module.css'
 typeof window !== 'undefined' && require('intersection-observer')
 
 class Layout extends Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+  }
+
+  meta = [
+    {
+      name: 'description',
+      content: this.props.data.site.siteMetadata.description,
+    },
+    {
+      name: 'keywords',
+      content: this.props.data.site.siteMetadata.keywords,
+    },
+  ]
+
   constructor(props) {
     super(props)
-    const theme = localStorage.getItem('theme')
+    const theme =
+      typeof window !== 'undefined' && localStorage in window
+        ? localStorage.getItem('theme')
+        : 'light'
+
     this.state = {
-      theme: theme || 'light',
       changeTheme: this.changeTheme,
+      handleScroll: this.handleScroll,
+      isOnTop: true,
+      theme: theme || 'light',
     }
+
     !theme && localStorage.setItem('theme', 'light')
   }
 
@@ -34,43 +57,39 @@ class Layout extends Component {
     })
   }
 
+  handleScroll = ({ isIntersecting }) => {
+    this.setState({
+      isOnTop: !isIntersecting,
+    })
+  }
+
   render() {
     const {
       children,
       data: {
         site: {
-          siteMetadata: { title, description, keywords },
+          siteMetadata: { title },
         },
       },
     } = this.props
     const { theme } = this.state
-    const meta = [
-      {
-        name: 'description',
-        content: description,
-      },
-      {
-        name: 'keywords',
-        content: keywords,
-      },
-    ]
 
     return (
       <>
-        <Helmet title={title} meta={meta} />
-        <ThemeContext.Provider value={this.state}>
-          <div className={cx(styles.layout, styles[theme])}>
-            <Header />
-            <ThemeSideBar />
-            <div>{children}</div>
-          </div>
-        </ThemeContext.Provider>
+        <Helmet title={title} meta={this.meta} />
+        <UiContext.Provider value={this.state}>
+          <ThemeContext.Provider value={this.state}>
+            <div className={cx(styles.layout, styles[theme])}>
+              <Header />
+              <ThemeSideBar />
+              <div>{children}</div>
+              <SocialSideBar />
+            </div>
+          </ThemeContext.Provider>
+        </UiContext.Provider>
       </>
     )
   }
-}
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default props => (

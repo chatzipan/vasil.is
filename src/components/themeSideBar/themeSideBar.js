@@ -1,19 +1,23 @@
 import React from 'react'
 
 import { withTheme } from '../../utils/themeContext'
-import dark from './assets/sun.svg'
-import light from './assets/moon.svg'
+import Moon from '../../assets/svgs/moon.svg'
 import styles from './themeSideBar.module.css'
 
-const icon = {
-  light,
-  dark,
-}
+const mode = mode =>
+  ({
+    light: 'dark',
+    dark: 'light',
+  }[mode])
 
 const ThemeSideBar = ({ theme, changeTheme }) => (
   <div className={styles.sidebar}>
-    <button className={styles.btn} onClick={changeTheme}>
-      <img alt={theme} className={styles.img} src={icon[theme]} />
+    <button
+      className={styles.btn}
+      onClick={changeTheme}
+      title={`Switch to ${mode(theme)}`}
+    >
+      <Moon alt={theme} className={styles.img} />
     </button>
   </div>
 )
