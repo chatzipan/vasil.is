@@ -32,7 +32,9 @@ const HomePage = ({ handleScroll, isOnTop }) => {
       <div className={styles.column}>
         <div className={styles.spacer} />
         <Observer {...options}>
-          <Devices />
+          <div>
+            <Devices />
+          </div>
         </Observer>
       </div>
       <div className={styles.column}>
