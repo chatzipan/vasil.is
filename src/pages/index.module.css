@@ -1,5 +1,16 @@
 .page {
   display: flex;
+  transition: all 0.5s;
+}
+
+.light {
+  color: black;
+  background-color: white;
+}
+
+.dark {
+  color: white;
+  background-color: black;
 }
 
 .column {
@@ -93,9 +104,12 @@
   animation: icon 2s ease-in 3s 1 forwards;
 }
 
-.text {
-  color: white;
-  background-color: black;
+.logo {
+  opacity: 0;
+  transition: all 3s;
+  &.visible {
+    opacity: 1;
+  }
 }
 
 @keyframes icon {

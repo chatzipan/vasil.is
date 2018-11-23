@@ -8,8 +8,8 @@ const Header = () => (
     <Link className={styles.item} to="/portfolio">
       portfolio
     </Link>
-    <Link className={styles.item} to="/about">
-      about
+    <Link className={styles.item} to="/bio">
+      bio
     </Link>
     <Link className={styles.item} to="/contact">
       contact

@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  padding: 1vw 0;
 }
 
 .list {
@@ -17,9 +18,10 @@
 .listItem {
   list-style: none;
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateX(10px);
   filter: blur(1px);
   animation: reveal 0.5s ease-in forwards;
+  margin-bottom: 0.5vw;
 
   &:nth-child(4) {
     animation-delay: 4s;
@@ -39,7 +41,7 @@
 }
 
 .logo {
-  width: 1.5vw;
+  width: 1vw;
   transition: all 3s;
 
   &.light {
@@ -54,6 +56,6 @@
   to {
     filter: blur(0);
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }

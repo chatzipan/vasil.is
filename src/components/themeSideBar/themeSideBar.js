@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { withTheme } from '../../utils/themeContext'
+import { withTheme } from '../theme'
 import Moon from '../../assets/svgs/moon.svg'
 import styles from './themeSideBar.module.css'
 

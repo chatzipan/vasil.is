@@ -1,13 +1,13 @@
 import React from 'react'
-import ThemeContext from './themeContext'
+import { Context } from './theme'
 
 const withTheme = Component => {
   const WithThemeContext = props => (
-    <ThemeContext.Consumer>
+    <Context.Consumer>
       {({ theme, changeTheme }) => (
         <Component {...{ ...props, theme, changeTheme }} />
       )}
-    </ThemeContext.Consumer>
+    </Context.Consumer>
   )
 
   return WithThemeContext

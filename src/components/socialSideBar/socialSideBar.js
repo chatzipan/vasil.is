@@ -1,12 +1,12 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { withTheme } from '../../utils'
+import { withTheme } from '../theme'
 
 import LinkedIn from '../../assets/svgs/linkedin.svg'
 import Twitter from '../../assets/svgs/twitter.svg'
 import Github from '../../assets/svgs/git.svg'
-import Xing from '../../assets/svgs/xing.svg'
+import Xing from '../../assets/svgs/xing_icon.svg'
 
 import styles from './socialSideBar.module.css'
 

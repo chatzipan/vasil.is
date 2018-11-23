@@ -3,7 +3,9 @@ import Observer from '@researchgate/react-intersection-observer'
 import cx from 'classnames'
 
 import Layout from '../components/layout'
-import { withUi } from '../utils'
+import { withScrollPosition } from '../components/scrollPosition'
+import XingLogo from '../assets/svgs/xing_logo.svg'
+import Devices from '../assets/svgs/devices.svg'
 
 import styles from './index.module.css'
 
@@ -17,6 +19,7 @@ const HomePage = ({ handleScroll, isOnTop }) => {
   })
   const lastNameClassNames = cx(styles.last, { [styles.scrolled]: !isOnTop })
   const worksClassNames = cx(styles.works, { [styles.scrolled]: !isOnTop })
+  const logoClassNames = cx(styles.logo, { [styles.visible]: !isOnTop })
   const occupationClassNames = cx(styles.occupation, {
     [styles.scrolled]: !isOnTop,
   })
@@ -29,36 +32,7 @@ const HomePage = ({ handleScroll, isOnTop }) => {
       <div className={styles.column}>
         <div className={styles.spacer} />
         <Observer {...options}>
-          <div className={styles.text}>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English. Many desktop publishing
-            packages and web page editors now use Lorem Ipsum as their default
-            model text, and a search for 'lorem ipsum' will uncover many web
-            sites still in their infancy. Various versions have evolved over the
-            years, sometimes by accident, sometimes on purpose (injected humour
-            and the like). It is a long established fact that a reader will be
-            distracted by the readable content of a page when looking at its
-            layout. The point of using Lorem Ipsum is that it has a more-or-less
-            normal distribution of letters, as opposed to using 'Content here,
-            content here', making it look like readable English. Many desktop
-            publishing packages and web page editors now use Lorem Ipsum as
-            their default model text, and a search for 'lorem ipsum' will
-            uncover many web sites still in their infancy. Various versions have
-            evolved over the years, sometimes by accident, sometimes on purpose
-            (injected humour and the like). It is a long established fact that a
-            reader will be distracted by the readable content of a page when
-            looking at its layout. The point of using Lorem Ipsum is that it has
-            a more-or-less normal distribution of letters, as opposed to using
-            'Content here, content here', making it look like readable English.
-            Many desktop publishing packages and web page editors now use Lorem
-            Ipsum as their default model text, and a search for 'lorem ipsum'
-            will uncover many web sites still in their infancy. Various versions
-            have evolved over the years, sometimes by accident, sometimes on
-            purpose (injected humour and the like).
-          </div>
+          <Devices />
         </Observer>
       </div>
       <div className={styles.column}>
@@ -74,71 +48,13 @@ const HomePage = ({ handleScroll, isOnTop }) => {
       </div>
       <div className={styles.column}>
         <div className={styles.spacer} />
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here, content here', making it
-        look like readable English. Many desktop publishing packages and web
-        page editors now use Lorem Ipsum as their default model text, and a
-        search for 'lorem ipsum' will uncover many web sites still in their
-        infancy. Various versions have evolved over the years, sometimes by
-        accident, sometimes on purpose (injected humour and the like). It is a
-        long established fact that a reader will be distracted by the readable
-        content of a page when looking at its layout. The point of using Lorem
-        Ipsum is that it has a more-or-less normal distribution of letters, as
-        opposed to using 'Content here, content here', making it look like
-        readable English. Many desktop publishing packages and web page editors
-        now use Lorem Ipsum as their default model text, and a search for 'lorem
-        ipsum' will uncover many web sites still in their infancy. Various
-        versions have evolved over the years, sometimes by accident, sometimes
-        on purpose (injected humour and the like). It is a long established fact
-        that a reader will be distracted by the readable content of a page when
-        looking at its layout. The point of using Lorem Ipsum is that it has a
-        more-or-less normal distribution of letters, as opposed to using
-        'Content here, content here', making it look like readable English. Many
-        desktop publishing packages and web page editors now use Lorem Ipsum as
-        their default model text, and a search for 'lorem ipsum' will uncover
-        many web sites still in their infancy. Various versions have evolved
-        over the years, sometimes by accident, sometimes on purpose (injected
-        humour and the like). It is a long established fact that a reader will
-        be distracted by the readable content of a page when looking at its
-        layout. The point of using Lorem Ipsum is that it has a more-or-less
-        normal distribution of letters, as opposed to using 'Content here,
-        content here', making it look like readable English. Many desktop
-        publishing packages and web page editors now use Lorem Ipsum as their
-        default model text, and a search for 'lorem ipsum' will uncover many web
-        sites still in their infancy. Various versions have evolved over the
-        Ipsum is that it has a more-or-less normal distribution of letters, as
-        opposed to using 'Content here, content here', making it look like
-        readable English. Many desktop publishing packages and web page editors
-        now use Lorem Ipsum as their default model text, and a search for 'lorem
-        ipsum' will uncover many web sites still in their infancy. Various
-        versions have evolved over the years, sometimes by accident, sometimes
-        on purpose (injected humour and the like). It is a long established fact
-        that a reader will be distracted by the readable content of a page when
-        looking at its layout. The point of using Lorem Ipsum is that it has a
-        more-or-less normal distribution of letters, as opposed to using
-        'Content here, content here', making it look like readable English. Many
-        desktop publishing packages and web page editors now use Lorem Ipsum as
-        their default model text, and a search for 'lorem ipsum' will uncover
-        many web sites still in their infancy. Various versions have evolved
-        over the years, sometimes by accident, sometimes on purpose (injected
-        humour and the like). It is a long established fact that a reader will
-        be distracted by the readable content of a page when looking at its
-        layout. The point of using Lorem Ipsum is that it has a more-or-less
-        normal distribution of letters, as opposed to using 'Content here,
-        content here', making it look like readable English. Many desktop
-        publishing packages and web page editors now use Lorem Ipsum as their
-        default model text, and a search for 'lorem ipsum' will uncover many web
-        sites still in their infancy. Various versions have evolved over the
-        years, sometimes by accident, sometimes on purpose (injected humour and
-        the like).
+        <XingLogo className={logoClassNames} />
       </div>
     </div>
   )
 }
 
-const Home = withUi(HomePage)
+const Home = withScrollPosition(HomePage)
 
 export default () => (
   <Layout>
