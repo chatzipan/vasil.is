@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import ThemeSideBar from '../themeSideBar'
-import SocialSideBar from '../socialSideBar'
+import ThemeSideBar from '../../molecules/themeSideBar'
+import SocialSideBar from '../../molecules/socialSideBar'
 import Header from '../header'
 
-import { withTheme } from '../theme'
+import { withTheme } from '../../hoc/theme'
 
 import styles from './appShell.module.css'
 
@@ -17,5 +18,10 @@ const AppShell = ({ children, theme }) => (
     <SocialSideBar />
   </div>
 )
+
+AppShell.propTypes = {
+  children: PropTypes.node,
+  theme: PropTypes.oneOf(['dark', 'light']),
+}
 
 export default withTheme(AppShell)

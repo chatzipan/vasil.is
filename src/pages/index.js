@@ -3,9 +3,8 @@ import Observer from '@researchgate/react-intersection-observer'
 import cx from 'classnames'
 
 import Layout from '../components/layout'
-import { withScrollPosition } from '../components/scrollPosition'
-import XingLogo from '../assets/svgs/xing_logo.svg'
-import Devices from '../assets/svgs/devices.svg'
+import ProjectSection from '../components/molecules/projectSection'
+import { withScrollPosition } from '../components/hoc/scrollPosition'
 
 import styles from './index.module.css'
 
@@ -19,7 +18,6 @@ const HomePage = ({ handleScroll, isOnTop }) => {
   })
   const lastNameClassNames = cx(styles.last, { [styles.scrolled]: !isOnTop })
   const worksClassNames = cx(styles.works, { [styles.scrolled]: !isOnTop })
-  const logoClassNames = cx(styles.logo, { [styles.visible]: !isOnTop })
   const occupationClassNames = cx(styles.occupation, {
     [styles.scrolled]: !isOnTop,
   })
@@ -28,17 +26,9 @@ const HomePage = ({ handleScroll, isOnTop }) => {
   })
 
   return (
-    <div className={styles.page}>
-      <div className={styles.column}>
-        <div className={styles.spacer} />
-        <Observer {...options}>
-          <div>
-            <Devices />
-          </div>
-        </Observer>
-      </div>
-      <div className={styles.column}>
-        <div className={styles.info}>
+    <div className={styles.page} id="page">
+      <main className={cx(styles.row, styles.infoWrapper)}>
+        <div className={styles.main}>
           <h2 className={nameClassNames}>
             <span className={firstNameClassNames}>Vasilis</span>
             <span className={lastNameClassNames}>Chatzipanagiotis</span>
@@ -47,11 +37,14 @@ const HomePage = ({ handleScroll, isOnTop }) => {
           <p className={worksClassNames}>Works 14-18</p>
           <span className={scrollIconClassNames}>↓</span>
         </div>
-      </div>
-      <div className={styles.column}>
-        <div className={styles.spacer} />
-        <XingLogo className={logoClassNames} />
-      </div>
+      </main>
+      <Observer {...options}>
+        <section className={styles.row}>
+          <ProjectSection />
+          <ProjectSection />
+          <div style={{ height: '100vw' }} />
+        </section>
+      </Observer>
     </div>
   )
 }

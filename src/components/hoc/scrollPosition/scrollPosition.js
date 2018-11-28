@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export const Context = React.createContext('scrollPosition')
 
 class ScrollPositionProvider extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+  }
+
   constructor(props) {
     super(props)
 

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { ScrollPositionProvider } from '../scrollPosition'
-import { ThemeProvider } from '../theme'
-import AppShell from '../appShell'
+import { ScrollPositionProvider } from '../hoc/scrollPosition'
+import { ThemeProvider } from '../hoc/theme'
+import AppShell from '../organisms/appShell'
 
 import '../../styles/layout.css'
 import '../../styles/fonts.css'
@@ -16,6 +16,14 @@ typeof window !== 'undefined' && require('intersection-observer')
 class Layout extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    data: PropTypes.shape({
+      site: PropTypes.shape({
+        siteMetadata: PropTypes.shape({
+          description: PropTypes.string,
+          keywords: PropTypes.array,
+        }),
+      }),
+    }),
   }
 
   meta = [

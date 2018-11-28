@@ -1,12 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { withTheme } from '../theme'
+import { withTheme } from '../../hoc/theme'
 
-import LinkedIn from '../../assets/svgs/linkedin.svg'
-import Twitter from '../../assets/svgs/twitter.svg'
-import Github from '../../assets/svgs/git.svg'
-import Xing from '../../assets/svgs/xing_icon.svg'
+import LinkedIn from '../../../assets/svgs/linkedin.svg'
+import Twitter from '../../../assets/svgs/twitter.svg'
+import Github from '../../../assets/svgs/git.svg'
+import Xing from '../../../assets/svgs/xing_icon.svg'
 
 import styles from './socialSideBar.module.css'
 
@@ -45,5 +46,9 @@ const SocialSideBar = ({ theme }) => (
     </ul>
   </div>
 )
+
+SocialSideBar.propTypes = {
+  theme: PropTypes.oneOf(['dark', 'light']),
+}
 
 export default withTheme(SocialSideBar)

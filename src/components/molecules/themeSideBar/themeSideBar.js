@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-import { withTheme } from '../theme'
-import Moon from '../../assets/svgs/moon.svg'
+import { withTheme } from '../../hoc/theme'
+import Moon from '../../../assets/svgs/moon.svg'
 import styles from './themeSideBar.module.css'
 
 const mode = mode =>
@@ -21,5 +22,10 @@ const ThemeSideBar = ({ theme, changeTheme }) => (
     </button>
   </div>
 )
+
+ThemeSideBar.propTypes = {
+  changeTheme: PropTypes.function,
+  theme: PropTypes.oneOf(['dark', 'light']),
+}
 
 export default withTheme(ThemeSideBar)

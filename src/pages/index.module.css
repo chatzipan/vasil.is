@@ -1,6 +1,12 @@
-.page {
+.row {
   display: flex;
+  flex-wrap: wrap;
   transition: all 0.5s;
+}
+
+.section {
+  display: flex;
+  margin-bottom: 20vw;
 }
 
 .light {
@@ -13,19 +19,12 @@
   background-color: black;
 }
 
-.column {
-  width: calc(1 / 3 * 100%);
-
-  &:first-child {
-    padding-left: 4vw;
-  }
-
-  &:last-child {
-    padding-right: 4vw;
-  }
+.infoWrapper {
+  height: 100vh;
 }
 
-.info {
+.main {
+  margin-left: calc(1 / 3 * 100%);
   width: calc(1 / 3 * 100%);
   top: 0;
   position: fixed;
@@ -88,11 +87,6 @@
     transform: translateY(11vh);
   }
 }
-
-.spacer {
-  height: 120vh;
-}
-
 .scrollIcon {
   position: absolute;
   opacity: 0;
@@ -104,12 +98,20 @@
   animation: icon 2s ease-in 3s 1 forwards;
 }
 
+.screenshot {
+  width: 50%;
+  padding: 4vw;
+}
+
+.info {
+  width: 50%;
+  display: flex;
+  padding: 4vw;
+  justify-content: center;
+}
+
 .logo {
-  opacity: 0;
-  transition: all 3s;
-  &.visible {
-    opacity: 1;
-  }
+  width: 100%;
 }
 
 @keyframes icon {

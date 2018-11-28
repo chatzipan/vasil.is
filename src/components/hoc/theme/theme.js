@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export const Context = React.createContext({
   theme: 'light',
@@ -6,11 +7,15 @@ export const Context = React.createContext({
 })
 
 class ThemeProvider extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+  }
+
   constructor(props) {
     super(props)
     const theme =
-      typeof window !== 'undefined' && localStorage in window
-        ? localStorage.getItem('theme')
+      typeof window !== 'undefined' && 'localStorage' in window
+        ? window.localStorage.getItem('theme')
         : 'light'
 
     this.state = {
@@ -18,12 +23,12 @@ class ThemeProvider extends Component {
       theme: theme || 'light',
     }
 
-    !theme && localStorage.setItem('theme', 'light')
+    !theme && window.localStorage.setItem('theme', 'light')
   }
 
   changeTheme = () => {
     const theme = this.state.theme === 'light' ? 'dark' : 'light'
-    localStorage.setItem('theme', theme)
+    window.localStorage.setItem('theme', theme)
     this.setState({
       theme,
     })
