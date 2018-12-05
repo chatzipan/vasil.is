@@ -4,8 +4,8 @@ import { Context } from './scrollPosition'
 const withScrollPosition = Component => {
   const WithScrollPositionContext = props => (
     <Context.Consumer>
-      {({ isOnTop, handleScroll }) => (
-        <Component {...{ isOnTop, handleScroll, ...props }} />
+      {({ isOnTop, handleScroll, loadedOnTop }) => (
+        <Component {...{ isOnTop, handleScroll, loadedOnTop, ...props }} />
       )}
     </Context.Consumer>
   )

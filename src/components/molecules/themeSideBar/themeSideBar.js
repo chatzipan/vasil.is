@@ -24,7 +24,7 @@ const ThemeSideBar = ({ theme, changeTheme }) => (
 )
 
 ThemeSideBar.propTypes = {
-  changeTheme: PropTypes.function,
+  changeTheme: PropTypes.func,
   theme: PropTypes.oneOf(['dark', 'light']),
 }
 

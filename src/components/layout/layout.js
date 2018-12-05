@@ -20,7 +20,7 @@ class Layout extends Component {
       site: PropTypes.shape({
         siteMetadata: PropTypes.shape({
           description: PropTypes.string,
-          keywords: PropTypes.array,
+          keywords: PropTypes.string,
         }),
       }),
     }),

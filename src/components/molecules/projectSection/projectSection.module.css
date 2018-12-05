@@ -1,6 +1,11 @@
 .section {
   display: flex;
   margin-bottom: 20vw;
+  transition: opacity 0.1s ease-in;
+
+  &.inverted {
+    flex-direction: row-reverse;
+  }
 }
 
 .screenshot {
@@ -11,10 +16,24 @@
 .info {
   width: 50%;
   display: flex;
-  padding: 4vw;
-  justify-content: center;
+  flex-direction: column;
+  padding: 0 4vw;
+  text-align: left;
 }
 
 .logo {
-  width: 100%;
+  width: 70%;
+  margin-bottom: 3vw;
+  transition: all 0.1s ease-in;
+}
+
+.text {
+  padding-left: 4vw;
+}
+
+.link {
+  padding-left: 4vw;
+  font-size: 1.5vw;
+  color: inherit;
+  margin-bottom: 0.5vw;
 }

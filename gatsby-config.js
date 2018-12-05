@@ -4,6 +4,24 @@ module.exports = {
     description: 'Freelance Developer based in Hamburg, Germany',
     keywords:
       'freelancer, web, software engineer, frontend, react.js, remote, hamburg, javascript',
+    projects: [
+      {
+        name: 'Xing',
+        period: 'Q3 & Q4 2018',
+        short:
+          "Frontend Developent for the social networks's start page as well as profile page",
+      },
+      {
+        name: 'VW',
+        period: 'Q1 & Q2 2018',
+        short: "Frontend Developent for the company's start page CMS site",
+      },
+      {
+        name: 'AboutYou',
+        period: 'Q4 2017',
+        short: "Lead Frontend Developent for the company's shop section",
+      },
+    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',

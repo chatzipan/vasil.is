@@ -13,7 +13,8 @@ class ScrollPositionProvider extends Component {
 
     this.state = {
       handleScroll: this.handleScroll,
-      isOnTop: true,
+      isOnTop: null,
+      loadedOnTop: null,
     }
   }
 
@@ -21,6 +22,15 @@ class ScrollPositionProvider extends Component {
     this.setState({
       isOnTop: !isIntersecting,
     })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Typical usage (don't forget to compare props):
+    if (prevState.isOnTop === null) {
+      this.setState({
+        loadedOnTop: this.state.isOnTop,
+      })
+    }
   }
 
   render() {
