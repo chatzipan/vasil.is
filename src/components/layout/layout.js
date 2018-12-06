@@ -37,6 +37,10 @@ class Layout extends Component {
     },
   ]
 
+  componentDidCatch(error, info) {
+    console.log({ error, info })
+  }
+
   render() {
     const {
       children,

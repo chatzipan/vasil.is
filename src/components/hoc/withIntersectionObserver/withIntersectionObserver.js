@@ -23,11 +23,13 @@ export default options => BaseComponent => {
     render() {
       return (
         <Observer {...{ onChange: this.handleChange, ...options }}>
-          <BaseComponent
-            {...this.props}
-            isVisible={this.state.isIntersecting}
-            intersectionRatio={this.state.intersectionRatio}
-          />
+          <div>
+            <BaseComponent
+              {...this.props}
+              isVisible={this.state.isIntersecting}
+              intersectionRatio={this.state.intersectionRatio}
+            />
+          </div>
         </Observer>
       )
     }
