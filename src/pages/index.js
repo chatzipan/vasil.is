@@ -24,11 +24,20 @@ const HomePage = ({
     onChange: handleScroll,
     threshold: 0.05,
   }
+
+  const hide = isOnTop === null || loadedOnTop === null
+
   const optionalStyles = {
-    [styles.scrolled]: !isOnTop,
+    [styles.hide]: hide,
+    [styles.scrolled]: isOnTop === false,
     [styles.loadedOnTop]: loadedOnTop,
-    [styles.loadedOnBottom]: !loadedOnTop,
+    [styles.loadedOnBottom]: loadedOnTop === false,
   }
+
+  const headerStyles = cx(styles.name, {
+    [styles.scrolled]: isOnTop === false,
+    [styles.hide]: hide,
+  })
 
   const scrollIconClassNames = cx(styles.scrollIcon, {
     [styles.show]: isOnTop,
@@ -38,7 +47,7 @@ const HomePage = ({
     <div className={styles.page} id="page">
       <main className={cx(styles.row, styles.infoWrapper)}>
         <div className={styles.main}>
-          <h2 className={cx(styles.name, { [styles.scrolled]: !isOnTop })}>
+          <h2 className={headerStyles}>
             <span className={cx(styles.first, optionalStyles)}>Vasilis</span>
             <span className={cx(styles.last, optionalStyles)}>
               Chatzipanagiotis

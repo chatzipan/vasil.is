@@ -189,3 +189,7 @@
     transform: translateX(0);
   }
 }
+
+.hide {
+  opacity: 0;
+}
