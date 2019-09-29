@@ -1,0 +1,29 @@
+.app {
+  transition: all 0.5s;
+  display: grid;
+  grid-template-columns: 6vw 1fr 6vw;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  grid-template-areas: 'side-l content side-r';
+}
+
+.light {
+  color: black;
+  background-color: white;
+}
+
+.dark {
+  color: white;
+  background-color: black;
+}
+
+:global(body.user-is-tabbing *:focus) {
+  outline: 2px solid #7aacfe !important; /* for non-webkit browsers */
+  outline: 5px auto -webkit-focus-ring-color !important;
+}
+
+*:focus {
+  outline: 0;
+}

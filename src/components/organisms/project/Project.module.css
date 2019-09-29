@@ -1,0 +1,19 @@
+.project {
+  transition: opacity 1s;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  /* transform: rotate3d(1, 0, 0, 90deg); */
+}
+
+.logo {
+  width: 100px;
+}

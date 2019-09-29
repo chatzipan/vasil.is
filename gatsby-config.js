@@ -1,15 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: 'Vasilis Chatzipanagiotis - Freelance Developer',
-    description: 'Freelance Developer based in Hamburg, Germany',
+    description:
+      'Portfolio by Vasilis Chatzipanagiotis. Freelance Developer from Hamburg. I helped building new products for companies such as Volkswagen, Zalando, Otto, AboutYou, XING and more.',
     keywords:
-      'freelancer, web, software engineer, frontend, react.js, remote, hamburg, javascript',
+      'freelancer, web developer, software engineer, frontend engineer, react developer, remote, hamburg, javascript',
     projects: [
       {
         name: 'Xing',
         period: 'Q3 & Q4 2018',
         short:
-          "Frontend Developent for the social networks's start page as well as profile page",
+          "Frontend Developent for Germany's leading social networks's start page and onboarding section",
       },
       {
         name: 'VW',

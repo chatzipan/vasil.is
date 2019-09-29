@@ -1,0 +1,74 @@
+@import '../../../styles/colors.css';
+
+.sidebar {
+  width: 6vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1vw 0;
+  grid-area: side-r;
+}
+
+.list {
+  margin: 0;
+}
+
+.listItem {
+  list-style: none;
+  opacity: 0;
+  transform: translateY(-3px);
+  filter: blur(1px);
+  animation: reveal 0.5s ease-in forwards;
+  margin-bottom: 1.5vw;
+  position: relative;
+
+  &:not(:nth-child(4)) :after {
+    position: absolute;
+    content: '•';
+    bottom: -1vw;
+    bottom: -60%;
+    left: 15%;
+    color: var(--orange);
+  }
+
+  &:nth-child(4) {
+    animation-delay: 3s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 3.1s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 3.2s;
+  }
+
+  &:nth-child(1) {
+    animation-delay: 3.3s;
+  }
+}
+
+.logo {
+  width: 1.6vw;
+  transition: all 0.5s;
+
+  &.light {
+    fill: var(--grey);
+  }
+  &.dark {
+    fill: white;
+  }
+}
+
+@keyframes reveal {
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

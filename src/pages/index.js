@@ -1,80 +1,113 @@
-import React from 'react'
-import Observer from '@researchgate/react-intersection-observer'
-import cx from 'classnames'
+import React, { Fragment, useState } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import cx from 'classnames'
 
-import Layout from '../components/layout'
-import ProjectSection from '../components/molecules/projectSection'
-import { withScrollPosition } from '../components/hoc/scrollPosition'
-import Arrow from '../assets/svgs/arrow-down.svg'
+import { Layout, Project } from '../components/organisms'
+import { withTheme } from '../components/hoc/theme'
 
 import styles from './index.module.css'
 
-const HomePage = ({
-  data: {
-    site: {
-      siteMetadata: { projects },
+const mainClients = [
+  'Volkswagen',
+  'Zalando',
+  'Xing',
+  'OTTO',
+  'AboutYou',
+  'SinnerSchrader',
+]
+
+const HomePage = withTheme(
+  ({
+    data: {
+      site: {
+        siteMetadata: { projects },
+      },
     },
-  },
-  handleScroll,
-  isOnTop,
-  loadedOnTop,
-}) => {
-  const options = {
-    onChange: handleScroll,
-    threshold: 0.05,
+    theme,
+  }) => {
+    const [focusedBtn, setFocusedBtn] = useState('')
+    const [projectMode, setProjectMode] = useState(false)
+    const projectClass = cx(styles.project, { [styles.show]: projectMode })
+    const backgroundClass = cx(styles.background, {
+      [styles.show]: focusedBtn,
+    })
+    const mainClass = cx(styles.row, {
+      [styles.blur]: focusedBtn,
+      [styles.hide]: projectMode,
+    })
+    const experienceClass = cx(styles.experience, {
+      [styles.dark]: theme === 'dark',
+    })
+
+    return (
+      <>
+        <Project
+          className={projectClass}
+          handleClose={() => setProjectMode(false)}
+          isOpen={projectMode}
+        />
+        <div
+          className={backgroundClass}
+          style={{
+            backgroundImage:
+              "url('../../../assets/images/xing-all-devices_4x.png')",
+          }}
+        ></div>
+        <main className={mainClass}>
+          <div className={styles.main}>
+            <h2 className={styles.intro}>
+              <span className={styles.hi}>Hi! my name is</span>
+              <span
+                className={cx(styles.name, { [styles.dark]: theme === 'dark' })}
+              >
+                Vasilis Chatzipanagiotis,
+              </span>
+            </h2>
+            <h3 className={experienceClass}>
+              Software Engineer / Architect + ReactJS expert based in&nbsp;
+              <span aria-label="Switzerland" title="Switzerland">
+                🇨🇭
+              </span>
+              .
+            </h3>
+            <h3
+              className={cx(styles.clients, {
+                [styles.dark]: theme === 'dark',
+              })}
+            >
+              <span className={styles.clientText}>
+                Over the last 5 years, I've been building stuff for the web, for
+                clients such as&nbsp;
+              </span>
+              {mainClients.map(client => {
+                const clientBtnClasses = cx(styles.clientBtn, {
+                  [styles.focused]: client === focusedBtn,
+                })
+
+                return (
+                  <Fragment key={client}>
+                    <button
+                      className={clientBtnClasses}
+                      onClick={() => setProjectMode(!projectMode)}
+                      onFocus={() => setFocusedBtn(client)}
+                      onMouseOver={() => setFocusedBtn(client)}
+                      onMouseOut={() => setFocusedBtn('')}
+                      tabIndex="0"
+                    >
+                      {client}
+                    </button>
+                    <span className={styles.clientText}>, </span>
+                  </Fragment>
+                )
+              })}
+              <span className={styles.clientText}>and more...</span>
+            </h3>
+          </div>
+        </main>
+      </>
+    )
   }
-
-  const hide = isOnTop === null || loadedOnTop === null
-
-  const optionalStyles = {
-    [styles.hide]: hide,
-    [styles.scrolled]: isOnTop === false,
-    [styles.loadedOnTop]: loadedOnTop,
-    [styles.loadedOnBottom]: loadedOnTop === false,
-  }
-
-  const headerStyles = cx(styles.name, {
-    [styles.scrolled]: isOnTop === false,
-    [styles.hide]: hide,
-  })
-
-  const scrollIconClassNames = cx(styles.scrollIcon, {
-    [styles.show]: isOnTop,
-  })
-
-  return (
-    <div className={styles.page} id="page">
-      <main className={cx(styles.row, styles.infoWrapper)}>
-        <div className={styles.main}>
-          <h2 className={headerStyles}>
-            <span className={cx(styles.first, optionalStyles)}>Vasilis</span>
-            <span className={cx(styles.last, optionalStyles)}>
-              Chatzipanagiotis
-            </span>
-          </h2>
-          <p className={cx(styles.occupation, optionalStyles)}>
-            Freelance Developer
-          </p>
-          <p className={cx(styles.works, optionalStyles)}>Works 14-18</p>
-          <span className={scrollIconClassNames}>
-            <Arrow />
-          </span>
-        </div>
-      </main>
-      <Observer {...options}>
-        <section className={styles.row} style={{ paddingTop: '10vw' }}>
-          {projects.map((project, i) => (
-            <ProjectSection key={i} inverted={i % 2 !== 0} project={project} />
-          ))}
-          <div style={{ height: '100vw' }} />
-        </section>
-      </Observer>
-    </div>
-  )
-}
-
-const Home = withScrollPosition(HomePage)
+)
 
 export default props => (
   <StaticQuery
@@ -93,7 +126,7 @@ export default props => (
     `}
     render={data => (
       <Layout>
-        <Home data={data} {...props} />
+        <HomePage data={data} {...props} />
       </Layout>
     )}
   />

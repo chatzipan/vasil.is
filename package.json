@@ -37,7 +37,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "NODE_OPTIONS=--max_old_space_size=2048 gatsby develop",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "lint": "eslint \"src/**/*.js\"",
