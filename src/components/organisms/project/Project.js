@@ -3,40 +3,28 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import cx from 'classnames'
 
-import XingLogo from '../../../assets/svgs/xing_logo.svg'
-import VWLogo from '../../../assets/svgs/volkswagen_logo.svg'
-import AboutYouLogo from '../../../assets/svgs/aboutyou_logo.svg'
+import Xing from '../../../assets/images/xing-all-devices_4x.png'
 
 import styles from './project.module.css'
 
-const logos = {
-  // Xing: withParallax('LtoR')(XingLogo),
-  // VW: withParallax('RtoL')(VWLogo),
-  // AboutYou: withParallax('LtoR')(AboutYouLogo),
-  Xing: XingLogo,
-  Volkswagen: VWLogo,
-  AboutYou: AboutYouLogo,
+const screenshots = {
+  Xing,
 }
 
-// const Project = ({ project: { name, period, short } }) => {
-const Project = ({ isOpen, handleClose, name = 'Xing' }) => {
-  const Logo = logos[name]
-
+const Project = ({ isOpen, handleClose, project = 'Xing' }) => {
   const projectClass = cx(styles.project, { [styles.show]: isOpen })
-
+  const imgsrc = screenshots[project]
   return (
     <section className={projectClass} tabIndex={isOpen ? 0 : -1}>
-      <div className={styles.logo}>
-        <Logo />
+      <div className={styles.screenshot}>
+        <img src={imgsrc} />
       </div>
-      <br />
-      <br />
       <button
+        className={styles.backBtn}
         onClick={handleClose}
         tabIndex={isOpen ? 0 : -1}
-        style={{ cursor: 'pointer' }}
       >
-        Project
+        &#8592;
       </button>
     </section>
   )

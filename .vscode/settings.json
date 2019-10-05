@@ -2,6 +2,7 @@
 	"eslint.alwaysShowStatus": true,
 	"eslint.autoFixOnSave": true,
 	"eslint.lintTask.enable": true,
+	"peacock.color": "yellow",
 	"workbench.colorCustomizations": {
 		"activityBar.background": "#ffff33",
 		"activityBar.foreground": "#15202b",

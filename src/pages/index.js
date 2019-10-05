@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useCallback, useState } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 
+import XingDevices from '../assets/images/xing-all-devices_4x.png'
+import { ProjectPreview } from '../components/molecules'
 import { Layout, Project } from '../components/organisms'
 import { withTheme } from '../components/hoc/theme'
 
@@ -25,72 +27,81 @@ const HomePage = withTheme(
     },
     theme,
   }) => {
-    const [focusedBtn, setFocusedBtn] = useState('')
-    const [projectMode, setProjectMode] = useState(false)
-    const projectClass = cx(styles.project, { [styles.show]: projectMode })
+    const [lastFocusedBtn, setLastFocusedBtn] = useState('')
+    const [focusedBtn, setFocusedBtn] = useState('Xing')
+    const [projectMode, setProjectMode] = useState('')
+    const backgroundStyle = { backgroundImage: `url('${XingDevices}')` }
+    const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedBtn })
+    const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
+    const clientsClass = cx(styles.clients, { [styles.dark]: theme === 'dark' })
     const backgroundClass = cx(styles.background, {
       [styles.show]: focusedBtn,
+      [styles.hide]: focusedBtn === '',
     })
     const mainClass = cx(styles.row, {
       [styles.blur]: focusedBtn,
+      [styles.unblur]: focusedBtn === '',
       [styles.hide]: projectMode,
+      [styles.dark]: theme === 'dark',
     })
     const experienceClass = cx(styles.experience, {
       [styles.dark]: theme === 'dark',
     })
 
+    const handleClientClick = useCallback(client => {
+      setProjectMode(client)
+      setFocusedBtn('')
+    }, [])
+
+    const handleClientHover = useCallback(client => {
+      setFocusedBtn(client)
+      setLastFocusedBtn(client)
+    }, [])
+
     return (
       <>
         <Project
-          className={projectClass}
           handleClose={() => setProjectMode(false)}
           isOpen={projectMode}
         />
-        <div
-          className={backgroundClass}
-          style={{
-            backgroundImage:
-              "url('../../../assets/images/xing-all-devices_4x.png')",
-          }}
-        ></div>
+        <ProjectPreview
+          focusedProject={focusedBtn}
+          isProjectMode={projectMode}
+        />
         <main className={mainClass}>
           <div className={styles.main}>
             <h2 className={styles.intro}>
               <span className={styles.hi}>Hi! my name is</span>
-              <span
-                className={cx(styles.name, { [styles.dark]: theme === 'dark' })}
-              >
-                Vasilis Chatzipanagiotis,
-              </span>
+              <span className={nameClass}>Vasilis Chatzipanagiotis,</span>
             </h2>
             <h3 className={experienceClass}>
               Software Engineer / Architect + ReactJS expert based in&nbsp;
               <span aria-label="Switzerland" title="Switzerland">
                 🇨🇭
               </span>
-              .
+              &nbsp;&&nbsp;
+              <span aria-label="Italy" title="Italy">
+                🇮🇹.
+              </span>
             </h3>
-            <h3
-              className={cx(styles.clients, {
-                [styles.dark]: theme === 'dark',
-              })}
-            >
+            <h3 className={clientsClass}>
               <span className={styles.clientText}>
-                Over the last 5 years, I've been building stuff for the web, for
-                clients such as&nbsp;
+                Over the last 5 years, I've been helping clients build stuff for
+                the web. Some of these include:&nbsp;
               </span>
               {mainClients.map(client => {
                 const clientBtnClasses = cx(styles.clientBtn, {
                   [styles.focused]: client === focusedBtn,
+                  [styles.wasFocused]: client === lastFocusedBtn,
                 })
 
                 return (
                   <Fragment key={client}>
                     <button
                       className={clientBtnClasses}
-                      onClick={() => setProjectMode(!projectMode)}
-                      onFocus={() => setFocusedBtn(client)}
-                      onMouseOver={() => setFocusedBtn(client)}
+                      onClick={() => handleClientClick(client)}
+                      onFocus={() => handleClientHover(client)}
+                      onMouseOver={() => handleClientHover(client)}
                       onMouseOut={() => setFocusedBtn('')}
                       tabIndex="0"
                     >

@@ -10,18 +10,7 @@
   opacity: 1;
 
   &.hide {
-    /* // transform: rotate3d(1, 0, 0, 90deg); */
     opacity: 0;
-  }
-
-  & .hi,
-  & .clientBtn,
-  & .clientText,
-  & .experience,
-  & .name {
-    transition: all 0.5s;
-    opacity: 1;
-    filter: blur(0);
   }
 
   &.blur {
@@ -30,8 +19,20 @@
     & .clientBtn:not(.focused),
     & .experience,
     & .name {
-      filter: blur(5px);
-      opacity: 0.2;
+      animation: blur 0.5s ease-in forwards;
+    }
+  }
+
+  &.unblur {
+    & .hi,
+    & .clientText,
+    & .clientBtn:not(.focused),
+    & .experience,
+    & .name {
+      transform: translateX(10px);
+      opacity: 0;
+      filter: blur(3px);
+      animation: unblur 0.5s ease-in forwards;
     }
   }
 }
@@ -42,19 +43,24 @@
   transition: all 0.5s;
   font-weight: normal;
   will-change: transform;
+  color: var(--grey);
+
+  &.dark {
+    color: var(--grey-light);
+  }
 }
 
 .intro {
   font-family: inherit;
   width: 60%;
-  font-size: 4vw;
   line-height: 1.2;
+  color: inherit;
 }
 
 .hi {
   font-weight: normal;
   font-size: 2vw;
-  color: var(--grey);
+  color: inherit;
   display: block;
   margin-bottom: 2vw;
   animation: revealName 1.5s ease-in;
@@ -64,25 +70,28 @@
   color: var(--black);
   font-weight: normal;
   display: block;
+  font-size: 3.8vw;
+
   animation: revealName 2.5s ease-in;
 
   &.dark {
-    color: white;
+    color: var(--white);
   }
 }
 
 .clients,
 .experience {
-  width: 80%;
+  width: 60%;
   text-align: left;
   color: var(--grey-dark);
   font-weight: normal;
   font-family: inherit;
   line-height: 1.3;
-  font-size: 2.7vw;
+  font-size: 2vw;
   animation: revealName 3s ease-in;
+
   &.dark {
-    color: var(--grey);
+    color: var(--grey-light);
   }
 }
 
@@ -94,28 +103,52 @@
   padding: 0;
   color: inherit;
   border-bottom: 2px dashed var(--petrol);
-}
 
-.focused {
-  border-bottom: 2px solid var(--petrol);
-}
+  &.wasFocused.wasFocused.wasFocused {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0px);
+    animation: none;
+  }
 
-.background {
-  transition: transform 0.5s ease-out;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  left: 0;
-  transform: translate(100%, -100%);
-
-  &.show {
-    transform: translate(0%, -50%);
+  &.focused {
+    border-bottom: 2px solid var(--petrol);
   }
 }
 
-@keyframes icon {
-  100% {
+@keyframes blur {
+  from {
+    filter: blur(0);
     opacity: 1;
+    transform: translateX(0px);
+  }
+  50% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    filter: blur(5px);
+    opacity: 0;
+    transform: translateX(5px);
+  }
+}
+
+@keyframes unblur {
+  from {
+    filter: blur(5px);
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  50% {
+    filter: blur(5px);
+    opacity: 0;
+    transform: translateX(5px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 

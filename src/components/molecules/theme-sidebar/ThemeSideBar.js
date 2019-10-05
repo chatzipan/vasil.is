@@ -15,7 +15,7 @@ const mode = mode =>
 const ThemeSideBar = ({ theme, changeTheme }) => (
   <div className={styles.sidebar}>
     <button
-      className={styles.btn}
+      className={cx(styles.btn, { [styles.dark]: theme === 'dark' })}
       onClick={changeTheme}
       title={`Switch to ${mode(theme)}`}
     >
