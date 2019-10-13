@@ -11,8 +11,8 @@ import { withTheme } from '../components/hoc/theme'
 import styles from './index.module.css'
 
 const HomePage = withTheme(({ projects, theme }) => {
-  const [lastFocusedClient, setLastFocusedClient] = useState('AboutYou')
-  const [focusedClient, setFocusedClient] = useState('AboutYou')
+  const [lastFocusedClient, setLastFocusedClient] = useState('')
+  const [focusedClient, setFocusedClient] = useState(false)
   const backgroundStyle = { backgroundImage: `url('${XingDevices}')` }
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
@@ -61,7 +61,7 @@ const HomePage = withTheme(({ projects, theme }) => {
             <span className={styles.clientText}>
               Over the last 5 years, I've been helping out clients such as&nbsp;
             </span>
-            {projects.map(({ client }) => {
+            {projects.map(({ client }, i) => {
               const clientBtnClasses = cx(styles.clientBtn, {
                 [styles.focused]: client === focusedClient,
                 [styles.wasFocused]: client === lastFocusedClient,
@@ -72,6 +72,7 @@ const HomePage = withTheme(({ projects, theme }) => {
                 <Fragment key={client}>
                   <Link
                     className={clientBtnClasses}
+                    onBlur={handleMouseOut}
                     onFocus={() => handleClientHover(client)}
                     onMouseOver={() => handleClientHover(client)}
                     onMouseOut={handleMouseOut}
@@ -80,7 +81,9 @@ const HomePage = withTheme(({ projects, theme }) => {
                   >
                     {client}
                   </Link>
-                  <span className={styles.clientText}>, </span>
+                  <span className={styles.clientText}>
+                    {i === projects.length - 1 ? ' ' : ', '}
+                  </span>
                 </Fragment>
               )
             })}

@@ -8,12 +8,14 @@ import OttoLogo from '../../../assets/svgs/otto_logo.svg'
 import XingLogo from '../../../assets/svgs/xing_logo.svg'
 import VWLogo from '../../../assets/svgs/volkswagen_logo.svg'
 import ZalandoLogo from '../../../assets/svgs/zalando_logo.svg'
+import SinnerSchraderLogo from '../../../assets/svgs/sinnerschrader_logo.svg'
 
 import styles from './ProjectPreview.module.css'
 
 const logos = {
   AboutYou: AboutYouLogo,
   OTTO: OttoLogo,
+  SinnerSchrader: SinnerSchraderLogo,
   Xing: XingLogo,
   Volkswagen: VWLogo,
   Zalando: ZalandoLogo,

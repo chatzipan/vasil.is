@@ -53,6 +53,7 @@
   line-height: 1.2;
   color: inherit;
   font-size: inherit;
+  margin-bottom: 2vw;
 }
 
 .hi {
@@ -60,7 +61,7 @@
   font-size: inherit;
   color: inherit;
   display: block;
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
   animation: revealName 1.5s ease-in;
 }
 
@@ -69,7 +70,6 @@
   font-weight: normal;
   display: block;
   font-size: 3.6vw;
-
   animation: revealName 2.5s ease-in;
 
   &.dark {
@@ -84,9 +84,10 @@
   color: var(--grey-dark);
   font-weight: normal;
   font-family: inherit;
-  line-height: 1.3;
+  line-height: 1.4;
   font-size: inherit;
   animation: revealName 3s ease-in;
+  margin-bottom: 2vw;
 
   &.dark {
     color: var(--grey-light);
@@ -123,6 +124,9 @@
     }
     &.styleVolkswagen {
       border-color: #3978bd;
+    }
+    &.styleSinnerSchrader {
+      border-color: #6804c1;
     }
   }
 }

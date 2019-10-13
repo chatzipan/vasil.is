@@ -109,6 +109,16 @@
     );
   }
 
+  &.styleSinnerSchrader {
+    background-image: radial-gradient(
+      circle at top,
+      #5303d0,
+      #6804c1 30%,
+      #7a03b4 60%,
+      #8703aa
+    );
+  }
+
   &.styleVolkswagen {
     background-image: radial-gradient(
       circle at top,
@@ -142,7 +152,7 @@
   left: 0;
   right: 0;
   margin: 0;
-  transition: transform 0.5s ease-in;
+  transition: transform 0.3s ease-in;
   transform: translateY(100%);
 
   &.styleOTTO {
@@ -163,6 +173,15 @@
       #0b4482 60%,
       #324277 80%,
       #1b2c5d
+    );
+  }
+  &.styleSinnerSchrader {
+    background-image: linear-gradient(
+      to bottom,
+      #5303d0,
+      #6804c1 30%,
+      #7a03b4 60%,
+      #8703aa
     );
   }
   &.show {

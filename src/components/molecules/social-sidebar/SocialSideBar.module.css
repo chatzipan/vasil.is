@@ -25,8 +25,17 @@
   transform: translateY(-3px);
   filter: blur(1px);
   animation: reveal 0.5s ease-in forwards;
-  margin-bottom: 1.5vw;
+  margin-bottom: 1vw;
   position: relative;
+
+  &:not(:nth-child(4)) :after {
+    position: absolute;
+    content: '∣';
+    font-size: 0.6vw;
+    bottom: -1vw;
+    bottom: -60%;
+    left: 40%;
+  }
 
   &:nth-child(4) {
     animation-delay: 3s;
