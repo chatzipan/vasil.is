@@ -12,6 +12,7 @@
   align-items: center;
   padding: 1vw 0;
   grid-area: side-r;
+  z-index: 1;
 }
 
 .list {
@@ -26,15 +27,6 @@
   animation: reveal 0.5s ease-in forwards;
   margin-bottom: 1.5vw;
   position: relative;
-
-  &:not(:nth-child(4)) :after {
-    position: absolute;
-    content: '•';
-    bottom: -1vw;
-    bottom: -60%;
-    left: 15%;
-    color: var(--orange);
-  }
 
   &:nth-child(4) {
     animation-delay: 3s;
@@ -54,11 +46,11 @@
 }
 
 .logo {
-  width: 1.6vw;
+  width: 1.3vw;
   transition: all 0.5s;
 
   &.light {
-    fill: var(--grey);
+    fill: var(--black);
   }
   &.dark {
     fill: white;

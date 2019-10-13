@@ -10,47 +10,116 @@
   &.isProjectMode {
     transform: translateX(0);
   }
+
+  &.focused {
+    z-index: 2;
+  }
 }
 
 .logo {
-  width: 20vw;
-  margin-top: 10vw;
+  width: 27vw;
+  height: auto;
+  padding-top: 7vw;
+  margin-bottom: 3vw;
+  flex-shrink: 0;
+
+  &.styleVolkswagen {
+    width: 18vw;
+    padding-top: 4vw;
+    margin-bottom: 0;
+  }
 }
 
 .list {
+  width: 27vw;
   list-style: none;
   padding: 0;
-  margin: 8vw 0 0;
+  margin: 0 5vw 0;
+  text-align: right;
 }
 
 .label {
   font-size: 1.3vw;
   text-transform: uppercase;
-  margin-bottom: 0.3vw;
+  margin-bottom: 0;
   font-weight: 900;
-  color: #013801;
+
+  &.styleXing {
+    color: #013801;
+  }
+  &.styleOTTO {
+    color: #5f0306;
+  }
+  &.styleZalando {
+    color: #be4b09;
+  }
+  &.styleVolkswagen {
+    color: #1b2c5d;
+  }
 }
 
 .value {
   color: white;
+  font-size: 1.4vw;
+  line-height: 1.4;
+  margin-bottom: 0.7vw;
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   height: 100%;
   width: 100%;
-  padding: 0 10vw 0 7.5vw;
+  padding-right: 10vw;
   transform: translateX(10px);
   opacity: 0;
   filter: blur(3px);
-  background-image: radial-gradient(
-    circle at top,
-    #00d296,
-    #199980 50%,
-    #007575
-  );
+
+  &.styleAboutYou {
+    background-image: radial-gradient(circle at top, white, black 95%, black);
+  }
+
+  &.styleXing {
+    background-image: radial-gradient(
+      circle at top,
+      #00d296,
+      #199980 50%,
+      #007575
+    );
+  }
+
+  &.styleOTTO {
+    background-image: radial-gradient(
+      circle at top,
+      #f76e72 10%,
+      #f5343b 30%,
+      #db1f26 60%,
+      #a10b10
+    );
+  }
+
+  &.styleZalando {
+    background-image: radial-gradient(
+      circle at top,
+      #fbc195,
+      #f57d34 50%,
+      #f47026
+    );
+  }
+
+  &.styleVolkswagen {
+    background-image: radial-gradient(
+      circle at top,
+      #00c1f3,
+      #6c9ad1 30%,
+      #3978bd 50%,
+      #0b4482 70%,
+      #324277 90%,
+      #1b2c5d
+    );
+  }
 
   &.isProjectMode {
     padding: 0 10vw;
@@ -68,7 +137,6 @@
 .backgroundLine {
   height: 100%;
   width: 2px;
-  background-image: linear-gradient(to bottom, #00d296, #199980 50%, #007575);
   bottom: 0;
   position: absolute;
   left: 0;
@@ -77,6 +145,26 @@
   transition: transform 0.5s ease-in;
   transform: translateY(100%);
 
+  &.styleOTTO {
+    background-image: linear-gradient(to bottom, #db1f26, #db1f26 50%, white);
+  }
+  &.styleXing {
+    background-image: linear-gradient(to bottom, #00d296, #199980 50%, #007575);
+  }
+  &.styleZalando {
+    background-image: linear-gradient(to bottom, #fbc195, #f57d34 50%, #f47026);
+  }
+  &.styleVolkswagen {
+    background-image: linear-gradient(
+      to bottom,
+      #00c1f3,
+      #6c9ad1 20%,
+      #3978bd 40%,
+      #0b4482 60%,
+      #324277 80%,
+      #1b2c5d
+    );
+  }
   &.show {
     transform: translateY(0);
   }

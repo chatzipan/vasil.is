@@ -1,0 +1,36 @@
+.project {
+  transition: opacity 1s;
+  position: fixed;
+  width: 40vw;
+  margin-left: 10vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+  display: none;
+  z-index: 1;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.show {
+  opacity: 1;
+  display: flex;
+  z-index: 1;
+}
+
+.screenshot {
+  width: 30vw;
+}
+
+.backBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  padding: 0;
+  top: 50%;
+  left: -8vw;
+}

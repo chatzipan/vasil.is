@@ -9,10 +9,6 @@
   align-items: center;
   opacity: 1;
 
-  &.hide {
-    opacity: 0;
-  }
-
   &.blur {
     & .hi,
     & .clientText,
@@ -44,6 +40,7 @@
   font-weight: normal;
   will-change: transform;
   color: var(--grey);
+  font-size: 1.8vw;
 
   &.dark {
     color: var(--grey-light);
@@ -55,11 +52,12 @@
   width: 60%;
   line-height: 1.2;
   color: inherit;
+  font-size: inherit;
 }
 
 .hi {
   font-weight: normal;
-  font-size: 2vw;
+  font-size: inherit;
   color: inherit;
   display: block;
   margin-bottom: 2vw;
@@ -70,7 +68,7 @@
   color: var(--black);
   font-weight: normal;
   display: block;
-  font-size: 3.8vw;
+  font-size: 3.6vw;
 
   animation: revealName 2.5s ease-in;
 
@@ -87,7 +85,7 @@
   font-weight: normal;
   font-family: inherit;
   line-height: 1.3;
-  font-size: 2vw;
+  font-size: inherit;
   animation: revealName 3s ease-in;
 
   &.dark {
@@ -102,7 +100,8 @@
   border: 0;
   padding: 0;
   color: inherit;
-  border-bottom: 2px dashed var(--petrol);
+  border-bottom: 1px dashed var(--grey);
+  text-decoration: none;
 
   &.wasFocused.wasFocused.wasFocused {
     filter: blur(0);
@@ -112,7 +111,19 @@
   }
 
   &.focused {
-    border-bottom: 2px solid var(--petrol);
+    border-bottom: 1px solid;
+    &.styleXing {
+      border-color: #00d296;
+    }
+    &.styleOTTO {
+      border-color: #db1f26;
+    }
+    &.styleZalando {
+      border-color: #be4b09;
+    }
+    &.styleVolkswagen {
+      border-color: #3978bd;
+    }
   }
 }
 
