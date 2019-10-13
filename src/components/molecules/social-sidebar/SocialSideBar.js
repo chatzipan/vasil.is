@@ -4,6 +4,7 @@ import cx from 'classnames'
 
 import { withTheme } from '../../hoc/theme'
 
+import Email from '../../../assets/svgs/email.svg'
 import LinkedIn from '../../../assets/svgs/linkedin.svg'
 import Twitter from '../../../assets/svgs/twitter.svg'
 import Github from '../../../assets/svgs/git.svg'
@@ -33,6 +34,15 @@ const logos = [
 const SocialSideBar = ({ theme }) => (
   <div className={styles.sidebar}>
     <ul className={styles.list}>
+      <li className={styles.listItem}>
+        <a
+          href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Email className={cx(styles.logo, styles[theme])} />
+        </a>
+      </li>
       {logos.map(({ Component, url }, i) => (
         <li className={styles.listItem} key={i}>
           <a href={url} rel="noopener noreferrer" target="_blank">

@@ -156,7 +156,7 @@
   transform: translateY(100%);
 
   &.styleOTTO {
-    background-image: linear-gradient(to bottom, #db1f26, #db1f26 50%, white);
+    background-image: linear-gradient(to bottom, #f76e72, #db1f26 50%, #db1f26);
   }
   &.styleXing {
     background-image: linear-gradient(to bottom, #00d296, #199980 50%, #007575);
