@@ -9,32 +9,47 @@
   align-items: center;
   grid-area: side-l;
   z-index: 1;
+  color: var(--orange);
+  padding: 1.5vw 0;
+  background: none;
+
+  &.dark {
+    color: var(--petrol);
+  }
 }
 
 .btn {
-  width: 1.5vw;
+  width: 1.4vw;
   animation: reveal 4s ease-in;
   background: none;
   border: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
-  color: var(--orange);
-  margin-top: 1.5vw;
-
-  &.dark {
-    color: var(--petrol);
-  }
+  color: inherit;
 
   &:active {
     outline: none;
   }
 }
 
-.img {
+.icon {
   display: block;
   margin-bottom: 0;
-  width: 1.5vw;
+}
+
+.link {
+  background-color: transparent;
+  cursor: pointer;
+  color: inherit;
+  width: 1.8vw;
+  margin-top: 1vw;
+}
+
+.nav {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes reveal {

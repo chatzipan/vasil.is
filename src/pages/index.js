@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 import XingDevices from '../assets/images/xing-all-devices_4x.png'
 import { ProjectPreview } from '../components/molecules'
-import { Layout, Project } from '../components/organisms'
+import { Layout } from '../components/organisms'
 import { withTheme } from '../components/hoc/theme'
 
 import styles from './index.module.css'
@@ -52,7 +52,8 @@ const HomePage = withTheme(({ projects, theme }) => {
             <span className={nameClass}>Vasilis Chatzipanagiotis,</span>
           </h2>
           <h3 className={experienceClass}>
-            Software Engineer / Architect + ReactJS expert based in Zurich
+            Freelance Software Engineer / Architect + ReactJS expert based in
+            Zurich
             <span aria-label="Switzerland" title="Switzerland">
               🇨🇭.
             </span>
@@ -88,7 +89,7 @@ const HomePage = withTheme(({ projects, theme }) => {
               )
             })}
             <span className={styles.clientText}>
-              and more, to build stuff for the web.
+              and more, to build high-quality web applications and websites.
             </span>
           </h3>
         </div>

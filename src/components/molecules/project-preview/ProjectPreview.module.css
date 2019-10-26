@@ -1,14 +1,14 @@
 .backgroundWrapper {
   position: fixed;
   height: 100vh;
-  width: 50vw;
+  width: 40vw;
   right: 0;
   z-index: 1;
-  transform: translateX(10vw);
   transition: transform 0.2s ease-in;
 
-  &.isProjectMode {
-    transform: translateX(0);
+  &.isProjectPage {
+    position: static;
+    width: 44vw;
   }
 
   &.focused {
@@ -24,7 +24,7 @@
   flex-shrink: 0;
 
   &.styleVolkswagen {
-    width: 18vw;
+    width: 20vw;
     padding-top: 4vw;
     margin-bottom: 0;
   }
@@ -72,8 +72,6 @@
   justify-content: space-around;
   height: 100%;
   width: 100%;
-  padding-right: 10vw;
-  transform: translateX(10px);
   opacity: 0;
   filter: blur(3px);
 
@@ -129,10 +127,6 @@
       #324277 90%,
       #1b2c5d
     );
-  }
-
-  &.isProjectMode {
-    padding: 0 10vw;
   }
 
   &.hide {

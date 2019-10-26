@@ -28,13 +28,17 @@
   margin-bottom: 1vw;
   position: relative;
 
-  &:not(:nth-child(4)) :after {
+  &:not(:nth-child(5)):after {
     position: absolute;
     content: '∣';
     font-size: 0.6vw;
     bottom: -1vw;
     bottom: -60%;
-    left: 40%;
+    left: 35%;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 2.9s;
   }
 
   &:nth-child(4) {
@@ -63,6 +67,9 @@
   }
   &.dark {
     fill: white;
+  }
+  &.email {
+    width: 1.5vw;
   }
 }
 

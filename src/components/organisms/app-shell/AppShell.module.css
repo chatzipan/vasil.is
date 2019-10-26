@@ -1,12 +1,20 @@
 .app {
   transition: all 0.5s;
   display: grid;
+  height: 100%;
   grid-template-columns: 6vw 1fr 6vw;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  height: 100%;
   grid-template-areas: 'side-l content side-r';
+
+  &.isProjectPage {
+    grid-template-columns: 6vw 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 'side-l content';
+  }
 }
 
 .light {
@@ -16,7 +24,7 @@
 
 .dark {
   color: white;
-  background-color: black;
+  background-color: #000000e6;
 }
 
 :global(body.user-is-tabbing *:focus) {

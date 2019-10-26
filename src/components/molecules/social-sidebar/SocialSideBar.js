@@ -32,7 +32,7 @@ const logos = [
 ]
 
 const SocialSideBar = ({ theme }) => (
-  <div className={styles.sidebar}>
+  <nav className={styles.sidebar}>
     <ul className={styles.list}>
       <li className={styles.listItem}>
         <a
@@ -40,7 +40,7 @@ const SocialSideBar = ({ theme }) => (
           rel="noopener noreferrer"
           target="_blank"
         >
-          <Email className={cx(styles.logo, styles[theme])} />
+          <Email className={cx(styles.logo, styles.email, styles[theme])} />
         </a>
       </li>
       {logos.map(({ Component, url }, i) => (
@@ -54,7 +54,7 @@ const SocialSideBar = ({ theme }) => (
         </li>
       ))}
     </ul>
-  </div>
+  </nav>
 )
 
 SocialSideBar.propTypes = {

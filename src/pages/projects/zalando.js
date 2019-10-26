@@ -5,8 +5,8 @@ import cx from 'classnames'
 
 import ProjectPage from '../../templates/ProjectPage'
 
-const Xing = () => {
-  return <ProjectPage project="Xing" />
+const Zalando = () => {
+  return <ProjectPage project="Zalando" />
 }
 
-export default Xing
+export default Zalando

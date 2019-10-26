@@ -7,10 +7,7 @@
    >
   <defs
      id="defs1309" />
-  <g
-     id="layer1"
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
+  <g id="layer1">
     <rect
        ry="3.9649484"
        rx="3.9631047"
@@ -42,6 +39,6 @@
        style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
        d="M 8,13.174564 L 22,27 C 23.124807,28.198901 23.884336,28.18857 25.046312,27.033012 L 40.077307,12.820449"
        id="path4000"
-       sodipodi:nodetypes="cccc" />
+       />
   </g>
 </svg>

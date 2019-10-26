@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import cx from 'classnames'
 
 import { ProjectPreview } from '../components/molecules'
-import Xing from '../assets/images/xing-all-devices_4x.png'
+import { Layout } from '../components/organisms'
+
+import Xing from '../assets/images/xing_desktop_ohne.png'
+import XingDark from '../assets/images/xing_desktop_dark.png'
 
 import styles from './ProjectPage.module.css'
 
@@ -12,28 +14,24 @@ const screenshots = {
   Xing,
 }
 
-const ProjectPage = ({ isOpen, handleClose, project }) => {
-  const projectClass = cx(styles.project, { [styles.show]: isOpen })
+const ProjectPage = ({ project }) => {
   const imgsrc = screenshots[project]
   return (
-    <main>
-      <section className={projectClass} tabIndex={isOpen ? 0 : -1}>
-        <div className={styles.screenshot}>
-          <img src={imgsrc} />
-        </div>
-        <Link className={styles.backBtn} tabIndex={isOpen ? 0 : -1} to="/">
-          &#8592;
-        </Link>
-      </section>
-      <aside>
-        <ProjectPreview focusedProject={project} isProjectMode />
-      </aside>
-    </main>
+    <Layout isProjectPage>
+      <main className={styles.main}>
+        <section className={styles.project}>
+          <div className={styles.screenshot}>
+            <img src={imgsrc} />
+          </div>
+        </section>
+        <ProjectPreview focusedProject={project} isProjectPage />
+      </main>
+    </Layout>
   )
 }
 
 ProjectPage.propTypes = {
-  isOpen: PropTypes.bool,
+  project: PropTypes.string,
 }
 
 export default ProjectPage

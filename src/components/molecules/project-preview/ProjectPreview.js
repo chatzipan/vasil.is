@@ -23,42 +23,43 @@ const logos = {
 
 const ProjectPreview = ({
   focusedProject,
-  isProjectMode,
+  isProjectPage,
   lastFocusedProject,
   projects,
 }) => {
   const Logo = logos[focusedProject || lastFocusedProject] || 'div'
+  const logoStyle = isProjectPage ? focusedProject : lastFocusedProject
   const { agency, period, position, sector, stack } =
     projects.find(({ client }) => client === focusedProject) ||
     projects.find(({ client }) => client === lastFocusedProject) ||
     {}
   const lineClass = cx(styles.backgroundLine, {
-    [styles.show]: focusedProject || isProjectMode,
+    [styles.show]: focusedProject || isProjectPage,
     [styles['style' + lastFocusedProject]]: lastFocusedProject,
   })
   const logoClass = cx(styles.logo, {
-    [styles['style' + lastFocusedProject]]: lastFocusedProject,
+    [styles['style' + logoStyle]]: logoStyle,
   })
   const wrapperClass = cx(styles.backgroundWrapper, {
-    [styles.isProjectMode]: isProjectMode,
+    [styles.isProjectPage]: isProjectPage,
     [styles.focused]: focusedProject,
   })
   const labelClass = cx(styles.label, {
     [styles['style' + focusedProject]]: focusedProject,
   })
   const backgroundClass = cx(styles.wrapper, {
-    [styles.isProjectMode]: isProjectMode,
-    [styles.show]: focusedProject || isProjectMode,
+    [styles.isProjectPage]: isProjectPage,
+    [styles.show]: focusedProject || isProjectPage,
     [styles.hide]: focusedProject === '',
     [styles['style' + focusedProject]]: focusedProject,
   })
 
   return (
-    <div className={wrapperClass}>
+    <aside className={wrapperClass}>
       <div className={backgroundClass}>
         <Logo className={logoClass} />
         <dl className={styles.list}>
-          <dt className={labelClass}>{agency ? 'Agency' : 'Sector'}</dt>
+          <dt className={labelClass}>{agency ? 'Agency' : 'Branch'}</dt>
           <dd className={styles.value}>{agency ? agency : sector}</dd>
           <dt className={labelClass}>Position</dt>
           <dd className={styles.value}>{position}</dd>
@@ -69,14 +70,14 @@ const ProjectPreview = ({
         </dl>
       </div>
       <hr className={lineClass} />
-    </div>
+    </aside>
   )
 }
 
 ProjectPreview.propTypes = {
   focusedProject: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   lastFocusedProject: PropTypes.string,
-  isProjectMode: PropTypes.bool,
+  isProjectPage: PropTypes.bool,
 }
 
 export default props => (

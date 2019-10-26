@@ -11,16 +11,23 @@ import styles from './appShell.module.css'
 
 detectTabbing()
 
-const AppShell = ({ children, theme }) => (
-  <div className={cx(styles.app, styles[theme])}>
-    <ThemeSideBar />
-    <div style={{ gridArea: 'content' }}>{children}</div>
-    <SocialSideBar />
-  </div>
-)
+const AppShell = ({ children, isProjectPage, theme }) => {
+  const classes = cx(styles.app, styles[theme], {
+    [styles.isProjectPage]: isProjectPage,
+  })
+
+  return (
+    <div className={classes}>
+      <ThemeSideBar isProjectPage={isProjectPage} />
+      <div style={{ gridArea: 'content' }}>{children}</div>
+      {!isProjectPage && <SocialSideBar />}
+    </div>
+  )
+}
 
 AppShell.propTypes = {
   children: PropTypes.node,
+  isProjectPage: PropTypes.bool,
   theme: PropTypes.oneOf(['dark', 'light']),
 }
 

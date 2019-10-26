@@ -23,6 +23,7 @@ class Layout extends Component {
         }),
       }),
     }),
+    isProjectPage: PropTypes.bool,
   }
 
   meta = [
@@ -48,13 +49,14 @@ class Layout extends Component {
           siteMetadata: { title },
         },
       },
+      isProjectPage,
     } = this.props
 
     return (
       <>
         <Helmet title={title} meta={this.meta} />
         <ThemeProvider>
-          <AppShell>{children}</AppShell>
+          <AppShell isProjectPage={isProjectPage}>{children}</AppShell>
         </ThemeProvider>
       </>
     )
