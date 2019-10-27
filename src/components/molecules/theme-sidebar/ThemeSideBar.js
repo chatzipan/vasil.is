@@ -23,23 +23,33 @@ const getProjectUrls = (current, all) => {
   const next = currentInd + 1 > count - 1 ? all[0] : all[currentInd + 1]
   const previous = currentInd - 1 < 0 ? all[count - 1] : all[currentInd - 1]
 
-  return { next, previous }
+  return { currentInd: currentInd + 1, next, previous }
 }
 
 const ThemeSideBar = ({ changeTheme, isProjectPage, projects, theme }) => {
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]
-  const { next, previous } = getProjectUrls(current, projects)
+  const { currentInd, next, previous } = getProjectUrls(current, projects)
+  const themeBtnClasses = cx(styles.themeBtn, {
+    [styles.reveal]: !isProjectPage,
+  })
 
   return (
     <div className={classes}>
       <button
-        className={styles.btn}
+        className={themeBtnClasses}
         onClick={changeTheme}
-        title={`Switch to ${mode(theme)}`}
+        title={`Switch to ${mode(theme)} mode`}
       >
-        <Moon alt={theme} className={styles.icon} />
+        <Moon className={styles.icon} />
       </button>
+      {isProjectPage && (
+        <span className={styles.index}>
+          {currentInd}
+          <br />－<br />
+          {projects.length}
+        </span>
+      )}
       {isProjectPage && (
         <nav className={styles.nav}>
           <Link className={styles.link}>

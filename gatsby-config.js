@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         client: 'Xing',
-        period: '2018 - 2019',
+        period: '2017 - 2019',
         sector: 'Social Network',
         position: 'Senior Frontend Engineer',
         stack: 'ReactJS, React Hooks, Redux, GraphQL',

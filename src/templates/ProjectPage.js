@@ -16,10 +16,14 @@ const screenshots = {
 
 const ProjectPage = ({ project }) => {
   const imgsrc = screenshots[project]
+  const screenshotClass = cx(styles.screenshot)
   return (
     <Layout isProjectPage>
       <main className={styles.main}>
         <section className={styles.project}>
+          <div className={styles.screenshot}>
+            <img src={imgsrc} />
+          </div>
           <div className={styles.screenshot}>
             <img src={imgsrc} />
           </div>

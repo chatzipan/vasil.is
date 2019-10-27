@@ -25,7 +25,7 @@
   transform: translateY(-3px);
   filter: blur(1px);
   animation: reveal 0.5s ease-in forwards;
-  margin-bottom: 1vw;
+  margin-bottom: 1.2vw;
   position: relative;
 
   &:not(:nth-child(5)):after {

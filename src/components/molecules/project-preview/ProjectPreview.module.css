@@ -24,8 +24,8 @@
   flex-shrink: 0;
 
   &.styleVolkswagen {
-    width: 20vw;
-    padding-top: 4vw;
+    width: 18vw;
+    padding-top: 2vw;
     margin-bottom: 0;
   }
 }

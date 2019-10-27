@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useState } from 'react'
+import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import { Link } from 'gatsby'
@@ -13,6 +13,9 @@ import styles from './index.module.css'
 const HomePage = withTheme(({ projects, theme }) => {
   const [lastFocusedClient, setLastFocusedClient] = useState('')
   const [focusedClient, setFocusedClient] = useState(false)
+  const timeOutRef = useRef()
+
+  const [timeout] = useState(false)
   const backgroundStyle = { backgroundImage: `url('${XingDevices}')` }
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
@@ -31,11 +34,14 @@ const HomePage = withTheme(({ projects, theme }) => {
   })
 
   const handleClientHover = useCallback(client => {
-    setFocusedClient(client)
-    setLastFocusedClient(client)
+    timeOutRef.current = setTimeout(() => {
+      setFocusedClient(client)
+      setLastFocusedClient(client)
+    }, 300)
   }, [])
 
   const handleMouseOut = useCallback(() => {
+    clearTimeout(timeOutRef.current)
     setFocusedClient('')
   }, [])
 
@@ -52,8 +58,8 @@ const HomePage = withTheme(({ projects, theme }) => {
             <span className={nameClass}>Vasilis Chatzipanagiotis,</span>
           </h2>
           <h3 className={experienceClass}>
-            Freelance Software Engineer / Architect + ReactJS expert based in
-            Zurich
+            Creative Freelance Software Engineer / Architect + ReactJS expert
+            based in Zurich
             <span aria-label="Switzerland" title="Switzerland">
               🇨🇭.
             </span>
