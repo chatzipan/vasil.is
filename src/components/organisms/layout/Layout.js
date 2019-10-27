@@ -4,6 +4,10 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { ThemeProvider } from '../../hoc/theme'
+import '../../../i18n'
+
+import { LanguageContextProvider } from '../../../context/LanguageContext'
+
 import { AppShell } from '../'
 
 import '../../../styles/layout.css'
@@ -56,12 +60,14 @@ class Layout extends Component {
       <>
         <Helmet title={title} meta={this.meta} />
         <ThemeProvider>
-          <AppShell
-            isProjectPage={isProjectPage}
-            projects={projects.map(({ client }) => client.toLowerCase())}
-          >
-            {children}
-          </AppShell>
+          <LanguageContextProvider>
+            <AppShell
+              isProjectPage={isProjectPage}
+              projects={projects.map(({ client }) => client.toLowerCase())}
+            >
+              {children}
+            </AppShell>
+          </LanguageContextProvider>
         </ThemeProvider>
       </>
     )

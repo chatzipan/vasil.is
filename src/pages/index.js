@@ -2,6 +2,7 @@ import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import { Link } from 'gatsby'
+import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
 import { Layout } from '../components/organisms'
@@ -13,7 +14,7 @@ const HomePage = withTheme(({ projects, theme }) => {
   const [lastFocusedClient, setLastFocusedClient] = useState('')
   const [focusedClient, setFocusedClient] = useState(false)
   const timeOutRef = useRef()
-
+  const { t } = useTranslation()
   const [timeout] = useState(false)
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
@@ -52,7 +53,7 @@ const HomePage = withTheme(({ projects, theme }) => {
       <main className={mainClass}>
         <div className={styles.main}>
           <h2 className={styles.intro}>
-            <span className={styles.hi}>Hi! my name is</span>
+            <span className={styles.hi}>{t('HALLO')}! my name is</span>
             <span className={nameClass}>Vasilis Chatzipanagiotis,</span>
           </h2>
           <h3 className={experienceClass}>

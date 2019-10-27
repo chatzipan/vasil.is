@@ -14,19 +14,20 @@ detectTabbing()
 
 const AppShell = ({ children, isProjectPage, projects, theme }) => {
   const [isNavOpen, setIsNavOpen] = useState(false)
-  const toggleNav = useCallback(() => {
-    setIsNavOpen(!isNavOpen)
-  }, [isNavOpen])
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]: isProjectPage,
     [styles.navOpen]: isNavOpen,
   })
+  const menuClasses = cx(styles.menu, { [styles.navOpen]: isNavOpen })
+  const toggleNav = useCallback(() => {
+    setIsNavOpen(!isNavOpen)
+  }, [isNavOpen])
 
   return (
     <div className={classes}>
-      <nav className={cx(styles.menu, { [styles.navOpen]: isNavOpen })}>
+      <nav className={menuClasses}>
         <ul className={styles.projectList}>
-          {projects.sort().map(project => (
+          {[...projects].sort().map(project => (
             <Link
               className={styles.item}
               key={project}
@@ -36,7 +37,11 @@ const AppShell = ({ children, isProjectPage, projects, theme }) => {
               {project}
             </Link>
           ))}
-          <Link className={styles.item} to="/projects">
+          <Link
+            className={styles.item}
+            tabIndex={isNavOpen ? '0' : '-1'}
+            to="/projects"
+          >
             All projects
           </Link>
         </ul>
