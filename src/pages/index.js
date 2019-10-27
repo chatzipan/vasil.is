@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import { Link } from 'gatsby'
 
-import XingDevices from '../assets/images/xing-all-devices_4x.png'
 import { ProjectPreview } from '../components/molecules'
 import { Layout } from '../components/organisms'
 import { withTheme } from '../components/hoc/theme'
@@ -16,7 +15,6 @@ const HomePage = withTheme(({ projects, theme }) => {
   const timeOutRef = useRef()
 
   const [timeout] = useState(false)
-  const backgroundStyle = { backgroundImage: `url('${XingDevices}')` }
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
   const clientsClass = cx(styles.clients, { [styles.dark]: theme === 'dark' })

@@ -1,5 +1,7 @@
+@import '../../../styles/variables.css';
+
 .app {
-  transition: all 0.5s;
+  transition: all 0.5s var(--transition-style);
   display: grid;
   height: 100%;
   grid-template-columns: 6vw 1fr 6vw;
@@ -7,6 +9,7 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-template-areas: 'side-l content side-r';
+  will-change: transform;
 
   &.isProjectPage {
     grid-template-columns: 6vw 1fr;
@@ -14,6 +17,10 @@
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-areas: 'side-l content';
+  }
+
+  &.navOpen {
+    transform: translateX(44vw);
   }
 }
 
@@ -25,6 +32,25 @@
 .dark {
   color: white;
   background-color: #000000e6;
+}
+
+.menu {
+  width: 44vw;
+  transform: translateX(-44vw);
+  padding: 1.5vw 0;
+}
+
+.projectList {
+  list-style: none;
+}
+
+.item {
+  display: block;
+  text-transform: uppercase;
+  font-size: 3vw;
+  line-height: 1.4;
+  color: inherit;
+  margin-bottom: 0.2vw;
 }
 
 :global(body.user-is-tabbing *:focus) {

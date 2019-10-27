@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Vasilis Chatzipanagiotis - Freelance Developer',
+    title: 'Vasilis Chatzipanagiotis | Freelance Software Engineer',
     description:
       'Portfolio by Vasilis Chatzipanagiotis. Freelance Developer from Hamburg. I helped building new products for companies such as Volkswagen, Zalando, Otto, AboutYou, XING and more.',
     keywords:
@@ -85,7 +85,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/assets/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/assets/svgs/vc_logo.svg', // This path is relative to the root of the site.
       },
     },
     {

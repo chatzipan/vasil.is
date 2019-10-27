@@ -18,6 +18,10 @@ body {
   height: 100%;
 }
 
+#gatsby-focus-wrapper {
+  overflow: hidden;
+}
+
 article,
 aside,
 details,

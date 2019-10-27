@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="206px" height="206px" viewBox="0 0 206 206" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Untitled</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="103" cy="103" r="100"></circle>
+        <filter x="-1.5%" y="-1.5%" width="103.0%" height="103.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-2.5%" y="-2.5%" width="105.0%" height="105.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Oval" filter="url(#filter-2)">
+            <use fill="#FF8181" fill-rule="evenodd" style="mix-blend-mode: darken;" xlink:href="#path-1"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+            <use stroke-opacity="0" stroke="#81EBFF" stroke-width="6" xlink:href="#path-1"></use>
+        </g>
+        <path d="M113.175896,16 C113.175896,79.555139 113.757486,189.011181 99.6152929,190.207703 C91.7735956,190.871161 72.568498,144.603667 42,51.4052211" id="Path" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="bevel"></path>
+        <path d="M113.175896,16 C113.175896,79.555139 113.757486,189.011181 99.6152929,190.207703 C91.7735956,190.871161 72.568498,144.603667 42,51.4052211" id="Path" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="bevel"></path>
+        <path d="M142.25346,60.7005723 C65.055271,78.0642457 26.3473249,93.3494256 26.1296218,106.556112 C25.9131461,119.762798 64.0903736,136.764008 140.661304,157.559743" id="Path-2" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="bevel"></path>
+    </g>
+</svg>

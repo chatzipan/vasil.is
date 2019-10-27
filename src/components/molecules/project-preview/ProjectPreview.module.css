@@ -181,6 +181,11 @@
   &.show {
     transform: translateY(0);
   }
+  &.isProjectPage {
+    right: 44vw;
+    left: auto;
+    visibility: hidden;
+  }
 }
 
 @keyframes revealBackground {

@@ -1,6 +1,4 @@
-:root {
-  --transition-style: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+@import '../../src/styles/variables.css';
 
 .main {
   display: flex;
@@ -27,7 +25,6 @@
   margin: 0 auto 5vw;
   position: relative;
   background-color: #007575;
-  border-radius: 3px;
   border-radius: 3px;
   transition: all 0.3s var(--transition-style) 0s;
   filter: grayscale(90%) contrast(1);

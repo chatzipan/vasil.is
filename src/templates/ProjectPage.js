@@ -5,27 +5,30 @@ import cx from 'classnames'
 import { ProjectPreview } from '../components/molecules'
 import { Layout } from '../components/organisms'
 
-import Xing from '../assets/images/xing_desktop_ohne.png'
-import XingDark from '../assets/images/xing_desktop_dark.png'
+import xing_desktop from '../assets/images/xing_desktop.png'
+import xing_mobile from '../assets/images/xing_mobile3.png'
 
 import styles from './ProjectPage.module.css'
 
 const screenshots = {
-  Xing,
+  Xing: {
+    desktop: xing_desktop,
+    mobile: xing_mobile,
+  },
 }
 
 const ProjectPage = ({ project }) => {
-  const imgsrc = screenshots[project]
+  const { desktop, mobile } = screenshots[project] || screenshots.Xing
   const screenshotClass = cx(styles.screenshot)
   return (
     <Layout isProjectPage>
       <main className={styles.main}>
         <section className={styles.project}>
           <div className={styles.screenshot}>
-            <img src={imgsrc} />
+            <img src={desktop} />
           </div>
           <div className={styles.screenshot}>
-            <img src={imgsrc} />
+            <img src={mobile} />
           </div>
         </section>
         <ProjectPreview focusedProject={project} isProjectPage />

@@ -6,7 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import AboutYouLogo from '../../../assets/svgs/aboutyou_logo.svg'
 import OttoLogo from '../../../assets/svgs/otto_logo.svg'
 import XingLogo from '../../../assets/svgs/xing_logo.svg'
-import VWLogo from '../../../assets/svgs/volkswagen_logo_2.svg'
+import VWLogo from '../../../assets/svgs/volkswagen_logo.svg'
 import ZalandoLogo from '../../../assets/svgs/zalando_logo.svg'
 import SinnerSchraderLogo from '../../../assets/svgs/sinnerschrader_logo.svg'
 
@@ -36,6 +36,7 @@ const ProjectPreview = ({
   const lineClass = cx(styles.backgroundLine, {
     [styles.show]: focusedProject || isProjectPage,
     [styles['style' + lastFocusedProject]]: lastFocusedProject,
+    [styles.isProjectPage]: isProjectPage,
   })
   const logoClass = cx(styles.logo, {
     [styles['style' + logoStyle]]: logoStyle,

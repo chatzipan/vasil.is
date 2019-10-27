@@ -37,13 +37,20 @@
   }
 }
 
-.index {
+.menuToggle {
   display: flex;
   flex-direction: column;
   text-align: center;
   font-size: 1.2vw;
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
   font-weight: bold;
-  animation: reveal 1.75s ease-in;
+  animation: reveal-menu-toggle 1.75s ease-in;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  transform: rotate(-90deg);
 }
 
 .icon {
@@ -93,5 +100,23 @@
     filter: blur(0);
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes reveal-menu-toggle {
+  from {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px) rotate(-90deg);
+  }
+  80% {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px) rotate(-90deg);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0) rotate(-90deg);
   }
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'gatsby'
-import { StaticQuery, graphql } from 'gatsby'
 
 import { withTheme } from '../../hoc/theme'
 import Moon from '../../../assets/svgs/moon.svg'
@@ -26,10 +25,16 @@ const getProjectUrls = (current, all) => {
   return { currentInd: currentInd + 1, next, previous }
 }
 
-const ThemeSideBar = ({ changeTheme, isProjectPage, projects, theme }) => {
+const ThemeSideBar = ({
+  changeTheme,
+  isProjectPage,
+  projects,
+  theme,
+  toggleNav,
+}) => {
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]
-  const { currentInd, next, previous } = getProjectUrls(current, projects)
+  const { next, previous } = getProjectUrls(current, projects)
   const themeBtnClasses = cx(styles.themeBtn, {
     [styles.reveal]: !isProjectPage,
   })
@@ -43,13 +48,9 @@ const ThemeSideBar = ({ changeTheme, isProjectPage, projects, theme }) => {
       >
         <Moon className={styles.icon} />
       </button>
-      {isProjectPage && (
-        <span className={styles.index}>
-          {currentInd}
-          <br />－<br />
-          {projects.length}
-        </span>
-      )}
+      <button className={styles.menuToggle} onClick={toggleNav}>
+        Projects
+      </button>
       {isProjectPage && (
         <nav className={styles.nav}>
           <Link className={styles.link}>
@@ -71,32 +72,7 @@ ThemeSideBar.propTypes = {
   changeTheme: PropTypes.func,
   isProjectPage: PropTypes.bool,
   theme: PropTypes.oneOf(['dark', 'light']),
+  toggleNav: PropTypes.func,
 }
 
-export default withTheme(props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            projects {
-              client
-            }
-          }
-        }
-      }
-    `}
-    render={({
-      site: {
-        siteMetadata: { projects },
-      },
-    }) => {
-      return (
-        <ThemeSideBar
-          projects={projects.map(({ client }) => client.toLowerCase())}
-          {...props}
-        />
-      )
-    }}
-  />
-))
+export default withTheme(ThemeSideBar)

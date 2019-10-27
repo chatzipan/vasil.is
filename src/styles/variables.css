@@ -1,10 +1,14 @@
 :root {
+  /* Colors */
   --black: #222222;
   --grey: #777;
   --grey-dark: #555555;
   --grey-light: #bbb;
   --white: #eee;
 
-  --orange: #f08d49;
+  --orange: #ff8181;
   --petrol: #67cdcc;
+
+  /* Other */
+  --transition-style: cubic-bezier(0.645, 0.045, 0.355, 1);
 }

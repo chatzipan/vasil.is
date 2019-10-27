@@ -46,7 +46,7 @@ class Layout extends Component {
       children,
       data: {
         site: {
-          siteMetadata: { title },
+          siteMetadata: { title, projects },
         },
       },
       isProjectPage,
@@ -56,7 +56,12 @@ class Layout extends Component {
       <>
         <Helmet title={title} meta={this.meta} />
         <ThemeProvider>
-          <AppShell isProjectPage={isProjectPage}>{children}</AppShell>
+          <AppShell
+            isProjectPage={isProjectPage}
+            projects={projects.map(({ client }) => client.toLowerCase())}
+          >
+            {children}
+          </AppShell>
         </ThemeProvider>
       </>
     )
@@ -72,6 +77,9 @@ export default props => (
             title
             description
             keywords
+            projects {
+              client
+            }
           }
         }
       }
