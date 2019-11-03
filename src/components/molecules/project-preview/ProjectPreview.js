@@ -3,23 +3,8 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { StaticQuery, graphql } from 'gatsby'
 
-import AboutYouLogo from '../../../assets/svgs/aboutyou_logo.svg'
-import OttoLogo from '../../../assets/svgs/otto_logo.svg'
-import XingLogo from '../../../assets/svgs/xing_logo.svg'
-import VWLogo from '../../../assets/svgs/volkswagen_logo.svg'
-import ZalandoLogo from '../../../assets/svgs/zalando_logo.svg'
-import SinnerSchraderLogo from '../../../assets/svgs/sinnerschrader_logo.svg'
-
+import { Logo } from '../../atoms'
 import styles from './ProjectPreview.module.css'
-
-const logos = {
-  AboutYou: AboutYouLogo,
-  OTTO: OttoLogo,
-  SinnerSchrader: SinnerSchraderLogo,
-  Xing: XingLogo,
-  Volkswagen: VWLogo,
-  Zalando: ZalandoLogo,
-}
 
 const ProjectPreview = ({
   focusedProject,
@@ -27,7 +12,6 @@ const ProjectPreview = ({
   lastFocusedProject,
   projects,
 }) => {
-  const Logo = logos[focusedProject || lastFocusedProject] || 'div'
   const logoStyle = isProjectPage ? focusedProject : lastFocusedProject
   const { agency, period, position, sector, stack } =
     projects.find(({ client }) => client === focusedProject) ||
@@ -58,7 +42,10 @@ const ProjectPreview = ({
   return (
     <aside className={wrapperClass}>
       <div className={backgroundClass}>
-        <Logo className={logoClass} />
+        <Logo
+          className={logoClass}
+          name={focusedProject || lastFocusedProject}
+        />
         <dl className={styles.list}>
           <dt className={labelClass}>{agency ? 'Agency' : 'Branch'}</dt>
           <dd className={styles.value}>{agency ? agency : sector}</dd>

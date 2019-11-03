@@ -12,11 +12,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en-EN',
-    // have a common namespace used around the full app
     debug: process.env.NODE_ENV === 'development',
-    interpolation: {
-      escapeValue: false, // not needed for react!!
-    },
     backend: {
       loadPath: './locales/{{lng}}/translations.json',
     },
