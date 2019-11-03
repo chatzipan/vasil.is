@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { createContext } from 'react'
 import PropTypes from 'prop-types'
 
-export const Context = React.createContext({
-  theme: 'light',
+const ThemeContext = createContext({
   changeTheme: () => {},
+  theme: 'light',
 })
 
-class ThemeProvider extends Component {
+export class ThemeProvider extends React.Component {
   static propTypes = {
     children: PropTypes.node,
   }
@@ -36,11 +36,11 @@ class ThemeProvider extends Component {
 
   render() {
     return (
-      <Context.Provider value={this.state}>
+      <ThemeContext.Provider value={this.state}>
         {this.props.children}
-      </Context.Provider>
+      </ThemeContext.Provider>
     )
   }
 }
 
-export default ThemeProvider
+export default ThemeContext

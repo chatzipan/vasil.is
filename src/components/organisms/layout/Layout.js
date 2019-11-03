@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { ThemeProvider } from '../../hoc/theme'
 import '../../../i18n'
 
+import { ThemeProvider } from '../../../context/ThemeContext'
 import { LanguageContextProvider } from '../../../context/LanguageContext'
 
 import { AppShell } from '../'

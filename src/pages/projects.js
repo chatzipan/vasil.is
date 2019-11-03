@@ -5,11 +5,13 @@ import { Link } from 'gatsby'
 
 import { ProjectPreview } from '../components/molecules'
 import { Layout } from '../components/organisms'
-import { withTheme } from '../components/hoc/theme'
+
+import { useTheme } from '../hooks'
 
 import styles from './index.module.css'
 
-const ProjectsOverviewPage = withTheme(({ projects, theme }) => {
+const ProjectsOverviewPage = () => {
+  const { theme } = useTheme()
   const [lastFocusedClient, setLastFocusedClient] = useState('')
   const [focusedClient, setFocusedClient] = useState(false)
   const timeOutRef = useRef()
@@ -48,7 +50,7 @@ const ProjectsOverviewPage = withTheme(({ projects, theme }) => {
       <main className={mainClass}>hi from PRojects</main>
     </Layout>
   )
-})
+}
 
 export default props => (
   <StaticQuery

@@ -6,11 +6,13 @@ import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
 import { Layout } from '../components/organisms'
-import { withTheme } from '../components/hoc/theme'
+
+import { useTheme } from '../hooks'
 
 import styles from './index.module.css'
 
-const HomePage = withTheme(({ projects, theme }) => {
+const HomePage = ({ projects }) => {
+  const { theme } = useTheme()
   const [lastFocusedClient, setLastFocusedClient] = useState('')
   const [focusedClient, setFocusedClient] = useState(false)
   const timeOutRef = useRef()
@@ -101,7 +103,7 @@ const HomePage = withTheme(({ projects, theme }) => {
       </main>
     </>
   )
-})
+}
 
 export default props => (
   <StaticQuery

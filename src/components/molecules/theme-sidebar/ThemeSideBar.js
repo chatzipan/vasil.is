@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'gatsby'
 
-import { withTheme } from '../../hoc/theme'
-import { useLanguage } from '../../../hooks/useLanguage'
+import { useLanguage, useTheme } from '../../../hooks'
 
 import Moon from '../../../assets/svgs/moon.svg'
 import FlagEn from '../../../assets/svgs/flag_englang.svg'
@@ -44,14 +43,10 @@ const getNextLang = current => {
   return currentInd === 0 ? langs[1] : langs[0]
 }
 
-const ThemeSideBar = ({
-  changeTheme,
-  isProjectPage,
-  projects,
-  theme,
-  toggleNav,
-}) => {
+const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
   const { language, selectLanguage } = useLanguage()
+  const { changeTheme, theme } = useTheme()
+
   const FlagIcon = flags[language] || FlagEn
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]
@@ -102,10 +97,8 @@ const ThemeSideBar = ({
 }
 
 ThemeSideBar.propTypes = {
-  changeTheme: PropTypes.func,
   isProjectPage: PropTypes.bool,
-  theme: PropTypes.oneOf(['dark', 'light']),
   toggleNav: PropTypes.func,
 }
 
-export default withTheme(ThemeSideBar)
+export default ThemeSideBar

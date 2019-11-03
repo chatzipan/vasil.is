@@ -6,13 +6,14 @@ import { Link } from 'gatsby'
 import { SocialSideBar, ThemeSideBar } from '../../molecules'
 import detectTabbing from '../../../utils/accessibity'
 
-import { withTheme } from '../../hoc/theme'
+import { useTheme } from '../../../hooks'
 
 import styles from './appShell.module.css'
 
 detectTabbing()
 
-const AppShell = ({ children, isProjectPage, projects, theme }) => {
+const AppShell = ({ children, isProjectPage, projects }) => {
+  const { theme } = useTheme()
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]: isProjectPage,
@@ -60,7 +61,6 @@ const AppShell = ({ children, isProjectPage, projects, theme }) => {
 AppShell.propTypes = {
   children: PropTypes.node,
   isProjectPage: PropTypes.bool,
-  theme: PropTypes.oneOf(['dark', 'light']),
 }
 
-export default withTheme(AppShell)
+export default AppShell
