@@ -111,7 +111,7 @@ export default props => (
       query {
         site {
           siteMetadata {
-            projects {
+            mainProjects {
               client
             }
           }
@@ -120,11 +120,11 @@ export default props => (
     `}
     render={({
       site: {
-        siteMetadata: { projects },
+        siteMetadata: { mainProjects },
       },
     }) => (
       <Layout>
-        <HomePage projects={projects} {...props} />
+        <HomePage projects={mainProjects} {...props} />
       </Layout>
     )}
   />

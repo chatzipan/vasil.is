@@ -74,7 +74,7 @@ export default props => (
       query {
         site {
           siteMetadata {
-            projects {
+            mainProjects {
               agency
               client
               period
@@ -88,8 +88,8 @@ export default props => (
     `}
     render={({
       site: {
-        siteMetadata: { projects },
+        siteMetadata: { mainProjects },
       },
-    }) => <ProjectPreview projects={projects} {...props} />}
+    }) => <ProjectPreview projects={mainProjects} {...props} />}
   />
 )

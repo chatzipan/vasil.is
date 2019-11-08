@@ -50,7 +50,7 @@ class Layout extends Component {
       children,
       data: {
         site: {
-          siteMetadata: { title, projects },
+          siteMetadata: { title, mainProjects: projects },
         },
       },
       isProjectPage,
@@ -83,7 +83,7 @@ export default props => (
             title
             description
             keywords
-            projects {
+            mainProjects {
               client
             }
           }

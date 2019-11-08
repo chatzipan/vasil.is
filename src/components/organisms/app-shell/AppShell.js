@@ -14,12 +14,15 @@ detectTabbing()
 
 const AppShell = ({ children, isProjectPage, projects }) => {
   const { theme } = useTheme()
+
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]: isProjectPage,
     [styles.navOpen]: isNavOpen,
   })
-  const menuClasses = cx(styles.menu, { [styles.navOpen]: isNavOpen })
+  const menuClasses = cx(styles.menu, styles[theme], {
+    [styles.navOpen]: isNavOpen,
+  })
   const toggleNav = useCallback(() => {
     setIsNavOpen(!isNavOpen)
   }, [isNavOpen])

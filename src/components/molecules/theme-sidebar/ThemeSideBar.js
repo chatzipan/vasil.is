@@ -73,8 +73,8 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
       <nav className={styles.nav}>
         {isProjectPage && (
           <>
-            <Link className={styles.link}>
-              <Home alt={theme} className={styles.icon} to="/" />
+            <Link className={styles.link} to="/">
+              <Home alt={theme} className={styles.icon} />
             </Link>
             <Link className={styles.link} to={`/projects/${next}`}>
               <ArrowRight alt={theme} className={styles.icon} />

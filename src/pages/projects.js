@@ -5,50 +5,48 @@ import { Link } from 'gatsby'
 
 import { ProjectPreview } from '../components/molecules'
 import { Layout } from '../components/organisms'
+import { Logo } from '../components/atoms'
+import CellularLogo from '../assets/images/cellular_logo.png'
 
 import { useTheme } from '../hooks'
 
-import styles from './index.module.css'
+import styles from './projects.module.css'
 
-const ProjectsOverviewPage = () => {
+const ProjectsOverviewPage = ({ projects }) => {
   const { theme } = useTheme()
-  const [lastFocusedClient, setLastFocusedClient] = useState('')
-  const [focusedClient, setFocusedClient] = useState(false)
-  const timeOutRef = useRef()
-
-  const [timeout] = useState(false)
-  const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
-  const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
-  const clientsClass = cx(styles.clients, { [styles.dark]: theme === 'dark' })
-  const backgroundClass = cx(styles.background, {
-    [styles.show]: focusedClient,
-    [styles.hide]: focusedClient === '',
-  })
-  const mainClass = cx(styles.row, {
-    [styles.blur]: focusedClient,
-    [styles.unblur]: focusedClient === '',
-    [styles.dark]: theme === 'dark',
-  })
-  const experienceClass = cx(styles.experience, {
-    [styles.dark]: theme === 'dark',
-  })
-
-  const handleClientHover = useCallback(client => {
-    timeOutRef.current = setTimeout(() => {
-      setFocusedClient(client)
-      setLastFocusedClient(client)
-    }, 300)
-  }, [])
-
-  const handleMouseOut = useCallback(() => {
-    clearTimeout(timeOutRef.current)
-    setFocusedClient('')
-  }, [])
 
   return (
-    <Layout isProjectPage>
-      <main className={mainClass}>hi from PRojects</main>
-    </Layout>
+    <main className={styles.logosArea}>
+      {projects.sort().map((client, i) => {
+        const logoClass = cx(
+          styles.logo,
+          styles[theme],
+          styles['style' + client]
+        )
+        const Comp = client === 'Cellular' ? 'img' : Logo
+
+        return (
+          <Comp
+            className={logoClass}
+            key={client}
+            name={client}
+            src={CellularLogo}
+            style={{ animationDelay: i * 0.2 + 's' }}
+          />
+        )
+      })}
+      <h2 className={cx(styles.contact, styles[theme])}>
+        Do you want to be a part of this list?&nbsp;
+        <a
+          className={styles.link}
+          href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Get in touch!
+        </a>
+      </h2>
+    </main>
   )
 }
 
@@ -58,7 +56,10 @@ export default props => (
       query {
         site {
           siteMetadata {
-            projects {
+            mainProjects {
+              client
+            }
+            otherProjects {
               client
             }
           }
@@ -67,8 +68,17 @@ export default props => (
     `}
     render={({
       site: {
-        siteMetadata: { projects },
+        siteMetadata: { mainProjects, otherProjects },
       },
-    }) => <ProjectsOverviewPage projects={projects} {...props} />}
+    }) => (
+      <Layout isProjectPage>
+        <ProjectsOverviewPage
+          projects={[...mainProjects, ...otherProjects].map(
+            ({ client }) => client
+          )}
+          {...props}
+        />
+      </Layout>
+    )}
   />
 )
