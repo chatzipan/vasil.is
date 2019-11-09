@@ -16,7 +16,7 @@
        height="30"
        width="38"
        id="rect4006"
-       style="fill:white;fill-opacity:1;fill-rule:evenodd;stroke:white;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="fill:transparent;fill-opacity:1;fill-rule:evenodd;stroke:white;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <rect
        style="fill:black;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        id="rect2248"
@@ -36,7 +36,7 @@
        rx="0"
        ry="0" />
     <path
-       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+       style="fill:transparent;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
        d="M 8,13.174564 L 22,27 C 23.124807,28.198901 23.884336,28.18857 25.046312,27.033012 L 40.077307,12.820449"
        id="path4000"
        />

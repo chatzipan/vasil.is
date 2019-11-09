@@ -18,6 +18,7 @@
   filter: grayscale(1);
   animation: reveal 1s ease-in forwards;
   opacity: 0;
+  will-change: transform;
 
   &:nth-child(1) {
     animation-delay: 0.1s;

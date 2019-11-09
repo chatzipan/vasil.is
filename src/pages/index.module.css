@@ -19,6 +19,19 @@
     }
   }
 
+  &.hide {
+    & .hi,
+    & .clientText,
+    & .clientBtn,
+    & .experience,
+    & .intro,
+    & .name {
+      transition: all 0.5s !important;
+      filter: blur(10px) !important;
+      opacity: 0 !important;
+    }
+  }
+
   &.unblur {
     & .hi,
     & .clientText,
@@ -146,6 +159,23 @@
     filter: blur(5px);
     opacity: 0.25;
     transform: translateX(5px);
+  }
+}
+
+@keyframes hide {
+  from {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  50% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    filter: blur(20px) !important;
+    opacity: 0 !important;
   }
 }
 

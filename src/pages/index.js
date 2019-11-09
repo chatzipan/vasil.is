@@ -1,12 +1,17 @@
-import React, { Fragment, useCallback, useState, useRef } from 'react'
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useState,
+  useRef,
+} from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import { Link } from 'gatsby'
+import TransitionLink from 'gatsby-plugin-transition-link'
 import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
-import { Layout } from '../components/organisms'
-
 import { useTheme } from '../hooks'
 
 import styles from './index.module.css'
@@ -18,16 +23,14 @@ const HomePage = ({ projects }) => {
   const timeOutRef = useRef()
   const { t } = useTranslation()
   const [timeout] = useState(false)
+  const [linkClicked, setLinkClicked] = useState(false)
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
   const clientsClass = cx(styles.clients, { [styles.dark]: theme === 'dark' })
-  const backgroundClass = cx(styles.background, {
-    [styles.show]: focusedClient,
-    [styles.hide]: focusedClient === '',
-  })
   const mainClass = cx(styles.row, {
     [styles.blur]: focusedClient,
-    [styles.unblur]: focusedClient === '',
+    [styles.hide]: linkClicked,
+    [styles.unblur]: focusedClient === '' && !linkClicked,
     [styles.dark]: theme === 'dark',
   })
   const experienceClass = cx(styles.experience, {
@@ -41,9 +44,20 @@ const HomePage = ({ projects }) => {
     }, 300)
   }, [])
 
+  useEffect(() => {
+    if (linkClicked) {
+      clearTimeout(timeOutRef.current)
+    }
+  }, [linkClicked])
+
   const handleMouseOut = useCallback(() => {
     clearTimeout(timeOutRef.current)
     setFocusedClient('')
+  }, [])
+
+  const handleOnClick = useCallback(() => {
+    setFocusedClient('')
+    setLinkClicked(true)
   }, [])
 
   return (
@@ -78,9 +92,11 @@ const HomePage = ({ projects }) => {
 
               return (
                 <Fragment key={client}>
-                  <Link
+                  <TransitionLink
                     className={clientBtnClasses}
+                    exit={{ delay: 0.5 }}
                     onBlur={handleMouseOut}
+                    onClick={handleOnClick}
                     onFocus={() => handleClientHover(client)}
                     onMouseOver={() => handleClientHover(client)}
                     onMouseOut={handleMouseOut}
@@ -88,7 +104,7 @@ const HomePage = ({ projects }) => {
                     to={`/projects/${client.toLowerCase()}`}
                   >
                     {client}
-                  </Link>
+                  </TransitionLink>
                   <span className={styles.clientText}>
                     {i === projects.length - 1 ? ' ' : ', '}
                   </span>
@@ -122,10 +138,6 @@ export default props => (
       site: {
         siteMetadata: { mainProjects },
       },
-    }) => (
-      <Layout>
-        <HomePage projects={mainProjects} {...props} />
-      </Layout>
-    )}
+    }) => <HomePage projects={mainProjects} {...props} />}
   />
 )

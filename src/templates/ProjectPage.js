@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 
 import { ProjectPreview } from '../components/molecules'
-import { Layout } from '../components/organisms'
 
 import xing_desktop from '../assets/images/xing_desktop.png'
 import xing_mobile from '../assets/images/xing_mobile3.png'
+import { useNavigation } from '../hooks'
 
 import styles from './ProjectPage.module.css'
 
@@ -18,22 +18,25 @@ const screenshots = {
 }
 
 const ProjectPage = ({ project }) => {
+  const { linkClicked } = useNavigation()
   const { desktop, mobile } = screenshots[project] || screenshots.Xing
   const screenshotClass = cx(styles.screenshot)
+  const projectClass = cx(styles.project, {
+    [styles.hide]: linkClicked,
+  })
+
   return (
-    <Layout isProjectPage>
-      <main className={styles.main}>
-        <section className={styles.project}>
-          <div className={styles.screenshot}>
-            <img src={desktop} />
-          </div>
-          <div className={styles.screenshot}>
-            <img src={mobile} />
-          </div>
-        </section>
-        <ProjectPreview focusedProject={project} isProjectPage />
-      </main>
-    </Layout>
+    <main className={styles.main}>
+      <section className={projectClass}>
+        <div className={styles.screenshot}>
+          <img src={desktop} />
+        </div>
+        <div className={styles.screenshot}>
+          <img src={mobile} />
+        </div>
+      </section>
+      <ProjectPreview focusedProject={project} isProjectPage />
+    </main>
   )
 }
 

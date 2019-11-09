@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import InternalProvider from 'gatsby-plugin-transition-link/context/InternalProvider'
 
 import '../../../i18n'
 
 import { ThemeProvider } from '../../../context/ThemeContext'
 import { LanguageContextProvider } from '../../../context/LanguageContext'
+import { NavigationContextProvider } from '../../../context/NavigationContext'
 
 import { AppShell } from '../'
 
@@ -54,22 +56,26 @@ class Layout extends Component {
         },
       },
       isProjectPage,
+      location,
     } = this.props
 
     return (
-      <>
+      <InternalProvider>
         <Helmet title={title} meta={this.meta} />
         <ThemeProvider>
           <LanguageContextProvider>
-            <AppShell
-              isProjectPage={isProjectPage}
-              projects={projects.map(({ client }) => client.toLowerCase())}
-            >
-              {children}
-            </AppShell>
+            <NavigationContextProvider location={location}>
+              <AppShell
+                isProjectPage={isProjectPage}
+                location={location}
+                projects={projects.map(({ client }) => client.toLowerCase())}
+              >
+                {children}
+              </AppShell>
+            </NavigationContextProvider>
           </LanguageContextProvider>
         </ThemeProvider>
-      </>
+      </InternalProvider>
     )
   }
 }

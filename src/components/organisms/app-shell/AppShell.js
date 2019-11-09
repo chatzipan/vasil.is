@@ -1,20 +1,19 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import { Link } from 'gatsby'
+import TransitionLink from 'gatsby-plugin-transition-link'
 
 import { SocialSideBar, ThemeSideBar } from '../../molecules'
 import detectTabbing from '../../../utils/accessibity'
-
-import { useTheme } from '../../../hooks'
+import { usePrevious, useTheme } from '../../../hooks'
 
 import styles from './appShell.module.css'
 
 detectTabbing()
 
-const AppShell = ({ children, isProjectPage, projects }) => {
+const AppShell = ({ children, isProjectPage, location, projects }) => {
   const { theme } = useTheme()
-
+  const previousPathname = usePrevious(location.pathname)
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]: isProjectPage,
@@ -23,31 +22,38 @@ const AppShell = ({ children, isProjectPage, projects }) => {
   const menuClasses = cx(styles.menu, styles[theme], {
     [styles.navOpen]: isNavOpen,
   })
+
   const toggleNav = useCallback(() => {
     setIsNavOpen(!isNavOpen)
   }, [isNavOpen])
+
+  useEffect(() => {
+    if (!isProjectPage || previousPathname !== location.pathname) {
+      setIsNavOpen(false)
+    }
+  }, [isProjectPage, previousPathname, location.pathname])
 
   return (
     <div className={classes}>
       <nav className={menuClasses}>
         <ul className={styles.projectList}>
           {[...projects].sort().map(project => (
-            <Link
+            <TransitionLink
               className={styles.item}
               key={project}
               tabIndex={isNavOpen ? '0' : '-1'}
               to={`/projects/${project}`}
             >
               {project}
-            </Link>
+            </TransitionLink>
           ))}
-          <Link
+          <TransitionLink
             className={styles.item}
             tabIndex={isNavOpen ? '0' : '-1'}
             to="/projects"
           >
             All projects
-          </Link>
+          </TransitionLink>
         </ul>
       </nav>
       <ThemeSideBar

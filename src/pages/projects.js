@@ -1,10 +1,8 @@
 import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
-import { Link } from 'gatsby'
 
 import { ProjectPreview } from '../components/molecules'
-import { Layout } from '../components/organisms'
 import { Logo } from '../components/atoms'
 import CellularLogo from '../assets/images/cellular_logo.png'
 
@@ -71,14 +69,12 @@ export default props => (
         siteMetadata: { mainProjects, otherProjects },
       },
     }) => (
-      <Layout isProjectPage>
-        <ProjectsOverviewPage
-          projects={[...mainProjects, ...otherProjects].map(
-            ({ client }) => client
-          )}
-          {...props}
-        />
-      </Layout>
+      <ProjectsOverviewPage
+        projects={[...mainProjects, ...otherProjects].map(
+          ({ client }) => client
+        )}
+        {...props}
+      />
     )}
   />
 )

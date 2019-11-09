@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'gatsby'
+import TransitionLink from 'gatsby-plugin-transition-link'
 
-import { useLanguage, useTheme } from '../../../hooks'
+import { useLanguage, useNavigation, useTheme } from '../../../hooks'
 
 import Moon from '../../../assets/svgs/moon.svg'
 import FlagEn from '../../../assets/svgs/flag_englang.svg'
@@ -46,7 +47,7 @@ const getNextLang = current => {
 const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
   const { language, selectLanguage } = useLanguage()
   const { changeTheme, theme } = useTheme()
-
+  const { handleLinkClick } = useNavigation()
   const FlagIcon = flags[language] || FlagEn
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]
@@ -73,15 +74,30 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
       <nav className={styles.nav}>
         {isProjectPage && (
           <>
-            <Link className={styles.link} to="/">
+            <TransitionLink
+              className={styles.link}
+              exit={{ delay: 1 }}
+              onClick={handleLinkClick}
+              to="/"
+            >
               <Home alt={theme} className={styles.icon} />
-            </Link>
-            <Link className={styles.link} to={`/projects/${next}`}>
+            </TransitionLink>
+            <TransitionLink
+              className={styles.link}
+              exit={{ delay: 1 }}
+              onClick={handleLinkClick}
+              to={`/projects/${next}`}
+            >
               <ArrowRight alt={theme} className={styles.icon} />
-            </Link>
-            <Link className={styles.link} to={`/projects/${previous}`}>
+            </TransitionLink>
+            <TransitionLink
+              className={styles.link}
+              exit={{ delay: 1 }}
+              onClick={handleLinkClick}
+              to={`/projects/${previous}`}
+            >
               <ArrowLeft alt={theme} className={styles.icon} />
-            </Link>
+            </TransitionLink>
           </>
         )}
         <button

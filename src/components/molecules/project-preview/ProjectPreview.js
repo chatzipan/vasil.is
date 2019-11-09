@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { Logo } from '../../atoms'
 import styles from './ProjectPreview.module.css'
+import { useNavigation } from '../../../hooks'
 
 const ProjectPreview = ({
   focusedProject,
@@ -12,15 +13,18 @@ const ProjectPreview = ({
   lastFocusedProject,
   projects,
 }) => {
+  const { linkClicked } = useNavigation()
   const logoStyle = isProjectPage ? focusedProject : lastFocusedProject
   const { agency, period, position, sector, stack } =
-    projects.find(({ client }) => client === focusedProject) ||
-    projects.find(({ client }) => client === lastFocusedProject) ||
-    {}
+    projects.find(({ client }) =>
+      [focusedProject, lastFocusedProject].includes(client)
+    ) || {}
   const lineClass = cx(styles.backgroundLine, {
-    [styles.show]: focusedProject || isProjectPage,
-    [styles['style' + lastFocusedProject]]: lastFocusedProject,
+    [styles.show]: focusedProject && !isProjectPage,
+    [styles[`style${lastFocusedProject || focusedProject}`]]:
+      lastFocusedProject || isProjectPage,
     [styles.isProjectPage]: isProjectPage,
+    [styles.hide]: linkClicked,
   })
   const logoClass = cx(styles.logo, {
     [styles['style' + logoStyle]]: logoStyle,
@@ -33,9 +37,8 @@ const ProjectPreview = ({
     [styles['style' + focusedProject]]: focusedProject,
   })
   const backgroundClass = cx(styles.wrapper, {
-    [styles.isProjectPage]: isProjectPage,
-    [styles.show]: focusedProject || isProjectPage,
-    [styles.hide]: focusedProject === '',
+    [styles.show]: (focusedProject || isProjectPage) && !linkClicked,
+    [styles.hide]: focusedProject === '' || linkClicked,
     [styles['style' + focusedProject]]: focusedProject,
   })
 
