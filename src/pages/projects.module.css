@@ -99,6 +99,8 @@
   font-size: inherit;
   margin-top: 5vw;
   width: 100%;
+  animation: reveal 1s ease-in forwards 1s;
+  opacity: 0;
 
   &.dark {
     color: var(--white);

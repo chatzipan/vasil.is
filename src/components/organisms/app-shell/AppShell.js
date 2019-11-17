@@ -61,7 +61,7 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
         projects={projects}
         toggleNav={toggleNav}
       />
-      <div style={{ gridArea: 'content' }}>{children}</div>
+      <div className={styles.page}>{children}</div>
       {!isProjectPage && <SocialSideBar />}
     </div>
   )

@@ -193,7 +193,7 @@
     animation: revealLine 0.6s ease-in-out forwards;
 
     &.hide {
-      animation: hideLine 0.6s ease-in-out forwards;
+      animation: hideLine 0.3s ease-out forwards;
       animation-delay: 0.3s;
     }
   }

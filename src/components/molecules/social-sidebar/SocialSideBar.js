@@ -41,6 +41,7 @@ const SocialSideBar = () => {
             href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
             rel="noopener noreferrer"
             target="_blank"
+            style={{ color: 'currentColor' }}
           >
             <Email className={cx(styles.logo, styles.email, styles[theme])} />
           </a>

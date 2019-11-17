@@ -31,12 +31,13 @@
 
 .dark {
   color: white;
-  background-color: #000000e6;
+  background-color: #191919;
 }
 
 .menu {
-  width: 44vw;
-  transform: translateX(-44vw);
+  /* needed +1px because of a 1px gap between page and menu, visible on dark mode */
+  width: calc(44vw + 2px);
+  transform: translateX(calc(-44vw + -1px));
   padding: 1.5vw 0;
 }
 
@@ -51,6 +52,10 @@
   line-height: 1.4;
   color: inherit;
   margin-bottom: 0.2vw;
+}
+
+.page {
+  grid-area: content;
 }
 
 :global(body.user-is-tabbing *:focus) {

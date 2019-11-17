@@ -2,10 +2,6 @@
 
 .sidebar {
   width: 6vw;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -70,6 +66,7 @@
   }
   &.email {
     width: 1.5vw;
+    color: currentColor;
   }
 }
 
