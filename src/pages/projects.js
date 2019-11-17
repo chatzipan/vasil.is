@@ -11,7 +11,9 @@ import { useUI } from '../hooks'
 import styles from './projects.module.css'
 
 const ProjectsOverviewPage = ({ projects }) => {
-  const { theme: theme } = useUI()
+  const {
+    theme: { theme },
+  } = useUI()
 
   return (
     <main className={styles.logosArea}>
@@ -25,11 +27,13 @@ const ProjectsOverviewPage = ({ projects }) => {
 
         return (
           <Comp
+            alt={`${client} logo`}
             className={logoClass}
             key={client}
             name={client}
             src={CellularLogo}
-            style={{ animationDelay: i * 0.2 + 's' }}
+            style={{ animationDelay: i * 0.1 + 's' }}
+            title={client}
           />
         )
       })}

@@ -51,6 +51,7 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
     theme: { changeTheme, theme },
   } = useUI()
   const FlagIcon = flags[language] || FlagEn
+  const transitionDelay = window.location.pathname === '/projects' ? 0.5 : 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]
   const { next, previous } = getProjectUrls(current, projects)
@@ -78,7 +79,7 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
           <>
             <TransitionLink
               className={styles.link}
-              exit={{ delay: 1 }}
+              exit={{ delay: transitionDelay }}
               onClick={handleLinkClick}
               to="/"
             >
@@ -86,7 +87,7 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
             </TransitionLink>
             <TransitionLink
               className={styles.link}
-              exit={{ delay: 1 }}
+              exit={{ delay: transitionDelay }}
               onClick={handleLinkClick}
               to={`/projects/${next}`}
             >
@@ -94,7 +95,7 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
             </TransitionLink>
             <TransitionLink
               className={styles.link}
-              exit={{ delay: 1 }}
+              exit={{ delay: transitionDelay }}
               onClick={handleLinkClick}
               to={`/projects/${previous}`}
             >

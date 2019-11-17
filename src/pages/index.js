@@ -66,6 +66,10 @@ const HomePage = ({ projects }) => {
     setLinkClicked(true)
   }, [])
 
+  const handleOnMoreClick = useCallback(() => {
+    setLinkClicked(true)
+  }, [])
+
   return (
     <>
       <ProjectPreview
@@ -118,7 +122,16 @@ const HomePage = ({ projects }) => {
               )
             })}
             <span className={styles.clientText}>
-              and more, to build high-quality web applications and websites.
+              and&nbsp;
+              <TransitionLink
+                className={styles.clientBtn}
+                exit={{ delay: 0.5 }}
+                onClick={handleOnMoreClick}
+                to="/projects"
+              > 
+                more
+              </TransitionLink>
+              , to build high-quality web applications and websites.
             </span>
           </h3>
         </div>

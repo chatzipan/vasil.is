@@ -107,6 +107,9 @@
   }
 }
 
+.clientText {
+  color: inherit;
+}
 .experience {
   font-size: 2.6vw;
 }

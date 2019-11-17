@@ -31,10 +31,10 @@ const logos = {
   Zalando: ZalandoLogo,
 }
 
-const Logo = ({ className, name }) => {
+const Logo = ({ name, ...rest }) => {
   const Logo = logos[name] || 'div'
 
-  return <Logo className={className} />
+  return <Logo {...rest} />
 }
 
 Logo.propTypes = {
