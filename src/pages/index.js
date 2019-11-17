@@ -18,6 +18,7 @@ import styles from './index.module.css'
 
 const HomePage = ({ projects }) => {
   const {
+    homepage: { setProjectPreviewOpen },
     theme: { theme },
   } = useUI()
   const [lastFocusedClient, setLastFocusedClient] = useState('')
@@ -42,6 +43,7 @@ const HomePage = ({ projects }) => {
   const handleClientHover = useCallback(client => {
     timeOutRef.current = setTimeout(() => {
       setFocusedClient(client)
+      setProjectPreviewOpen(true)
       setLastFocusedClient(client)
     }, 300)
   }, [])
@@ -55,10 +57,12 @@ const HomePage = ({ projects }) => {
   const handleMouseOut = useCallback(() => {
     clearTimeout(timeOutRef.current)
     setFocusedClient('')
+    setProjectPreviewOpen(false)
   }, [])
 
   const handleOnClick = useCallback(() => {
     setFocusedClient('')
+    setProjectPreviewOpen(false)
     setLinkClicked(true)
   }, [])
 

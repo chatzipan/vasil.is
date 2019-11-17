@@ -5,6 +5,10 @@ import { useTranslation } from 'react-i18next'
 import { usePrevious } from '../hooks'
 
 const UIContext = createContext({
+  homepage: {
+    projectPreviewOpen: false,
+    setProjectPreviewOpen: () => {},
+  },
   language: {
     language: 'en',
     selectLanguage: () => true,
@@ -24,6 +28,7 @@ export const UIProvider = ({ children, location }) => {
   const [language, setLanguage] = useState(i18n.language)
   const [theme, setTheme] = useState('light')
   const [linkClicked, setLinkClicked] = useState(false)
+  const [projectPreviewOpen, setProjectPreviewOpen] = useState(false)
   const previousPathname = usePrevious(location.pathname)
 
   useEffect(() => {
@@ -63,6 +68,10 @@ export const UIProvider = ({ children, location }) => {
   )
 
   const providedValues = {
+    homepage: {
+      projectPreviewOpen,
+      setProjectPreviewOpen,
+    },
     language: {
       language,
       selectLanguage,

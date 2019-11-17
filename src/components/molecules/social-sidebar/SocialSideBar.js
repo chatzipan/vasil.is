@@ -33,17 +33,22 @@ const logos = [
 
 const SocialSideBar = () => {
   const {
+    homepage: { projectPreviewOpen },
     theme: { theme },
   } = useUI()
+  const sidebarClasses = cx(styles.sidebar, {
+    [styles.covered]: projectPreviewOpen,
+  })
+
   return (
-    <nav className={styles.sidebar}>
+    <nav className={sidebarClasses}>
       <ul className={styles.list}>
         <li className={styles.listItem}>
           <a
             href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
             rel="noopener noreferrer"
             target="_blank"
-            style={{ color: 'currentColor' }}
+            className={styles.link}
           >
             <Email className={cx(styles.logo, styles.email, styles[theme])} />
           </a>
