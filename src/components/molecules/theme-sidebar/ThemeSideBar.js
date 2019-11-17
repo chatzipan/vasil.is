@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { Link } from 'gatsby'
 import TransitionLink from 'gatsby-plugin-transition-link'
 
-import { useLanguage, useNavigation, useTheme } from '../../../hooks'
+import { useUI } from '../../../hooks'
 
 import Moon from '../../../assets/svgs/moon.svg'
 import FlagEn from '../../../assets/svgs/flag_englang.svg'
@@ -45,9 +45,11 @@ const getNextLang = current => {
 }
 
 const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
-  const { language, selectLanguage } = useLanguage()
-  const { changeTheme, theme } = useTheme()
-  const { handleLinkClick } = useNavigation()
+  const {
+    language: { language, selectLanguage },
+    navigation: { handleLinkClick },
+    theme: { changeTheme, theme },
+  } = useUI()
   const FlagIcon = flags[language] || FlagEn
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]

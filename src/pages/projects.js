@@ -6,12 +6,12 @@ import { ProjectPreview } from '../components/molecules'
 import { Logo } from '../components/atoms'
 import CellularLogo from '../assets/images/cellular_logo.png'
 
-import { useTheme } from '../hooks'
+import { useUI } from '../hooks'
 
 import styles from './projects.module.css'
 
 const ProjectsOverviewPage = ({ projects }) => {
-  const { theme } = useTheme()
+  const { theme: theme } = useUI()
 
   return (
     <main className={styles.logosArea}>

@@ -6,7 +6,7 @@ import { ProjectPreview } from '../components/molecules'
 
 import xing_desktop from '../assets/images/xing_desktop.png'
 import xing_mobile from '../assets/images/xing_mobile3.png'
-import { useNavigation } from '../hooks'
+import { useUI } from '../hooks'
 
 import styles from './ProjectPage.module.css'
 
@@ -18,7 +18,9 @@ const screenshots = {
 }
 
 const ProjectPage = ({ project }) => {
-  const { linkClicked } = useNavigation()
+  const {
+    navigation: { linkClicked },
+  } = useUI()
   const { desktop, mobile } = screenshots[project] || screenshots.Xing
   const screenshotClass = cx(styles.screenshot)
   const projectClass = cx(styles.project, {

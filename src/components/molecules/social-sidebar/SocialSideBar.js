@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import { useTheme } from '../../../hooks'
+import { useUI } from '../../../hooks'
 
 import Email from '../../../assets/svgs/email.svg'
 import LinkedIn from '../../../assets/svgs/linkedin.svg'
@@ -32,7 +32,9 @@ const logos = [
 ]
 
 const SocialSideBar = () => {
-  const { theme } = useTheme()
+  const {
+    theme: { theme },
+  } = useUI()
   return (
     <nav className={styles.sidebar}>
       <ul className={styles.list}>

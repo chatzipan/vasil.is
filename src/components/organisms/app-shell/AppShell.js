@@ -5,14 +5,16 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 
 import { SocialSideBar, ThemeSideBar } from '../../molecules'
 import detectTabbing from '../../../utils/accessibity'
-import { usePrevious, useTheme } from '../../../hooks'
+import { usePrevious, useUI } from '../../../hooks'
 
 import styles from './appShell.module.css'
 
 detectTabbing()
 
 const AppShell = ({ children, isProjectPage, location, projects }) => {
-  const { theme } = useTheme()
+  const {
+    theme: { theme },
+  } = useUI()
   const previousPathname = usePrevious(location.pathname)
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {

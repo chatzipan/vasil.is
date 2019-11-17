@@ -6,10 +6,7 @@ import InternalProvider from 'gatsby-plugin-transition-link/context/InternalProv
 
 import '../../../i18n'
 
-import { ThemeProvider } from '../../../context/ThemeContext'
-import { LanguageContextProvider } from '../../../context/LanguageContext'
-import { NavigationContextProvider } from '../../../context/NavigationContext'
-
+import { UIProvider } from '../../../context/UIContext'
 import { AppShell } from '../'
 
 import '../../../styles/layout.css'
@@ -62,19 +59,15 @@ class Layout extends Component {
     return (
       <InternalProvider>
         <Helmet title={title} meta={this.meta} />
-        <ThemeProvider>
-          <LanguageContextProvider>
-            <NavigationContextProvider location={location}>
-              <AppShell
-                isProjectPage={isProjectPage}
-                location={location}
-                projects={projects.map(({ client }) => client.toLowerCase())}
-              >
-                {children}
-              </AppShell>
-            </NavigationContextProvider>
-          </LanguageContextProvider>
-        </ThemeProvider>
+        <UIProvider location={location}>
+          <AppShell
+            isProjectPage={isProjectPage}
+            location={location}
+            projects={projects.map(({ client }) => client.toLowerCase())}
+          >
+            {children}
+          </AppShell>
+        </UIProvider>
       </InternalProvider>
     )
   }

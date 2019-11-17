@@ -12,12 +12,14 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
-import { useTheme } from '../hooks'
+import { useUI } from '../hooks'
 
 import styles from './index.module.css'
 
 const HomePage = ({ projects }) => {
-  const { theme } = useTheme()
+  const {
+    theme: { theme },
+  } = useUI()
   const [lastFocusedClient, setLastFocusedClient] = useState('')
   const [focusedClient, setFocusedClient] = useState(false)
   const timeOutRef = useRef()

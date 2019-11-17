@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { Logo } from '../../atoms'
 import styles from './ProjectPreview.module.css'
-import { useNavigation } from '../../../hooks'
+import { useUI } from '../../../hooks'
 
 const ProjectPreview = ({
   focusedProject,
@@ -13,7 +13,9 @@ const ProjectPreview = ({
   lastFocusedProject,
   projects,
 }) => {
-  const { linkClicked } = useNavigation()
+  const {
+    navigation: { linkClicked },
+  } = useUI()
   const logoStyle = isProjectPage ? focusedProject : lastFocusedProject
   const { agency, period, position, sector, stack } =
     projects.find(({ client }) =>
