@@ -49,7 +49,7 @@ class Layout extends Component {
       children,
       data: {
         site: {
-          siteMetadata: { title, mainProjects: projects },
+          siteMetadata: { title, mainProjects, ownProjects },
         },
       },
       isProjectPage,
@@ -63,7 +63,9 @@ class Layout extends Component {
           <AppShell
             isProjectPage={isProjectPage}
             location={location}
-            projects={projects.map(({ client }) => client.toLowerCase())}
+            projects={[...mainProjects, ...ownProjects].map(({ client }) =>
+              client.toLowerCase()
+            )}
           >
             {children}
           </AppShell>
@@ -83,6 +85,9 @@ export default props => (
             description
             keywords
             mainProjects {
+              client
+            }
+            ownProjects {
               client
             }
           }

@@ -64,6 +64,9 @@ export default props => (
             otherProjects {
               client
             }
+            ownProjects {
+              client
+            }
           }
         }
       }

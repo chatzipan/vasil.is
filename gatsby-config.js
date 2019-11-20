@@ -138,7 +138,7 @@ module.exports = {
     ],
     ownProjects: [
       {
-        client: 'OASA',
+        client: 'Oasa',
         period: '2019',
         sector: 'Public Transport',
         position: 'Own Project',

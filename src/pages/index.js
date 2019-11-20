@@ -128,7 +128,7 @@ const HomePage = ({ projects }) => {
                 exit={{ delay: 0.5 }}
                 onClick={handleOnMoreClick}
                 to="/projects"
-              > 
+              >
                 more
               </TransitionLink>
               , to build high-quality web applications and websites.
@@ -146,7 +146,13 @@ export default props => (
       query {
         site {
           siteMetadata {
+            title
+            description
+            keywords
             mainProjects {
+              client
+            }
+            ownProjects {
               client
             }
           }

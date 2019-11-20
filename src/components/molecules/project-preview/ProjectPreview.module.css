@@ -33,6 +33,14 @@
   &.styleXing {
     color: white;
   }
+
+  &.styleOasa {
+    margin-top: 0;
+    padding-top: 2vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 13vw;
+  }
 }
 
 .list {
@@ -54,6 +62,9 @@
   }
   &.styleOTTO {
     color: #5f0306;
+  }
+  &.styleOasa {
+    color: #00443e;
   }
   &.styleZalando {
     color: #be4b09;
@@ -90,6 +101,15 @@
       #00d296,
       #199980 50%,
       #007575
+    );
+  }
+
+  &.styleOasa {
+    background-image: radial-gradient(
+      circle at top,
+      #fb79c5 30%,
+      #f0008c 60%,
+      #d60f81
     );
   }
 
@@ -153,6 +173,15 @@
   margin: 0;
   transition: transform 0.3s ease-in;
   transform: translateY(100%);
+
+  &.styleOasa {
+    background-image: linear-gradient(
+      to bottom,
+      #d60f81 30%,
+      #f0008c 60%,
+      #fb79c5
+    );
+  }
 
   &.styleOTTO {
     background-image: linear-gradient(to bottom, #f76e72, #db1f26 50%, #db1f26);

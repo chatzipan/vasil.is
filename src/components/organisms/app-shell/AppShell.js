@@ -46,7 +46,7 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
               tabIndex={isNavOpen ? '0' : '-1'}
               to={`/projects/${project}`}
             >
-              {project}
+              {project === 'oasa' ? 'Oasa.Live' : project}
             </TransitionLink>
           ))}
           <TransitionLink

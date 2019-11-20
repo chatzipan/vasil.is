@@ -87,14 +87,23 @@ export default props => (
               position
               stack
             }
+            ownProjects {
+              client
+              period
+              sector
+              position
+              stack
+            }
           }
         }
       }
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects },
+        siteMetadata: { mainProjects, ownProjects },
       },
-    }) => <ProjectPreview projects={mainProjects} {...props} />}
+    }) => (
+      <ProjectPreview projects={[...mainProjects, ...ownProjects]} {...props} />
+    )}
   />
 )

@@ -7,6 +7,7 @@ import EPlusLogo from '../../assets/svgs/eplus_logo.svg'
 import ErgoLogo from '../../assets/svgs/ergo_logo.svg'
 import InfocentricLogo from '../../assets/svgs/infocentric_logo.svg'
 import LeicaGeosystemsLogo from '../../assets/svgs/leica_geosystems_logo.svg'
+import OasaLogo from '../../assets/svgs/oasa_logo.svg'
 import OttoLogo from '../../assets/svgs/otto_logo.svg'
 import ReiffeisenLogo from '../../assets/svgs/raiffeisen_logo.svg'
 import SinnerSchraderLogo from '../../assets/svgs/sinnerschrader_logo.svg'
@@ -22,6 +23,7 @@ const logos = {
   Ergo: ErgoLogo,
   Infocentric: InfocentricLogo,
   LeicaGeosystems: LeicaGeosystemsLogo,
+  Oasa: OasaLogo,
   OTTO: OttoLogo,
   Reiffeisen: ReiffeisenLogo,
   SinnerSchrader: SinnerSchraderLogo,

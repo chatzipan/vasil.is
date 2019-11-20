@@ -11,6 +11,8 @@ import aboutyou_mobile from '../assets/images/aboutyou_mobile.png'
 import ergo_desktop from '../assets/images/ergo_desktop.png'
 import otto_desktop from '../assets/images/otto_desktop.png'
 import otto_mobile from '../assets/images/otto_mobile.png'
+import oasa_desktop from '../assets/images/oasa_desktop.png'
+import oasa_mobile from '../assets/images/oasa_mobile.png'
 import xing_desktop from '../assets/images/xing_desktop.png'
 import xing_mobile from '../assets/images/xing_mobile3.png'
 import vw_desktop from '../assets/images/vw_desktop.png'
@@ -24,6 +26,10 @@ const screenshots = {
   AboutYou: {
     desktop: aboutyou_desktop,
     mobile: aboutyou_mobile,
+  },
+  Oasa: {
+    desktop: oasa_desktop,
+    mobile: oasa_mobile,
   },
   OTTO: {
     desktop: otto_desktop,
@@ -55,6 +61,7 @@ const ProjectPage = ({ project, projects }) => {
   const projectClass = cx(styles.project, {
     [styles.hide]: linkClicked,
   })
+
   const { url } = projects.find(({ client }) => client === project)
   return (
     <main className={styles.main}>
