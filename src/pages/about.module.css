@@ -1,0 +1,64 @@
+@import '../styles/variables.css';
+
+.logosArea {
+  display: flex;
+  flex-wrap: wrap;
+  width: 57vw;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 5vw 0;
+}
+
+.text {
+  text-align: center;
+  color: var(--grey-dark);
+  font-weight: normal;
+  font-size: 1.5vw;
+  margin: 0;
+  line-height: 1.3;
+  width: 100%;
+  animation: reveal 1s ease-in forwards 1s;
+  opacity: 0;
+
+  &.dark {
+    color: var(--white);
+  }
+}
+
+@keyframes reveal {
+  from {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  50% {
+    filter: blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-invert {
+  from {
+    filter: invert() blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  50% {
+    filter: invert() blur(1px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    filter: invert() blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

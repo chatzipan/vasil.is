@@ -134,6 +134,28 @@ const HomePage = ({ projects }) => {
               , to build high-quality web applications and websites.
             </span>
           </h3>
+          <h3 className={clientsClass}>
+            <span className={styles.clientText}>
+              You can read more&nbsp;
+              <TransitionLink
+                className={styles.clientBtn}
+                exit={{ delay: 0.5 }}
+                onClick={handleOnMoreClick}
+                to="/about"
+              >
+                about me
+              </TransitionLink>
+              &nbsp;or&nbsp;
+              <a
+                className={styles.clientBtn}
+                href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                get in touch!
+              </a>
+            </span>
+          </h3>
         </div>
       </main>
     </>
