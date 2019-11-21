@@ -16,9 +16,10 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
     theme: { theme },
   } = useUI()
   const previousPathname = usePrevious(location.pathname)
+  const isAboutPage = location.pathname === '/about'
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {
-    [styles.isProjectPage]: isProjectPage,
+    [styles.isProjectPage]: isProjectPage && !isAboutPage,
     [styles.navOpen]: isNavOpen,
   })
   const menuClasses = cx(styles.menu, styles[theme], {
@@ -64,7 +65,7 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
         toggleNav={toggleNav}
       />
       <div className={styles.page}>{children}</div>
-      {!isProjectPage && <SocialSideBar />}
+      {(!isProjectPage || isAboutPage) && <SocialSideBar />}
     </div>
   )
 }
