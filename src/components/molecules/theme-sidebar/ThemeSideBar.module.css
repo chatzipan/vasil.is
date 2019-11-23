@@ -80,7 +80,6 @@
   text-align: center;
   font-size: 1.2vw;
   text-transform: uppercase;
-  writing-mode: vertical-lr;
   font-weight: bold;
   animation: reveal-menu-toggle 1.75s ease-in;
   border: none;
