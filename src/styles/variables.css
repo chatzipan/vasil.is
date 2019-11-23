@@ -12,3 +12,7 @@
   /* Other */
   --transition-style: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
+/* Media Queries */
+@custom-media --tablet (max-width: 768px);
+@custom-media --mobile (max-width: 455px);

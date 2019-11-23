@@ -38,7 +38,8 @@ const ProjectsOverviewPage = ({ projects }) => {
         )
       })}
       <h2 className={cx(styles.contact, styles[theme])}>
-        Do you want to be a part of this list?&nbsp;
+        Do you want to be a part of this list?
+        <br />
         <a
           className={styles.link}
           href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"

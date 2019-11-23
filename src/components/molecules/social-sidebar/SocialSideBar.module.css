@@ -10,6 +10,16 @@
   padding: 1vw 0;
   grid-area: side-r;
 
+  @media (--tablet) {
+    width: 10vw;
+    padding: 2vw 0;
+  }
+
+  @media (--mobile) {
+    width: 12vw;
+    padding: 4vw 0;
+  }
+
   &.covered {
     z-index: 0;
   }
@@ -29,17 +39,39 @@
   transform: translateY(-3px);
   filter: blur(1px);
   animation: reveal 0.5s ease-in forwards;
-  margin-bottom: 1.2vw;
   position: relative;
   color: currentColor;
 
-  &:not(:nth-child(5)):after {
-    position: absolute;
-    content: '∣';
-    font-size: 0.6vw;
-    bottom: -1vw;
-    bottom: -60%;
-    left: 35%;
+  &:not(:nth-child(5)) {
+    margin-bottom: 1.2vw;
+
+    @media (--tablet) {
+      margin-bottom: 4vw;
+    }
+
+    @media (--mobile) {
+      margin-bottom: 6vw;
+    }
+
+    &:after {
+      position: absolute;
+      content: '∣';
+      font-size: 0.6vw;
+      bottom: -1vw;
+      bottom: -60%;
+      left: 35%;
+
+      @media (--tablet) {
+        font-size: 1.4vw;
+        bottom: -90%;
+        left: 35%;
+      }
+
+      @media (--mobile) {
+        font-size: 2.5vw;
+        bottom: -80%;
+      }
+    }
   }
 
   &:nth-child(5) {
@@ -67,15 +99,20 @@
   width: 1.3vw;
   transition: all 0.5s;
 
+  @media (--tablet) {
+    width: 2.5vw;
+  }
+
+  @media (--mobile) {
+    width: 4.6vw;
+  }
+
   &.light {
-    fill: var(--black);
+    color: var(--grey);
+    fill: var(--grey);
   }
   &.dark {
     fill: white;
-  }
-  &.email {
-    width: 1.5vw;
-    color: currentColor;
   }
 }
 

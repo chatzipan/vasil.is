@@ -17,9 +17,11 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
   } = useUI()
   const previousPathname = usePrevious(location.pathname)
   const isAboutPage = location.pathname === '/about'
+  const isProjectsOverview = location.pathname === '/projects'
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {
-    [styles.isProjectPage]: isProjectPage && !isAboutPage,
+    [styles.isProjectPage]:
+      isProjectPage && !isAboutPage && !isProjectsOverview,
     [styles.navOpen]: isNavOpen,
   })
   const menuClasses = cx(styles.menu, styles[theme], {
@@ -41,22 +43,25 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
       <nav className={menuClasses}>
         <ul className={styles.projectList}>
           {[...projects].sort().map(project => (
+            <li key={project}>
+              <TransitionLink
+                className={styles.item}
+                tabIndex={isNavOpen ? '0' : '-1'}
+                to={`/projects/${project}`}
+              >
+                {project === 'oasa' ? 'Oasa.Live' : project}
+              </TransitionLink>
+            </li>
+          ))}
+          <li>
             <TransitionLink
               className={styles.item}
-              key={project}
               tabIndex={isNavOpen ? '0' : '-1'}
-              to={`/projects/${project}`}
+              to="/projects"
             >
-              {project === 'oasa' ? 'Oasa.Live' : project}
+              All projects
             </TransitionLink>
-          ))}
-          <TransitionLink
-            className={styles.item}
-            tabIndex={isNavOpen ? '0' : '-1'}
-            to="/projects"
-          >
-            All projects
-          </TransitionLink>
+          </li>
         </ul>
       </nav>
       <ThemeSideBar
@@ -65,7 +70,9 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
         toggleNav={toggleNav}
       />
       <div className={styles.page}>{children}</div>
-      {(!isProjectPage || isAboutPage) && <SocialSideBar />}
+      {(!isProjectPage || isAboutPage || isProjectsOverview) && (
+        <SocialSideBar />
+      )}
     </div>
   )
 }

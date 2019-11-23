@@ -11,16 +11,34 @@
   grid-template-areas: 'side-l content side-r';
   will-change: transform;
 
+  @media (--tablet) {
+    grid-template-columns: 10vw 1fr 10vw;
+  }
+
   &.isProjectPage {
     grid-template-columns: 6vw 1fr;
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-areas: 'side-l content';
+
+    @media (--tablet) {
+      grid-template-columns: 10vw 1fr;
+    }
+
+    @media (--mobile) {
+      display: flex;
+      position: relative;
+    }
   }
 
   &.navOpen {
-    transform: translateX(44vw);
+    /* 2px is the width of vertical line */
+    transform: translateX(calc(44vw + 2px));
+
+    @media (--mobile) {
+      transform: translateX(calc(88vw + 2px));
+    }
   }
 }
 
@@ -36,9 +54,17 @@
 
 .menu {
   /* needed +1px because of a 1px gap between page and menu, visible on dark mode */
-  width: calc(44vw + 2px);
-  transform: translateX(calc(-44vw + -1px));
+  width: calc(44vw + 4px);
+  transform: translateX(calc(-44vw - 3px));
   padding: 1.5vw 0;
+
+  @media (--mobile) {
+    width: calc(88vw + 4px);
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -44vw;
+  }
 }
 
 .projectList {
@@ -52,6 +78,16 @@
   line-height: 1.4;
   color: inherit;
   margin-bottom: 0.2vw;
+
+  @media (--tablet) {
+    font-size: 4.5vw;
+    margin-bottom: 0.5vw;
+  }
+
+  @media (--mobile) {
+    font-size: 8.5vw;
+    margin-bottom: 0.5vw;
+  }
 }
 
 .page {

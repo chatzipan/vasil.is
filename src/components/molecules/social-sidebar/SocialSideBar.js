@@ -14,19 +14,19 @@ import styles from './SocialSideBar.module.css'
 
 const logos = [
   {
-    Component: LinkedIn,
+    Logo: LinkedIn,
     url: 'https://www.linkedin.com/in/vasilis-chatzipanagiotis',
   },
   {
-    Component: Twitter,
+    Logo: Twitter,
     url: 'https://twitter.com/__vasilis',
   },
   {
-    Component: Github,
+    Logo: Github,
     url: 'https://github.com/chatzipan',
   },
   {
-    Component: Xing,
+    Logo: Xing,
     url: 'https://www.xing.com/profile/Vasilis_Chatzipanagiotis/cv',
   },
 ]
@@ -50,16 +50,13 @@ const SocialSideBar = () => {
             target="_blank"
             className={styles.link}
           >
-            <Email className={cx(styles.logo, styles.email, styles[theme])} />
+            <Email className={cx(styles.logo, styles[theme])} />
           </a>
         </li>
-        {logos.map(({ Component, url }, i) => (
+        {logos.map(({ Logo, url }, i) => (
           <li className={styles.listItem} key={i}>
             <a href={url} rel="noopener noreferrer" target="_blank">
-              <Component
-                className={cx(styles.logo, styles[theme])}
-                width="100%"
-              />
+              <Logo className={cx(styles.logo, styles[theme])} />
             </a>
           </li>
         ))}

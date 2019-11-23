@@ -10,14 +10,27 @@
   grid-area: side-l;
   z-index: 1;
   color: var(--orange);
-  padding: 1.5vw 0;
+  padding: 1.5vw 0 3vw;
   background: none;
+
+  @media (--tablet) {
+    width: 10vw;
+    padding: 2vw 0 4vw;
+  }
+
+  @media (--mobile) {
+    width: 12vw;
+    padding: 4vw 0 8vw;
+    z-index: 2;
+    mix-blend-mode: difference;
+  }
 
   &.dark {
     color: var(--petrol);
   }
 }
 
+.languageBtn,
 .themeBtn {
   width: 1.4vw;
   background: none;
@@ -28,12 +41,36 @@
   color: inherit;
   animation: reveal 1.5s ease-in;
 
+  @media (--tablet) {
+    width: 2.5vw;
+  }
+
+  @media (--mobile) {
+    width: 4.6vw;
+  }
+
   &.reveal {
     animation: reveal 4s ease-in;
   }
 
   &:active {
     outline: none;
+  }
+}
+
+.languageBtn {
+  position: fixed;
+  bottom: 1.5vw;
+  left: 2.4vw;
+  z-index: 1;
+
+  @media (--tablet) {
+    left: 3.7vw;
+  }
+
+  @media (--mobile) {
+    bottom: 4vw;
+    left: 4vw;
   }
 }
 
@@ -51,6 +88,14 @@
   color: inherit;
   cursor: pointer;
   transform: rotate(-90deg);
+
+  @media (--tablet) {
+    font-size: 2vw;
+  }
+
+  @media (--mobile) {
+    font-size: 4vw;
+  }
 }
 
 .icon {
@@ -66,6 +111,15 @@
   margin-bottom: 1vw;
   animation: reveal 2s ease-in forwards;
   opacity: 0;
+
+  @media (--tablet) {
+    width: 3vw;
+  }
+
+  @media (--mobile) {
+    width: 6vw;
+    margin-bottom: 3vw;
+  }
 
   &:nth-child(1) {
     animation-delay: 0.2s;

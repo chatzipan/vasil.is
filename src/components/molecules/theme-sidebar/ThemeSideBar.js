@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'gatsby'
@@ -60,58 +60,68 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
     [styles.reveal]: !isProjectPage,
   })
 
+  const languageBtnClasses = cx(styles.languageBtn, {
+    [styles.reveal]: !isProjectPage,
+  })
+
+  const changeLanguage = useCallback(() => {
+    selectLanguage(nextLang)
+  }, [nextLang])
+
   return (
-    <div className={classes}>
-      <button
-        className={themeBtnClasses}
-        onClick={changeTheme}
-        title={`Switch to ${mode(theme)} mode`}
-      >
-        <Moon className={styles.icon} />
-      </button>
-      {isProjectPage && (
-        <button className={styles.menuToggle} onClick={toggleNav}>
-          Projects
-        </button>
-      )}
-      <nav className={styles.nav}>
-        {isProjectPage && (
-          <>
-            <TransitionLink
-              className={styles.link}
-              exit={{ delay: transitionDelay }}
-              onClick={handleLinkClick}
-              to="/"
-            >
-              <Home alt={theme} className={styles.icon} />
-            </TransitionLink>
-            <TransitionLink
-              className={styles.link}
-              exit={{ delay: transitionDelay }}
-              onClick={handleLinkClick}
-              to={`/projects/${next}`}
-            >
-              <ArrowRight alt={theme} className={styles.icon} />
-            </TransitionLink>
-            <TransitionLink
-              className={styles.link}
-              exit={{ delay: transitionDelay }}
-              onClick={handleLinkClick}
-              to={`/projects/${previous}`}
-            >
-              <ArrowLeft alt={theme} className={styles.icon} />
-            </TransitionLink>
-          </>
-        )}
+    <>
+      <div className={classes}>
         <button
           className={themeBtnClasses}
-          onClick={() => selectLanguage(nextLang)}
+          onClick={changeTheme}
           title={`Switch to ${mode(theme)} mode`}
         >
-          <FlagIcon className={styles.icon} />
+          <Moon className={styles.icon} />
         </button>
-      </nav>
-    </div>
+        {isProjectPage && (
+          <button className={styles.menuToggle} onClick={toggleNav}>
+            Projects
+          </button>
+        )}
+        <nav className={styles.nav}>
+          {isProjectPage && (
+            <>
+              <TransitionLink
+                className={styles.link}
+                exit={{ delay: transitionDelay }}
+                onClick={handleLinkClick}
+                to="/"
+              >
+                <Home alt={theme} className={styles.icon} />
+              </TransitionLink>
+              <TransitionLink
+                className={styles.link}
+                exit={{ delay: transitionDelay }}
+                onClick={handleLinkClick}
+                to={`/projects/${next}`}
+              >
+                <ArrowRight alt={theme} className={styles.icon} />
+              </TransitionLink>
+              <TransitionLink
+                className={styles.link}
+                exit={{ delay: transitionDelay }}
+                onClick={handleLinkClick}
+                to={`/projects/${previous}`}
+              >
+                <ArrowLeft alt={theme} className={styles.icon} />
+              </TransitionLink>
+            </>
+          )}
+        </nav>
+      </div>
+      <button
+        className={languageBtnClasses}
+        onClick={changeLanguage}
+        title={`Switch to ${nextLang}`}
+      >
+        <FlagIcon className={styles.icon} />
+      </button>
+    </>
   )
 }
 

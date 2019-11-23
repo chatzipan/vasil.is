@@ -9,6 +9,15 @@
   align-items: center;
   margin: 0 auto;
   padding: 5vw 0 10vw;
+
+  @media (--tablet) {
+    width: 65vw;
+    justify-content: space-around;
+  }
+
+  @media (--mobile) {
+    width: 65vw;
+  }
 }
 
 .logo {
@@ -19,6 +28,15 @@
   animation: reveal 1s ease-in forwards;
   opacity: 0;
   will-change: transform;
+
+  @media (--tablet) {
+    width: 18vw;
+    margin-bottom: 4vw;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 2vw;
+    }
+  }
 
   &:nth-child(1) {
     animation-delay: 0.1s;

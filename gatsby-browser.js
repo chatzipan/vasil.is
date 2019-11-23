@@ -14,7 +14,9 @@ exports.wrapPageElement = ({ element, props }) => {
     <Layout
       {...{
         ...props,
-        isProjectPage: ['/project', '/about'].includes(props.location.pathname),
+        isProjectPage:
+          props.location.pathname.includes('/project') ||
+          props.location.pathname.includes('/about'),
       }}
     >
       {element}

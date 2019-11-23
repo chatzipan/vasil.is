@@ -1,3 +1,5 @@
+@import '../../../styles/variables.css';
+
 .backgroundWrapper {
   position: fixed;
   height: 100vh;
@@ -6,79 +8,29 @@
   z-index: 1;
   transition: transform 0.2s ease-in;
 
+  @media (--tablet) {
+    display: none;
+  }
+
   &.isProjectPage {
     position: static;
     width: 44vw;
+
+    @media (--tablet) {
+      display: block;
+    }
+
+    @media (--mobile) {
+      width: 100%;
+      height: auto;
+      order: 0;
+      z-index: 0;
+    }
   }
 
   &.focused {
     z-index: 2;
   }
-}
-
-.logo {
-  width: 27vw;
-  height: auto;
-  padding-top: 7vw;
-  margin-bottom: 3vw;
-  flex-shrink: 0;
-
-  &.styleVolkswagen {
-    width: 18vw;
-    padding-top: 2vw;
-    margin-bottom: 0;
-  }
-
-  &.styleOTTO,
-  &.styleXing {
-    color: white;
-  }
-
-  &.styleOasa {
-    margin-top: 0;
-    padding-top: 2vw;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    width: 13vw;
-  }
-}
-
-.list {
-  width: 27vw;
-  list-style: none;
-  padding: 0;
-  margin: 0 5vw 0;
-  text-align: right;
-}
-
-.label {
-  font-size: 1.3vw;
-  text-transform: uppercase;
-  margin-bottom: 0;
-  font-weight: 900;
-
-  &.styleXing {
-    color: #013801;
-  }
-  &.styleOTTO {
-    color: #5f0306;
-  }
-  &.styleOasa {
-    color: #00443e;
-  }
-  &.styleZalando {
-    color: #be4b09;
-  }
-  &.styleVolkswagen {
-    color: #1b2c5d;
-  }
-}
-
-.value {
-  color: white;
-  font-size: 1.4vw;
-  line-height: 1.4;
-  margin-bottom: 0.7vw;
 }
 
 .wrapper {
@@ -163,6 +115,98 @@
   }
 }
 
+.logo {
+  width: 27vw;
+  height: auto;
+  padding-top: 7vw;
+  margin-bottom: 3vw;
+  flex-shrink: 0;
+
+  @media (--mobile) {
+    width: 50vw;
+  }
+
+  &.styleVolkswagen {
+    width: 18vw;
+    padding-top: 2vw;
+    margin-bottom: 0;
+  }
+
+  &.styleOTTO,
+  &.styleXing {
+    color: white;
+  }
+
+  &.styleOasa {
+    margin-top: 0;
+    padding-top: 2vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 13vw;
+  }
+}
+
+.list {
+  width: 27vw;
+  list-style: none;
+  padding: 0;
+  margin: 0 5vw 0;
+  text-align: right;
+
+  @media (--mobile) {
+    width: 50vw;
+    margin: 5vw;
+    text-align: left;
+  }
+}
+
+.label {
+  font-size: 1.3vw;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-weight: 900;
+
+  @media (--tablet) {
+    font-size: 2vw;
+  }
+
+  @media (--mobile) {
+    font-size: 4vw;
+  }
+
+  &.styleXing {
+    color: #013801;
+  }
+  &.styleOTTO {
+    color: #5f0306;
+  }
+  &.styleOasa {
+    color: #00443e;
+  }
+  &.styleZalando {
+    color: #be4b09;
+  }
+  &.styleVolkswagen {
+    color: #1b2c5d;
+  }
+}
+
+.value {
+  color: white;
+  font-size: 1.4vw;
+  line-height: 1.4;
+  margin-bottom: 0.7vw;
+
+  @media (--tablet) {
+    font-size: 2vw;
+  }
+
+  @media (--mobile) {
+    font-size: 3.7vw;
+    margin-bottom: 4vw;
+  }
+}
+
 .backgroundLine {
   height: 100%;
   width: 2px;
@@ -173,6 +217,10 @@
   margin: 0;
   transition: transform 0.3s ease-in;
   transform: translateY(100%);
+
+  @media (--mobile) {
+    display: none;
+  }
 
   &.styleOasa {
     background-image: linear-gradient(

@@ -9,6 +9,18 @@
   align-items: center;
   margin: 0 auto;
   padding: 5vw 0;
+  overflow: scroll;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0px; /* For Chrome, Safari, and Opera */
+  }
+
+  @media (--tablet) {
+    width: 65vw;
+  }
 }
 
 .text {
@@ -21,6 +33,15 @@
   width: 100%;
   animation: reveal 1s ease-in forwards 1s;
   opacity: 0;
+
+  @media (--tablet) {
+    font-size: 2.5vw;
+  }
+
+  @media (--mobile) {
+    font-size: 4.6vw;
+    margin-bottom: 5vw;
+  }
 
   &.dark {
     color: var(--white);

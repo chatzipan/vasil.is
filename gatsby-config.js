@@ -182,7 +182,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })],
+        postCssPlugins: [
+          require(`postcss-preset-env`)({ stage: 0 }),
+          require('postcss-custom-media')({
+            importFrom: './src/styles/variables.css',
+          }),
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

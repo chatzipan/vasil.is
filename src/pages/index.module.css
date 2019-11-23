@@ -16,6 +16,10 @@
     & .experience,
     & .name {
       animation: blur 0.5s ease-in forwards;
+
+      @media (--tablet) {
+        animation: none;
+      }
     }
   }
 
@@ -58,6 +62,14 @@
   will-change: transform;
   color: var(--grey);
   font-size: 1.7vw;
+
+  @media (--tablet) {
+    font-size: 3vw;
+  }
+
+  @media (--mobile) {
+    font-size: 4vw;
+  }
 }
 
 .intro {
@@ -67,6 +79,15 @@
   color: inherit;
   font-size: inherit;
   margin-bottom: 1vw;
+
+  @media (--tablet) {
+    margin-bottom: 2vw;
+    width: 100%;
+  }
+
+  @media (--mobile) {
+    margin-bottom: 3vw;
+  }
 }
 
 .hi {
@@ -85,6 +106,14 @@
   font-size: 2.6vw;
   animation: revealName 2.5s ease-in;
 
+  @media (--tablet) {
+    font-size: 3.5vw;
+  }
+
+  @media (--mobile) {
+    font-size: 4vw;
+  }
+
   &.dark {
     color: var(--petrol);
   }
@@ -102,6 +131,15 @@
   animation: revealName 3s ease-in;
   margin-bottom: 2vw;
 
+  @media (--tablet) {
+    margin-bottom: 3vw;
+    width: 100%;
+  }
+
+  @media (--mobile) {
+    margin-bottom: 4vw;
+  }
+
   &.dark {
     color: var(--white);
   }
@@ -110,8 +148,23 @@
 .clientText {
   color: inherit;
 }
+
+.clients {
+  @media (--tablet) {
+    width: 100%;
+  }
+}
+
 .experience {
-  font-size: 2.6vw;
+  font-size: 2.5vw;
+
+  @media (--tablet) {
+    font-size: 3.2vw;
+  }
+
+  @media (--mobile) {
+    font-size: 4vw;
+  }
 }
 
 .clientBtn {

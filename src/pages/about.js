@@ -18,8 +18,8 @@ const AboutPage = () => {
   return (
     <main className={styles.logosArea}>
       <p className={textClasses}>
-        I'm a multi-disciplined software engineer currently based in Zurich,🇨🇭,
-        originally from Athens,🇬🇷.
+        I'm a multi-disciplined freelance software engineer currently based in
+        Zurich,🇨🇭, originally from Athens,🇬🇷.
       </p>
       <p className={textClasses}>
         I've been building products for a wide range of clients from small
@@ -28,13 +28,14 @@ const AboutPage = () => {
       <p className={textClasses}>
         My experiences range from Front-End Architecture and UI/UX Design to
         Back-End Development. I develop web applications that have an intuitive
-        design, are accessible to users with disabilities, load fast and have a
-        maintenable code basis.
+        design, are accessible to users with disabilities, load fast (even
+        offline) and have a maintenable code basis.
       </p>
       <p className={textClasses}>
-        My tasks include taking ownership for the products I participate,
-        deciding for the right technological solution for any given projects, as
-        well as coaching and transfering knowledge to fellow developers.
+        My tasks, besides hands-on development, include taking ownership for the
+        products I participate, deciding for the right technological solution
+        for any given projects, as well as coaching and transfering knowledge to
+        fellow developers.
       </p>
       <p className={textClasses}>
         <a

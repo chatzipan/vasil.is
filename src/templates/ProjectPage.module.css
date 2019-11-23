@@ -2,6 +2,10 @@
 
 .main {
   display: flex;
+
+  @media (--mobile) {
+    flex-direction: column;
+  }
 }
 
 .project {
@@ -16,6 +20,14 @@
 
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+  @media (--mobile) {
+    width: 100%;
+    height: auto;
+    order: 1;
+    padding: 5vw 5vw 5vw 12vw;
+    overflow: hidden;
+  }
 
   &::-webkit-scrollbar {
     width: 0px; /* For Chrome, Safari, and Opera */
@@ -40,6 +52,12 @@
   filter: grayscale(90%) contrast(1);
   transform: scale(0.98);
 
+  @media (--tablet) {
+    width: 100%;
+    filter: none;
+    transform: none;
+  }
+
   &:hover {
     filter: none;
     transform: scale(1);
@@ -49,6 +67,14 @@
 .img {
   transition: transform 0.3s var(--transition-style) 0s;
   will-change: transform;
+
+  @media (--tablet) {
+    transform: scale(1.2);
+
+    &:hover {
+      transform: none;
+    }
+  }
 
   &:hover {
     transform: scale(1.2);
