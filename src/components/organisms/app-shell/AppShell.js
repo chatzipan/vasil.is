@@ -7,7 +7,7 @@ import { SocialSideBar, ThemeSideBar } from '../../molecules'
 import detectTabbing from '../../../utils/accessibity'
 import { usePrevious, useUI } from '../../../hooks'
 
-import styles from './appShell.module.css'
+import styles from './AppShell.module.css'
 
 detectTabbing()
 
