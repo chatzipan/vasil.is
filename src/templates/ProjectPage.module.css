@@ -16,6 +16,7 @@
   height: 100vh;
   animation: reveal 1.5s ease-in;
   overflow-y: scroll;
+  overflow-x: hidden;
   padding: 5vw 0;
 
   scrollbar-width: none; /* For Firefox */
@@ -69,8 +70,6 @@
   will-change: transform;
 
   @media (--tablet) {
-    transform: scale(1.2);
-
     &:hover {
       transform: none;
     }
