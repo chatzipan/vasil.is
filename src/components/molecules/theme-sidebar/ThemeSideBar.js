@@ -63,9 +63,10 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
   const FlagIcon = flags[language] || FlagGr
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const isAboutPage = ['/about', '/about/'].includes(location.pathname)
+  const isProjectsPage = ['/projects', '/projects/'].includes(location.pathname)
   const classes = cx(styles.sidebar, {
     [styles.dark]: theme === 'dark',
-    [styles.withBlendMode]: isProjectPage && !isAboutPage,
+    [styles.withBlendMode]: isProjectPage && !isAboutPage && !isProjectsPage,
   })
 
   const current = location.pathname.split('/')[2]
