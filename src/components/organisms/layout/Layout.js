@@ -13,10 +13,6 @@ import '../../../styles/layout.css'
 import '../../../styles/fonts.css'
 import '../../../styles/typography.css'
 
-// if (typeof window !== 'undefined') {
-//   require('intersection-observer')
-// }
-
 class Layout extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
