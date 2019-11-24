@@ -71,6 +71,7 @@
   @media (--mobile) {
     bottom: 4vw;
     left: 4vw;
+    z-index: 2;
   }
 }
 
