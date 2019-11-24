@@ -18,6 +18,9 @@
   @media (--mobile) {
     width: 12vw;
     padding: 4vw 0;
+    position: fixed;
+    height: 100%;
+    right: 0;
   }
 
   &.covered {

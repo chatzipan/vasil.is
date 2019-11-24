@@ -18,7 +18,8 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
     theme: { theme },
   } = useUI()
   const previousPathname = usePrevious(location.pathname)
-  const isAboutPage = location.pathname.includes('/about')
+  const isAboutPage =
+    location.pathname === '/about/' || location.pathname === '/about'
   const isProjectsOverview =
     location.pathname === '/projects' || location.pathname === '/projects/'
   const [isNavOpen, setIsNavOpen] = useState(false)
