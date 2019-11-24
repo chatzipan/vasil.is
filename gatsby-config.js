@@ -180,9 +180,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
+        name: 'Vasilis Chatzipanagiotis | Freelance Software Engineer',
+        short_name: 'vasil.is',
+        start_url: 'https://vasil.is',
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
