@@ -74,7 +74,7 @@ const HomePage = ({ projects, titleTemplate }) => {
 
   return (
     <>
-      <Helmet title={titleTemplate.replace('%s', 'Home')} />
+      <Helmet title={titleTemplate.replace('%s', t('PAGE_TITLE_HOME'))} />
       <ProjectPreview
         focusedProject={focusedClient}
         lastFocusedProject={lastFocusedClient}
@@ -87,7 +87,7 @@ const HomePage = ({ projects, titleTemplate }) => {
           </h2>
           <h3 className={experienceClass}>
             {t('HOME_OCCUPATION')}, {t('HOME_LOCATION')}
-            <span aria-label={t('SWITZERLAND')} title="SWITZERLAND">
+            <span aria-label={t('LABEL_SWITZERLAND')} title="LABEL_SWITZERLAND">
               🇨🇭.
             </span>
           </h3>
@@ -124,14 +124,14 @@ const HomePage = ({ projects, titleTemplate }) => {
               )
             })}
             <span className={styles.clientText}>
-              {t('AND')}&nbsp;
+              {t('LABEL_AND')}&nbsp;
               <TransitionLink
                 className={styles.clientBtn}
                 exit={{ delay: 0.5 }}
                 onClick={handleOnMoreClick}
                 to="/projects"
               >
-                {t('MORE')}
+                {t('LABEL_MORE')}
               </TransitionLink>
               ,&nbsp;{t('HOME_CLIENTS_SUBJECT')}
             </span>
@@ -147,7 +147,7 @@ const HomePage = ({ projects, titleTemplate }) => {
               >
                 {t('HOME_ABOUT_ME')}
               </TransitionLink>
-              &nbsp;{t('OR')}&nbsp;
+              &nbsp;{t('LABEL_OR')}&nbsp;
               <a
                 className={styles.clientBtn}
                 href={`mailto:vchatzipan@gmail.com?${t('HOME_EMAIL_SUBJECT')}`}

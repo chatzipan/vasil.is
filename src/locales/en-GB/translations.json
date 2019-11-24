@@ -1,5 +1,6 @@
 {
-  "AND": "and",
+  "ALL_PROJECTS_CONTACT": "Do you want to be a part of this list?",
+  "ALL_PROJECTS_GET_IT_TOUCH": "Get in touch!",
   "HOME_ABOUT_ME": "about me",
   "HOME_CLIENTS_INTRO": "Over the last {{yearsExperience}} years, I've been helping out clients such as",
   "HOME_CLIENTS_SUBJECT": "to build high-quality web applications and websites.",
@@ -10,7 +11,17 @@
   "HOME_ΝΑΜΕ": "Vasilis Chatzipanagiotis",
   "HOME_OCCUPATION": "Creative Freelance Software Engineer / Architect + ReactJS expert",
   "HOME_READ_MORE": "You can read more",
-  "MORE": "more",
-  "OR": "or",
-  "SWITZERLAND": "Switzerland"
+  "LABEL_AND": "and",
+  "LABEL_MORE": "more",
+  "LABEL_OR": "or",
+  "LABEL_PROJECTS": "projects",
+  "LABEL_SWITZERLAND": "Switzerland",
+  "PAGE_TITLE_ALL": "All Projects",
+  "PAGE_TITLE_HOME": "Home",
+  "PROJECT_PAGE_VISIT": "Visit Page",
+  "PROJECT_PREVIEW_AGENCY": "Agency",
+  "PROJECT_PREVIEW_BRANCH": "Branch",
+  "PROJECT_PREVIEW_POSITION": "Position",
+  "PROJECT_PREVIEW_STACK": "Stack",
+  "PROJECT_PREVIEW_WHEN": "When"
 }

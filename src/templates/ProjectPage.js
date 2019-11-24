@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
 import { useUI } from '../hooks'
@@ -58,6 +59,7 @@ const ProjectPage = ({ project, projects, titleTemplate }) => {
   const {
     navigation: { linkClicked },
   } = useUI()
+  const { t } = useTranslation()
   const { desktop, mobile } = screenshots[project] || screenshots.Xing
   const projectClass = cx(styles.project, {
     [styles.hide]: linkClicked,
@@ -80,7 +82,7 @@ const ProjectPage = ({ project, projects, titleTemplate }) => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          Visit Page
+          {t('PROJECT_PAGE_VISIT')}
         </a>
       </section>
       <ProjectPreview focusedProject={project} isProjectPage />

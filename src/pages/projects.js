@@ -2,6 +2,7 @@ import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import Helmet from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
 import { Logo } from '../components/atoms'
@@ -12,13 +13,14 @@ import { useUI } from '../hooks'
 import styles from './projects.module.css'
 
 const ProjectsOverviewPage = ({ projects, titleTemplate }) => {
+  const { t } = useTranslation()
   const {
     theme: { theme },
   } = useUI()
 
   return (
     <main className={styles.logosArea}>
-      <Helmet title={titleTemplate.replace('%s', 'All Projects')} />
+      <Helmet title={titleTemplate.replace('%s', t('PAGE_TITLE_ALL'))} />
       {projects.sort().map((client, i) => {
         const logoClass = cx(
           styles.logo,
@@ -40,15 +42,15 @@ const ProjectsOverviewPage = ({ projects, titleTemplate }) => {
         )
       })}
       <h2 className={cx(styles.contact, styles[theme])}>
-        Do you want to be a part of this list?
+        {t('ALL_PROJECTS_CONTACT')}
         <br />
         <a
           className={styles.link}
-          href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+          href={`mailto:vchatzipan@gmail.com?${t('HOME_EMAIL_SUBJECT')}`}
           rel="noopener noreferrer"
           target="_blank"
         >
-          Get in touch!
+          {t('ALL_PROJECTS_GET_IT_TOUCH')}
         </a>
       </h2>
     </main>

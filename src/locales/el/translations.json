@@ -1,5 +1,6 @@
 {
-  "AND": "και",
+  "ALL_PROJECTS_CONTACT": "Θες και εσυ να δείς το όνομά σου στην λίστα αυτή?",
+  "ALL_PROJECTS_GET_IT_TOUCH": "Γράψε μου!",
   "HOME_ABOUT_ME": "για μένα",
   "HOME_CLIENTS_INTRO": "Τα τελευταία {{yearsExperience}} χρόνια, βοηθάω εταιρίες όπως οι: ",
   "HOME_CLIENTS_SUBJECT": "στο να φτιάξουν εφαρμογές και σελίδες στο web υψηλής ποιότητας.",
@@ -10,7 +11,17 @@
   "HOME_ΝΑΜΕ": "Βασίλης Χατζηπαναγιώτης",
   "HOME_OCCUPATION": "Creative Freelance Software Engineer / Architect + ReactJS expert",
   "HOME_READ_MORE": "Μπρορείς να μάθεις περισσότερα",
-  "MORE": "άλλους",
-  "OR": "ή",
-  "SWITZERLAND": "Ελβετία"
+  "LABEL_AND": "και",
+  "LABEL_MORE": "άλλους",
+  "LABEL_OR": "ή",
+  "LABEL_PROJECTS": "Εργα",
+  "LABEL_SWITZERLAND": "Ελβετία",
+  "PAGE_TITLE_ALL": "Όλα τα Έργα",
+  "PAGE_TITLE_HOME": "Αρχική",
+  "PROJECT_PAGE_VISIT": "Επισκεφτείτε την Σελίδα",
+  "PROJECT_PREVIEW_AGENCY": "Πρακτορειο",
+  "PROJECT_PREVIEW_BRANCH": "Τομεας",
+  "PROJECT_PREVIEW_POSITION": "Θεση",
+  "PROJECT_PREVIEW_STACK": "Τεχνολογιες",
+  "PROJECT_PREVIEW_WHEN": "Ποτε"
 }

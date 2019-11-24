@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
+import { useTranslation } from 'react-i18next'
 
 import { useUI } from '../../../hooks'
 
@@ -32,6 +33,7 @@ const logos = [
 ]
 
 const SocialSideBar = () => {
+  const { t } = useTranslation()
   const {
     homepage: { projectPreviewOpen },
     theme: { theme },
@@ -45,7 +47,7 @@ const SocialSideBar = () => {
       <ul className={styles.list}>
         <li className={styles.listItem}>
           <a
-            href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+            href={`mailto:vchatzipan@gmail.com?${t('HOME_EMAIL_SUBJECT')}`}
             rel="noopener noreferrer"
             target="_blank"
             className={styles.link}

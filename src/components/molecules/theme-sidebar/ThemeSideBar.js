@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'gatsby'
 import TransitionLink from 'gatsby-plugin-transition-link'
+import { useTranslation } from 'react-i18next'
 
 import { useUI } from '../../../hooks'
 
@@ -58,6 +59,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
     navigation: { handleLinkClick },
     theme: { changeTheme, theme },
   } = useUI()
+  const { t } = useTranslation()
   const FlagIcon = flags[language]
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
@@ -88,7 +90,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
         </button>
         {isProjectPage && (
           <button className={styles.menuToggle} onClick={toggleNav}>
-            Projects
+            {t('LABEL_PROJECTS')}
           </button>
         )}
         <nav className={styles.nav}>

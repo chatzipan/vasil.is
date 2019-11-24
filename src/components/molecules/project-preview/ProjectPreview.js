@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { StaticQuery, graphql } from 'gatsby'
+import { useTranslation } from 'react-i18next'
 
 import { Logo } from '../../atoms'
 import styles from './ProjectPreview.module.css'
@@ -16,11 +17,12 @@ const ProjectPreview = ({
   const {
     navigation: { linkClicked },
   } = useUI()
+  const { t } = useTranslation()
   const logoStyle = isProjectPage ? focusedProject : lastFocusedProject
-  const { agency, period, position, sector, stack } =
-    projects.find(({ client }) =>
-      [focusedProject, lastFocusedProject].includes(client)
-    ) || {}
+  const project = projects.find(({ client }) =>
+    [focusedProject, lastFocusedProject].includes(client)
+  )
+  const { agency, period, position, sector, stack } = project || {}
   const lineClass = cx(styles.backgroundLine, {
     [styles.show]: focusedProject && !isProjectPage,
     [styles[`style${lastFocusedProject || focusedProject}`]]:
@@ -52,13 +54,15 @@ const ProjectPreview = ({
           name={focusedProject || lastFocusedProject}
         />
         <dl className={styles.list}>
-          <dt className={labelClass}>{agency ? 'Agency' : 'Branch'}</dt>
+          <dt className={labelClass}>
+            {agency ? t('PROJECT_PREVIEW_AGENCY') : t('PROJECT_PREVIEW_BRANCH')}
+          </dt>
           <dd className={styles.value}>{agency ? agency : sector}</dd>
-          <dt className={labelClass}>Position</dt>
+          <dt className={labelClass}>{t('PROJECT_PREVIEW_POSITION')}</dt>
           <dd className={styles.value}>{position}</dd>
-          <dt className={labelClass}>When</dt>
+          <dt className={labelClass}>{t('PROJECT_PREVIEW_WHEN')}</dt>
           <dd className={styles.value}>{period}</dd>
-          <dt className={labelClass}>Stack</dt>
+          <dt className={labelClass}>{t('PROJECT_PREVIEW_STACK')}</dt>
           <dd className={styles.value}>{stack}</dd>
         </dl>
       </div>
