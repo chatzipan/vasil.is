@@ -122,7 +122,7 @@
 
 .clients,
 .experience {
-  width: 60%;
+  width: 61%;
   text-align: left;
   color: var(--grey-dark);
   font-weight: normal;
@@ -203,6 +203,15 @@
       border-color: #6804c1;
     }
   }
+}
+
+.flag {
+  width: 2vw;
+}
+
+.flagWrapper {
+  vertical-align: middle;
+  margin-left: 0.5vw;
 }
 
 @keyframes blur {

@@ -13,6 +13,8 @@ import { useTranslation } from 'react-i18next'
 import Helmet from 'react-helmet'
 
 import { ProjectPreview } from '../components/molecules'
+import SwissFlag from '../assets/svgs/flag_switzerland.svg'
+
 import { useUI } from '../hooks'
 
 import styles from './index.module.css'
@@ -87,8 +89,12 @@ const HomePage = ({ projects, titleTemplate }) => {
           </h2>
           <h3 className={experienceClass}>
             {t('HOME_OCCUPATION')}, {t('HOME_LOCATION')}
-            <span aria-label={t('LABEL_SWITZERLAND')} title="LABEL_SWITZERLAND">
-              🇨🇭.
+            <span
+              aria-label={t('LABEL_SWITZERLAND')}
+              className={styles.flagWrapper}
+              title="LABEL_SWITZERLAND"
+            >
+              <SwissFlag className={styles.flag} />.
             </span>
           </h3>
           <h3 className={clientsClass}>

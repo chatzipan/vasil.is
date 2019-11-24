@@ -1,7 +1,7 @@
 {
   "ABOUT_PAGE_CLIENTS": "Ich habe entwickelt Produkte für eine breite Palette von Kunden, von kleinen Startups über führende digitale Agenturen bis hin zu große Konzerne.",
   "ABOUT_PAGE_CONTACT_ME": "Lass uns ein Projekt zusammen machen!",
-  "ABOUT_PAGE_INFO": "Ich bin ein multidisziplinärer freiberuflicher Softwareingenieur, lebe zurzeit in Zürich und komme ursprünglich aus Athen,🇬🇷.",
+  "ABOUT_PAGE_INFO": "Ich bin ein multidisziplinärer freiberuflicher Softwareingenieur, lebe zurzeit in Zürich und komme ursprünglich aus Athen,",
   "ABOUT_PAGE_EXPERIENCES": "Meine Erfahrungen reichen von Front-End-Architektur und UI & UX-Design bis hin zur Back-End-Entwicklung. Ich entwickle gerne Webanwendungen mit intuitivem Design, die für Benutzer mit Behinderungen zugänglich sind, schnell geladen werden (auch off-line) und eine wartbare Codebasis haben.",
   "ABOUT_PAGE_TASKS": "Neben der hands-on Entwicklung, zu meinen Aufgaben gehören auch die Übernahme des Eigentums an den von mir beteiligten Produkten, die Entscheidung für die richtige technologische Lösung für ein bestimmtes Projekt sowie das Trainieren und Übertragen von Wissen an andere Entwickler.",
   "ALL_PROJECTS_CONTACT": "Möchten Sie auch Teil dieser Liste werden?",
@@ -17,6 +17,7 @@
   "HOME_READ_MORE": "Sie können mehr erfahren",
   "LABEL_AND": "und",
   "LABEL_EMAIL_SUBJECT": "subject=Kontakt wegen eines Projekts&body=Guten Tag Vasilis,",
+  "LABEL_GREECE": "Griechenland",
   "LABEL_MORE": "mehr",
   "LABEL_OR": "oder",
   "LABEL_PROJECTS": "Projekte",

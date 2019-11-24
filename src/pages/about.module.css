@@ -48,6 +48,15 @@
   }
 }
 
+.flag {
+  width: 1.3vw;
+  margin-right: 0.3vw;
+}
+
+.flagWrapper {
+  vertical-align: middle;
+}
+
 @keyframes reveal {
   from {
     filter: blur(1px);

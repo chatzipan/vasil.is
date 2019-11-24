@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { ProjectPreview } from '../components/molecules'
 import { Logo } from '../components/atoms'
 import CellularLogo from '../assets/images/cellular_logo.png'
+import GreekFlag from '../assets/svgs/flag_greece.svg'
 
 import { useUI } from '../hooks'
 
@@ -22,7 +23,17 @@ const AboutPage = () => {
   return (
     <main className={styles.logosArea}>
       <Helmet title={t('PAGE_TITLE_ABOUT')} />
-      <p className={textClasses}>{t('ABOUT_PAGE_INFO')}</p>
+      <p className={textClasses}>
+        {t('ABOUT_PAGE_INFO')}
+        <span
+          aria-label={t('LABEL_GREECE')}
+          className={styles.flagWrapper}
+          title="LABEL_GREECE"
+        >
+          <GreekFlag className={styles.flag} />
+        </span>
+        🏛.
+      </p>
       <p className={textClasses}>{t('ABOUT_PAGE_CLIENTS')}</p>
       <p className={textClasses}>{t('ABOUT_PAGE_EXPERIENCES')}</p>
       <p className={textClasses}>{t('ABOUT_PAGE_TASKS')}</p>

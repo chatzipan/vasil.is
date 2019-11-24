@@ -1,7 +1,7 @@
 {
   "ABOUT_PAGE_CLIENTS": "I've been building products for a wide range of clients from small startups, to leading digital agencies, up to multinational enterprises.",
   "ABOUT_PAGE_CONTACT_ME": "Let’s start a cool project together!",
-  "ABOUT_PAGE_INFO": "I'm a multi-disciplined freelance software engineer currently based in Zurich, originally from Athens,🇬🇷.",
+  "ABOUT_PAGE_INFO": "I'm a multi-disciplined freelance software engineer currently based in Zurich, originally from Athens,",
   "ABOUT_PAGE_EXPERIENCES": "My experiences range from Front-End Architecture and UI/UX Design to Back-End Development. I develop web applications that have an intuitive design, are accessible to users with disabilities, load fast (even offline) and have a maintenable code basis.",
   "ABOUT_PAGE_TASKS": "Besides hands-on development, my tasks include taking ownership for the products I participate, deciding for the right technological solution for any given projects, as well as coaching and transfering knowledge to fellow developers.",
   "ALL_PROJECTS_CONTACT": "Do you want to be a part of this list?",
@@ -17,6 +17,7 @@
   "HOME_READ_MORE": "You can read more",
   "LABEL_AND": "and",
   "LABEL_EMAIL_SUBJECT": "subject=I'd like to talk about a project&body=Hi Vasilis,",
+  "LABEL_GREECE": "Greece",
   "LABEL_MORE": "more",
   "LABEL_OR": "or",
   "LABEL_PROJECTS": "projects",
