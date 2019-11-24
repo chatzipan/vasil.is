@@ -154,7 +154,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
@@ -201,6 +200,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
