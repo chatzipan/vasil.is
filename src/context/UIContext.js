@@ -38,20 +38,20 @@ export const UIProvider = ({ children, location }) => {
   }, [previousPathname, location.pathname])
 
   useEffect(() => {
-    // const initialTheme =
-    //   window !== 'undefined' && 'localStorage' in window
-    //     ? window.localStorage.getItem('theme')
-    //     : 'light'
+    const initialTheme =
+      window !== 'undefined' && 'localStorage' in window
+        ? window.localStorage.getItem('theme')
+        : 'light'
     setTheme('light')
 
-    // if (!window.localStorage.getItem('theme')) {
-    ///   window.localStorage.setItem('theme', 'light')
-    //}
+    if (!window.localStorage.getItem('theme')) {
+      window.localStorage.setItem('theme', 'light')
+    }
   }, [])
 
   const changeTheme = useCallback(() => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
-    // window.localStorage.setItem('theme', newTheme)
+    window.localStorage.setItem('theme', newTheme)
     setTheme(newTheme)
   }, [theme])
 

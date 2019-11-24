@@ -44,17 +44,16 @@ const getNextLang = current => {
   return currentInd === 0 ? langs[1] : langs[0]
 }
 
-const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
+const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
   const {
     language: { language, selectLanguage },
     navigation: { handleLinkClick },
     theme: { changeTheme, theme },
   } = useUI()
   const FlagIcon = flags[language] || FlagEn
-  // const transitionDelay = window.location.pathname === '/projects' ? 0.5 : 1
-  const transitionDelay = 1
+  const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
-  const current = '/'
+  const current = location.pathname.split('/')[2]
   const { next, previous } = getProjectUrls(current, projects)
   const nextLang = getNextLang(language)
   const themeBtnClasses = cx(styles.themeBtn, {

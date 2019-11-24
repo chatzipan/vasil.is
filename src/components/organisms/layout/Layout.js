@@ -24,7 +24,6 @@ class Layout extends Component {
         }),
       }),
     }),
-    isProjectPage: PropTypes.bool,
   }
 
   meta = [
@@ -50,9 +49,12 @@ class Layout extends Component {
           siteMetadata: { title, mainProjects, ownProjects },
         },
       },
-      isProjectPage,
       location,
     } = this.props
+
+    const isProjectPage =
+      location.pathname.includes('/project') ||
+      location.pathname.includes('/about')
 
     return (
       <>
