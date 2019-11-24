@@ -4,12 +4,12 @@ import cx from 'classnames'
 import TransitionLink from 'gatsby-plugin-transition-link'
 
 import { SocialSideBar, ThemeSideBar } from '../../molecules'
-import detectTabbing from '../../../utils/accessibity'
+// import detectTabbing from '../../../utils/accessibity'
 import { usePrevious, useUI } from '../../../hooks'
 
 import styles from './AppShell.module.css'
 
-detectTabbing()
+// detectTabbing()
 
 const AppShell = ({ children, isProjectPage, location, projects }) => {
   const {

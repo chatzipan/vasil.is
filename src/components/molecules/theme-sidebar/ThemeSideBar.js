@@ -51,7 +51,8 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
     theme: { changeTheme, theme },
   } = useUI()
   const FlagIcon = flags[language] || FlagEn
-  const transitionDelay = window.location.pathname === '/projects' ? 0.5 : 1
+  // const transitionDelay = window.location.pathname === '/projects' ? 0.5 : 1
+  const transitionDelay = 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = document.location.pathname.split('/')[2]
   const { next, previous } = getProjectUrls(current, projects)

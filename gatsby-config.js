@@ -166,7 +166,12 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-transition-link',
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve(`./src/components/organisms/layout/Layout.js`),
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

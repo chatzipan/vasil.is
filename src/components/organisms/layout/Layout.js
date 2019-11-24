@@ -13,7 +13,9 @@ import '../../../styles/layout.css'
 import '../../../styles/fonts.css'
 import '../../../styles/typography.css'
 
-typeof window !== 'undefined' && require('intersection-observer')
+// if (typeof window !== 'undefined') {
+//   require('intersection-observer')
+// }
 
 class Layout extends Component {
   static propTypes = {
@@ -57,7 +59,7 @@ class Layout extends Component {
     } = this.props
 
     return (
-      <InternalProvider>
+      <>
         <Helmet title={title} meta={this.meta} />
         <UIProvider location={location}>
           <AppShell
@@ -70,7 +72,7 @@ class Layout extends Component {
             {children}
           </AppShell>
         </UIProvider>
-      </InternalProvider>
+      </>
     )
   }
 }
