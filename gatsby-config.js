@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: 'Vasilis Chatzipanagiotis | Freelance Software Engineer',
+    titleTemplate:
+      '%s · Vasilis Chatzipanagiotis | Freelance Software Engineer',
     description:
       'Portfolio by Vasilis Chatzipanagiotis. Freelance Developer from Hamburg. I helped building new products for companies such as Volkswagen, Zalando, Otto, AboutYou, XING and more.',
     keywords:
-      'freelancer, web developer, software engineer, frontend engineer, react developer, remote, Zurich, Switzerland, Germany, Hamburg, javascript',
+      'freelancer, web developer, software engineer, digital agency, frontend engineer, frontend architect, react developer, remote, Zurich, Switzerland, Germany, Hamburg, javascript',
     mainProjects: [
       {
         agency: 'SinnerSchrader',
@@ -146,6 +148,9 @@ module.exports = {
         url: 'https://oasa.live/',
       },
     ],
+    url: 'https://vasil.is',
+    image: 'src/assets/images/logos.png',
+    twitterUsername: '@__vasilis',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

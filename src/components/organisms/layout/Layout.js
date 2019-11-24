@@ -26,17 +26,6 @@ class Layout extends Component {
     }),
   }
 
-  meta = [
-    {
-      name: 'description',
-      content: this.props.data.site.siteMetadata.description,
-    },
-    {
-      name: 'keywords',
-      content: this.props.data.site.siteMetadata.keywords,
-    },
-  ]
-
   componentDidCatch(error, info) {
     console.log({ error, info })
   }
@@ -46,7 +35,17 @@ class Layout extends Component {
       children,
       data: {
         site: {
-          siteMetadata: { title, mainProjects, ownProjects },
+          siteMetadata: {
+            description,
+            image,
+            keywords,
+            mainProjects,
+            ownProjects,
+            title,
+            titleTemplate,
+            twitterUsername,
+            url,
+          },
         },
       },
       location,
@@ -58,7 +57,19 @@ class Layout extends Component {
 
     return (
       <>
-        <Helmet title={title} meta={this.meta} />
+        <Helmet title={title} titleTemplate={titleTemplate}>
+          <meta name="description" content={description} />
+          <meta name="og:description" content={description} />
+          <meta name="keywords" content={keywords} />
+          <meta property="og:url" content={url} />
+          <meta property="og:title" content={title} />
+          <meta property="og:image" content={image} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:creator" content={twitterUsername} />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:image" content={image} />
+        </Helmet>
         <UIProvider location={location}>
           <AppShell
             isProjectPage={isProjectPage}
@@ -81,7 +92,6 @@ export default props => (
       query {
         site {
           siteMetadata {
-            title
             description
             keywords
             mainProjects {
@@ -90,6 +100,11 @@ export default props => (
             ownProjects {
               client
             }
+            title
+            titleTemplate
+            twitterUsername
+            image
+            url
           }
         }
       }

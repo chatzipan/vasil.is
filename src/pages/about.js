@@ -1,6 +1,7 @@
 import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
+import Helmet from 'react-helmet'
 
 import { ProjectPreview } from '../components/molecules'
 import { Logo } from '../components/atoms'
@@ -15,8 +16,10 @@ const AboutPage = () => {
     theme: { theme },
   } = useUI()
   const textClasses = cx(styles.text, styles[theme])
+
   return (
     <main className={styles.logosArea}>
+      <Helmet title="About" />
       <p className={textClasses}>
         I'm a multi-disciplined freelance software engineer currently based in
         Zurich,🇨🇭, originally from Athens,🇬🇷.

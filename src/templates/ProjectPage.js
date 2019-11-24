@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { StaticQuery, graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 import { ProjectPreview } from '../components/molecules'
 import { useUI } from '../hooks'
@@ -53,7 +54,7 @@ const screenshots = {
   },
 }
 
-const ProjectPage = ({ project, projects }) => {
+const ProjectPage = ({ project, projects, titleTemplate }) => {
   const {
     navigation: { linkClicked },
   } = useUI()
@@ -65,6 +66,7 @@ const ProjectPage = ({ project, projects }) => {
   const { url } = projects.find(({ client }) => client === project)
   return (
     <main className={styles.main}>
+      <Helmet title={titleTemplate.replace('%s', `${project} Project`)} />
       <section className={projectClass}>
         <div className={styles.screenshot}>
           <img className={styles.img} src={desktop} />
@@ -104,16 +106,21 @@ export default props => (
               client
               url
             }
+            titleTemplate
           }
         }
       }
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects, ownProjects },
+        siteMetadata: { mainProjects, ownProjects, titleTemplate },
       },
     }) => (
-      <ProjectPage projects={[...mainProjects, ...ownProjects]} {...props} />
+      <ProjectPage
+        projects={[...mainProjects, ...ownProjects]}
+        titleTemplate={titleTemplate}
+        {...props}
+      />
     )}
   />
 )

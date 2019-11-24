@@ -10,13 +10,14 @@ import cx from 'classnames'
 import { Link } from 'gatsby'
 import TransitionLink from 'gatsby-plugin-transition-link'
 import { useTranslation } from 'react-i18next'
+import Helmet from 'react-helmet'
 
 import { ProjectPreview } from '../components/molecules'
 import { useUI } from '../hooks'
 
 import styles from './index.module.css'
 
-const HomePage = ({ projects }) => {
+const HomePage = ({ projects, titleTemplate }) => {
   const {
     homepage: { setProjectPreviewOpen },
     theme: { theme },
@@ -72,6 +73,7 @@ const HomePage = ({ projects }) => {
 
   return (
     <>
+      <Helmet title={titleTemplate.replace('%s', 'Home')} />
       <ProjectPreview
         focusedProject={focusedClient}
         lastFocusedProject={lastFocusedClient}
@@ -168,9 +170,7 @@ export default props => (
       query {
         site {
           siteMetadata {
-            title
-            description
-            keywords
+            titleTemplate
             mainProjects {
               client
             }
@@ -183,8 +183,14 @@ export default props => (
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects },
+        siteMetadata: { mainProjects, titleTemplate },
       },
-    }) => <HomePage projects={mainProjects} {...props} />}
+    }) => (
+      <HomePage
+        projects={mainProjects}
+        titleTemplate={titleTemplate}
+        {...props}
+      />
+    )}
   />
 )

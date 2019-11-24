@@ -1,6 +1,7 @@
 import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
+import Helmet from 'react-helmet'
 
 import { ProjectPreview } from '../components/molecules'
 import { Logo } from '../components/atoms'
@@ -10,13 +11,14 @@ import { useUI } from '../hooks'
 
 import styles from './projects.module.css'
 
-const ProjectsOverviewPage = ({ projects }) => {
+const ProjectsOverviewPage = ({ projects, titleTemplate }) => {
   const {
     theme: { theme },
   } = useUI()
 
   return (
     <main className={styles.logosArea}>
+      <Helmet title={titleTemplate.replace('%s', 'All Projects')} />
       {projects.sort().map((client, i) => {
         const logoClass = cx(
           styles.logo,
@@ -68,19 +70,21 @@ export default props => (
             ownProjects {
               client
             }
+            titleTemplate
           }
         }
       }
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects, otherProjects },
+        siteMetadata: { mainProjects, otherProjects, titleTemplate },
       },
     }) => (
       <ProjectsOverviewPage
         projects={[...mainProjects, ...otherProjects].map(
           ({ client }) => client
         )}
+        titleTemplate={titleTemplate}
         {...props}
       />
     )}
