@@ -11,12 +11,8 @@ i18n
   .init({
     fallbackLng: 'en-EN',
     debug: process.env.NODE_ENV === 'development',
-    backend: {
-      loadPath: './locales/{{lng}}/translations.json',
-    },
     react: {
       useSuspense: false,
-      // wait: true,
     },
   })
 
