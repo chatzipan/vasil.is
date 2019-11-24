@@ -207,11 +207,19 @@
 
 .flag {
   width: 2vw;
+
+  @media (--mobile) {
+    width: 3.5vw;
+  }
 }
 
 .flagWrapper {
   vertical-align: middle;
   margin-left: 0.5vw;
+
+  @media (--mobile) {
+    margin-left: 1vw;
+  }
 }
 
 @keyframes blur {

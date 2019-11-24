@@ -22,7 +22,12 @@
     width: 12vw;
     padding: 4vw 0 8vw;
     z-index: 2;
-    mix-blend-mode: difference;
+  }
+
+  &.withBlendMode {
+    @media (--mobile) {
+      mix-blend-mode: difference;
+    }
   }
 
   &.dark {

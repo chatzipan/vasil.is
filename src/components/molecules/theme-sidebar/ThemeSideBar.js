@@ -62,7 +62,12 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
   const { t } = useTranslation()
   const FlagIcon = flags[language] || FlagGr
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
-  const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
+  const isAboutPage = ['/about', '/about/'].includes(location.pathname)
+  const classes = cx(styles.sidebar, {
+    [styles.dark]: theme === 'dark',
+    [styles.withBlendMode]: isProjectPage && !isAboutPage,
+  })
+
   const current = location.pathname.split('/')[2]
   const { next, previous } = getProjectUrls(current, projects)
   const nextLang = getNextLang(language)

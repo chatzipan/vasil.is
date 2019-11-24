@@ -51,6 +51,11 @@
 .flag {
   width: 1.3vw;
   margin-right: 0.3vw;
+
+  @media (--mobile) {
+    width: 4vw;
+    margin-right: 1vw;
+  }
 }
 
 .flagWrapper {
