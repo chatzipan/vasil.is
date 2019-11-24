@@ -18,8 +18,9 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
     theme: { theme },
   } = useUI()
   const previousPathname = usePrevious(location.pathname)
-  const isAboutPage = location.pathname === '/about'
-  const isProjectsOverview = location.pathname === '/projects'
+  const isAboutPage = location.pathname.includes('/about')
+  const isProjectsOverview =
+    location.pathname === '/projects' || location.pathname === '/projects/'
   const [isNavOpen, setIsNavOpen] = useState(false)
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]:
