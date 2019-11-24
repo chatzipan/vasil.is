@@ -8,7 +8,6 @@ import React, {
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import { Link } from 'gatsby'
-import TransitionLink from 'gatsby-plugin-transition-link'
 import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
@@ -102,9 +101,8 @@ const HomePage = ({ projects }) => {
 
               return (
                 <Fragment key={client}>
-                  <TransitionLink
+                  <Link
                     className={clientBtnClasses}
-                    exit={{ delay: 0.5 }}
                     onBlur={handleMouseOut}
                     onClick={handleOnClick}
                     onFocus={() => handleClientHover(client)}
@@ -114,7 +112,7 @@ const HomePage = ({ projects }) => {
                     to={`/projects/${client.toLowerCase()}`}
                   >
                     {client}
-                  </TransitionLink>
+                  </Link>
                   <span className={styles.clientText}>
                     {i === projects.length - 1 ? ' ' : ', '}
                   </span>
@@ -123,28 +121,26 @@ const HomePage = ({ projects }) => {
             })}
             <span className={styles.clientText}>
               and&nbsp;
-              <TransitionLink
+              <Link
                 className={styles.clientBtn}
-                exit={{ delay: 0.5 }}
                 onClick={handleOnMoreClick}
                 to="/projects"
               >
                 more
-              </TransitionLink>
+              </Link>
               , to build high-quality web applications and websites.
             </span>
           </h3>
           <h3 className={clientsClass}>
             <span className={styles.clientText}>
               You can read more&nbsp;
-              <TransitionLink
+              <Link
                 className={styles.clientBtn}
-                exit={{ delay: 0.5 }}
                 onClick={handleOnMoreClick}
                 to="/about"
               >
                 about me
-              </TransitionLink>
+              </Link>
               &nbsp;or&nbsp;
               <a
                 className={styles.clientBtn}

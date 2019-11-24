@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
-import TransitionLink from 'gatsby-plugin-transition-link'
+import { Link } from 'gatsby'
 
 import { SocialSideBar, ThemeSideBar } from '../../molecules'
 import detectTabbing from '../../../utils/accessibity'
@@ -44,23 +44,23 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
         <ul className={styles.projectList}>
           {[...projects].sort().map(project => (
             <li key={project}>
-              <TransitionLink
+              <Link
                 className={styles.item}
                 tabIndex={isNavOpen ? '0' : '-1'}
                 to={`/projects/${project}`}
               >
                 {project === 'oasa' ? 'Oasa.Live' : project}
-              </TransitionLink>
+              </Link>
             </li>
           ))}
           <li>
-            <TransitionLink
+            <Link
               className={styles.item}
               tabIndex={isNavOpen ? '0' : '-1'}
               to="/projects"
             >
               All projects
-            </TransitionLink>
+            </Link>
           </li>
         </ul>
       </nav>
