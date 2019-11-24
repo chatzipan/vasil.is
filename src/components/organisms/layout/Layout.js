@@ -55,7 +55,7 @@ class Layout extends Component {
     const isProjectPage =
       location.pathname.includes('/project') ||
       location.pathname.includes('/about')
-    console.log({ isProjectPage })
+
     return (
       <>
         <Helmet title={title} meta={this.meta} />
