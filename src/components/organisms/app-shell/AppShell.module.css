@@ -15,6 +15,11 @@
     grid-template-columns: 10vw 1fr 10vw;
   }
 
+  @media (--mobile) {
+    display: flex;
+    position: relative;
+  }
+
   &.isProjectPage {
     grid-template-columns: 6vw 1fr;
     grid-template-rows: 1fr;
@@ -24,11 +29,6 @@
 
     @media (--tablet) {
       grid-template-columns: 10vw 1fr;
-    }
-
-    @media (--mobile) {
-      display: flex;
-      position: relative;
     }
   }
 
@@ -92,6 +92,10 @@
 
 .page {
   grid-area: content;
+
+  @media (--mobile) {
+    margin: 0 auto;
+  }
 }
 
 :global(body.user-is-tabbing *:focus) {
