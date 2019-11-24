@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { Link } from 'gatsby'
+import TransitionLink from 'gatsby-plugin-transition-link'
 
 import { useUI } from '../../../hooks'
 
@@ -85,23 +86,30 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
         <nav className={styles.nav}>
           {isProjectPage && (
             <>
-              <Link className={styles.link} onClick={handleLinkClick} to="/">
-                <Home alt={theme} className={styles.icon} />
-              </Link>
-              <Link
+              <TransitionLink
                 className={styles.link}
+                exit={{ delay: transitionDelay }}
+                onClick={handleLinkClick}
+                to="/"
+              >
+                <Home alt={theme} className={styles.icon} />
+              </TransitionLink>
+              <TransitionLink
+                className={styles.link}
+                exit={{ delay: transitionDelay }}
                 onClick={handleLinkClick}
                 to={`/projects/${next}`}
               >
                 <ArrowRight alt={theme} className={styles.icon} />
-              </Link>
-              <Link
+              </TransitionLink>
+              <TransitionLink
                 className={styles.link}
+                exit={{ delay: transitionDelay }}
                 onClick={handleLinkClick}
                 to={`/projects/${previous}`}
               >
                 <ArrowLeft alt={theme} className={styles.icon} />
-              </Link>
+              </TransitionLink>
             </>
           )}
         </nav>

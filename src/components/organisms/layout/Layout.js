@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import InternalProvider from 'gatsby-plugin-transition-link/context/InternalProvider'
 
 import '../../../i18n'
 
@@ -56,7 +57,7 @@ class Layout extends Component {
     } = this.props
 
     return (
-      <>
+      <InternalProvider>
         <Helmet title={title} meta={this.meta} />
         <UIProvider location={location}>
           <AppShell
@@ -69,7 +70,7 @@ class Layout extends Component {
             {children}
           </AppShell>
         </UIProvider>
-      </>
+      </InternalProvider>
     )
   }
 }
