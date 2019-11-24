@@ -54,7 +54,7 @@ const ThemeSideBar = ({ isProjectPage, projects, toggleNav }) => {
   // const transitionDelay = window.location.pathname === '/projects' ? 0.5 : 1
   const transitionDelay = 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
-  const current = document.location.pathname.split('/')[2]
+  const current = '/'
   const { next, previous } = getProjectUrls(current, projects)
   const nextLang = getNextLang(language)
   const themeBtnClasses = cx(styles.themeBtn, {
