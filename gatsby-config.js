@@ -148,12 +148,13 @@ module.exports = {
         url: 'https://oasa.live/',
       },
     ],
-    url: 'https://vasil.is',
+    siteUrl: 'https://vasil.is',
     image: 'src/assets/images/logos.png',
     twitterUsername: '@__vasilis',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {

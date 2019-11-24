@@ -41,10 +41,10 @@ class Layout extends Component {
             keywords,
             mainProjects,
             ownProjects,
+            siteUrl: url,
             title,
             titleTemplate,
             twitterUsername,
-            url,
           },
         },
       },
@@ -100,11 +100,11 @@ export default props => (
             ownProjects {
               client
             }
+            siteUrl
             title
             titleTemplate
             twitterUsername
             image
-            url
           }
         }
       }
