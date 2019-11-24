@@ -60,7 +60,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
     theme: { changeTheme, theme },
   } = useUI()
   const { t } = useTranslation()
-  const FlagIcon = flags[language]
+  const FlagIcon = flags[language] || FlagGr
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = location.pathname.split('/')[2]
