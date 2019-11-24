@@ -47,7 +47,7 @@ const SocialSideBar = () => {
       <ul className={styles.list}>
         <li className={styles.listItem}>
           <a
-            href={`mailto:vchatzipan@gmail.com?${t('HOME_EMAIL_SUBJECT')}`}
+            href={`mailto:vchatzipan@gmail.com?${t('LABEL_EMAIL_SUBJECT')}`}
             rel="noopener noreferrer"
             target="_blank"
             className={styles.link}

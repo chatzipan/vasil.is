@@ -2,6 +2,7 @@ import React, { Fragment, useCallback, useState, useRef } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import cx from 'classnames'
 import Helmet from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
 import { Logo } from '../components/atoms'
@@ -15,39 +16,24 @@ const AboutPage = () => {
   const {
     theme: { theme },
   } = useUI()
+  const { t } = useTranslation()
   const textClasses = cx(styles.text, styles[theme])
 
   return (
     <main className={styles.logosArea}>
-      <Helmet title="About" />
-      <p className={textClasses}>
-        I'm a multi-disciplined freelance software engineer currently based in
-        Zurich,🇨🇭, originally from Athens,🇬🇷.
-      </p>
-      <p className={textClasses}>
-        I've been building products for a wide range of clients from small
-        startups, to leading digital agencies, up to big enterprises.
-      </p>
-      <p className={textClasses}>
-        My experiences range from Front-End Architecture and UI/UX Design to
-        Back-End Development. I develop web applications that have an intuitive
-        design, are accessible to users with disabilities, load fast (even
-        offline) and have a maintenable code basis.
-      </p>
-      <p className={textClasses}>
-        My tasks, besides hands-on development, include taking ownership for the
-        products I participate, deciding for the right technological solution
-        for any given projects, as well as coaching and transfering knowledge to
-        fellow developers.
-      </p>
+      <Helmet title={t('PAGE_TITLE_ABOUT')} />
+      <p className={textClasses}>{t('ABOUT_PAGE_INFO')}</p>
+      <p className={textClasses}>{t('ABOUT_PAGE_CLIENTS')}</p>
+      <p className={textClasses}>{t('ABOUT_PAGE_EXPERIENCES')}</p>
+      <p className={textClasses}>{t('ABOUT_PAGE_TASKS')}</p>
       <p className={textClasses}>
         <a
           className={textClasses}
-          href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+          href={`mailto:vchatzipan@gmail.com?${t('LABEL_EMAIL_SUBJECT')}`}
           rel="noopener noreferrer"
           target="_blank"
         >
-          Let’s start a cool project together!
+          {t('ABOUT_PAGE_CONTACT_ME')}
         </a>
       </p>
     </main>
