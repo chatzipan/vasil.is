@@ -15,6 +15,7 @@ if (typeof window !== 'undefined') {
 
 const AppShell = ({ children, isProjectPage, location, projects }) => {
   const {
+    language: { language },
     theme: { theme },
   } = useUI()
   const previousPathname = usePrevious(location.pathname)
@@ -24,6 +25,7 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]: isProjectPage && !isAboutPage && !isProjects,
     [styles.navOpen]: isNavOpen,
+    [styles.greekFont]: language === 'el',
   })
   const menuClasses = cx(styles.menu, styles[theme], {
     [styles.navOpen]: isNavOpen,

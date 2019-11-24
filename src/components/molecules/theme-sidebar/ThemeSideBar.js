@@ -9,6 +9,7 @@ import { useUI } from '../../../hooks'
 import Moon from '../../../assets/svgs/moon.svg'
 import FlagEn from '../../../assets/svgs/flag_englang.svg'
 import FlagDe from '../../../assets/svgs/flag_germany.svg'
+import FlagGr from '../../../assets/svgs/flag_greece.svg'
 import Home from '../../../assets/svgs/home.svg'
 import ArrowRight from '../../../assets/svgs/chevron_right.svg'
 import ArrowLeft from '../../../assets/svgs/chevron_left.svg'
@@ -16,11 +17,18 @@ import ArrowLeft from '../../../assets/svgs/chevron_left.svg'
 import styles from './ThemeSideBar.module.css'
 
 const flags = {
-  'en-En': FlagEn,
   'de-DE': FlagDe,
+  'en-EN': FlagEn,
+  el: FlagGr,
 }
 
-const langs = ['en-EN', 'de-DE']
+const languageFull = {
+  'de-DE': 'German',
+  'en-EN': 'English',
+  el: 'Greek',
+}
+
+const langs = ['en-EN', 'de-DE', 'el']
 
 const mode = mode =>
   ({
@@ -41,7 +49,7 @@ const getNextLang = current => {
   const count = langs.length
   const currentInd = langs.indexOf(current)
 
-  return currentInd === 0 ? langs[1] : langs[0]
+  return currentInd === count - 1 ? langs[0] : langs[currentInd + 1]
 }
 
 const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
@@ -50,7 +58,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
     navigation: { handleLinkClick },
     theme: { changeTheme, theme },
   } = useUI()
-  const FlagIcon = flags[language] || FlagEn
+  const FlagIcon = flags[language]
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const classes = cx(styles.sidebar, { [styles.dark]: theme === 'dark' })
   const current = location.pathname.split('/')[2]
@@ -117,7 +125,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
       <button
         className={languageBtnClasses}
         onClick={changeLanguage}
-        title={`Switch to ${nextLang}`}
+        title={`Switch to ${languageFull[nextLang]}`}
       >
         <FlagIcon className={styles.icon} />
       </button>
