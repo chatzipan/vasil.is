@@ -31,6 +31,7 @@ const HomePage = ({ projects, titleTemplate }) => {
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
   const clientsClass = cx(styles.clients, { [styles.dark]: theme === 'dark' })
+  const yearsExperience = new Date().getFullYear() - 2014
   const mainClass = cx(styles.row, {
     [styles.blur]: focusedClient,
     [styles.hide]: linkClicked,
@@ -81,19 +82,18 @@ const HomePage = ({ projects, titleTemplate }) => {
       <main className={mainClass}>
         <div className={styles.main}>
           <h2 className={styles.intro}>
-            <span className={styles.hi}>{t('HALLO')}! my name is</span>
-            <span className={nameClass}>Vasilis Chatzipanagiotis,</span>
+            <span className={styles.hi}>{t('HOME_HALLO')}</span>
+            <span className={nameClass}>{t('HOME_ΝΑΜΕ')},</span>
           </h2>
           <h3 className={experienceClass}>
-            Creative Freelance Software Engineer / Architect + ReactJS expert
-            based in Zurich
-            <span aria-label="Switzerland" title="Switzerland">
+            {t('HOME_OCCUPATION')}, {t('HOME_LOCATION')}
+            <span aria-label={t('SWITZERLAND')} title="SWITZERLAND">
               🇨🇭.
             </span>
           </h3>
           <h3 className={clientsClass}>
             <span className={styles.clientText}>
-              Over the last 5 years, I've been helping out clients such as&nbsp;
+              {t('HOME_CLIENTS_INTRO', { yearsExperience })}&nbsp;
             </span>
             {projects.map(({ client }, i) => {
               const clientBtnClasses = cx(styles.clientBtn, {
@@ -124,37 +124,37 @@ const HomePage = ({ projects, titleTemplate }) => {
               )
             })}
             <span className={styles.clientText}>
-              and&nbsp;
+              {t('AND')}&nbsp;
               <TransitionLink
                 className={styles.clientBtn}
                 exit={{ delay: 0.5 }}
                 onClick={handleOnMoreClick}
                 to="/projects"
               >
-                more
+                {t('MORE')}
               </TransitionLink>
-              , to build high-quality web applications and websites.
+              ,&nbsp;{t('HOME_CLIENTS_SUBJECT')}
             </span>
           </h3>
           <h3 className={clientsClass}>
             <span className={styles.clientText}>
-              You can read more&nbsp;
+              {t('HOME_READ_MORE')}&nbsp;
               <TransitionLink
                 className={styles.clientBtn}
                 exit={{ delay: 0.5 }}
                 onClick={handleOnMoreClick}
                 to="/about"
               >
-                about me
+                {t('HOME_ABOUT_ME')}
               </TransitionLink>
-              &nbsp;or&nbsp;
+              &nbsp;{t('OR')}&nbsp;
               <a
                 className={styles.clientBtn}
-                href="mailto:vchatzipan@gmail.com?subject=I'd like to talk about a project&body=Hi Vasilis,"
+                href={`mailto:vchatzipan@gmail.com?${t('HOME_EMAIL_SUBJECT')}`}
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                get in touch!
+                {t('HOME_GET_IT_TOUCH')}.
               </a>
             </span>
           </h3>

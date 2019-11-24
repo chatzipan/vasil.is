@@ -1,3 +1,16 @@
 {
-  "HALLO": "Hallo"
+  "AND": "and",
+  "HOME_ABOUT_ME": "about me",
+  "HOME_CLIENTS_INTRO": "Over the last {{yearsExperience}} years, I've been helping out clients such as",
+  "HOME_CLIENTS_SUBJECT": "to build high-quality web applications and websites.",
+  "HOME_EMAIL_SUBJECT": "subject=I'd like to talk about a project&body=Hi Vasilis,",
+  "HOME_GET_IT_TOUCH": "get in touch",
+  "HOME_HALLO": "Hi! my name is",
+  "HOME_LOCATION": "based in Zurich",
+  "HOME_ΝΑΜΕ": "Vasilis Chatzipanagiotis",
+  "HOME_OCCUPATION": "Creative Freelance Software Engineer / Architect + ReactJS expert",
+  "HOME_READ_MORE": "You can read more",
+  "MORE": "more",
+  "OR": "or",
+  "SWITZERLAND": "Switzerland"
 }
