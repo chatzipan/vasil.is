@@ -45,7 +45,7 @@
   position: relative;
   color: currentColor;
 
-  &:not(:nth-child(5)) {
+  &:not(:nth-child(6)) {
     margin-bottom: 1.2vw;
 
     @media (--tablet) {
@@ -75,6 +75,10 @@
         bottom: -80%;
       }
     }
+  }
+
+  &:nth-child(6) {
+    animation-delay: 2.8s;
   }
 
   &:nth-child(5) {

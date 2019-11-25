@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next'
 
 import { useUI } from '../../../hooks'
 
+import cv_url from '../../../assets/images/CV_Vasilis_Chatzipanagiotis_20191125_Web.pdf'
+import CV from '../../../assets/svgs/cv.svg'
 import Email from '../../../assets/svgs/email.svg'
 import LinkedIn from '../../../assets/svgs/linkedin.svg'
 import Twitter from '../../../assets/svgs/twitter.svg'
@@ -45,6 +47,16 @@ const SocialSideBar = () => {
   return (
     <nav className={sidebarClasses}>
       <ul className={styles.list}>
+        <li className={styles.listItem}>
+          <a
+            className={styles.link}
+            href={cv_url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <CV className={cx(styles.logo, styles[theme])} />
+          </a>
+        </li>
         <li className={styles.listItem}>
           <a
             href={`mailto:vchatzipan@gmail.com?${t('LABEL_EMAIL_SUBJECT')}`}
