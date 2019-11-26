@@ -55,7 +55,7 @@ class Layout extends Component {
     const isProjectPage =
       location.pathname.includes('/project') ||
       location.pathname.includes('/about')
-
+    const logoUrl = `${url}${logos}`
     return (
       <>
         <Helmet title={title} titleTemplate={titleTemplate}>
@@ -64,12 +64,12 @@ class Layout extends Component {
           <meta name="keywords" content={keywords} />
           <meta property="og:url" content={url} />
           <meta property="og:title" content={title} />
-          <meta property="og:image" content={logos} />
+          <meta property="og:image" content={logoUrl} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content={twitterUsername} />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={logos} />
+          <meta name="twitter:image" content={logoUrl} />
         </Helmet>
         <UIProvider location={location}>
           <AppShell
