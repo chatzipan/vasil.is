@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { useUI } from '../../../hooks'
 
-import cv_url from '../../../assets/images/CV_Vasilis_Chatzipanagiotis_20191125_Web.pdf'
+import cv_url from '../../../assets/images/cv_vasilis_chatzipanagiotis.pdf'
 import CV from '../../../assets/svgs/cv.svg'
 import Email from '../../../assets/svgs/email.svg'
 import LinkedIn from '../../../assets/svgs/linkedin.svg'
