@@ -55,7 +55,7 @@ const screenshots = {
   },
 }
 
-const ProjectPage = ({ project, projects, titleTemplate }) => {
+const ProjectPage = ({ project, projects }) => {
   const {
     navigation: { linkClicked },
   } = useUI()
@@ -68,7 +68,7 @@ const ProjectPage = ({ project, projects, titleTemplate }) => {
   const { url } = projects.find(({ client }) => client === project)
   return (
     <main className={styles.main}>
-      <Helmet title={titleTemplate.replace('%s', `${project} Project`)} />
+      <Helmet title={`${project} Project`} />
       <section className={projectClass}>
         <div className={styles.screenshot}>
           <img className={styles.img} src={desktop} />
@@ -108,21 +108,16 @@ export default props => (
               client
               url
             }
-            titleTemplate
           }
         }
       }
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects, ownProjects, titleTemplate },
+        siteMetadata: { mainProjects, ownProjects },
       },
     }) => (
-      <ProjectPage
-        projects={[...mainProjects, ...ownProjects]}
-        titleTemplate={titleTemplate}
-        {...props}
-      />
+      <ProjectPage projects={[...mainProjects, ...ownProjects]} {...props} />
     )}
   />
 )

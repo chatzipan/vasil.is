@@ -12,7 +12,7 @@ import { useUI } from '../hooks'
 
 import styles from './projects.module.css'
 
-const ProjectsOverviewPage = ({ projects, titleTemplate }) => {
+const ProjectsOverviewPage = ({ projects }) => {
   const { t } = useTranslation()
   const {
     theme: { theme },
@@ -20,7 +20,7 @@ const ProjectsOverviewPage = ({ projects, titleTemplate }) => {
 
   return (
     <main className={styles.logosArea}>
-      <Helmet title={titleTemplate.replace('%s', t('PAGE_TITLE_ALL'))} />
+      <Helmet title={t('PAGE_TITLE_ALL')} />
       {projects.sort().map((client, i) => {
         const logoClass = cx(
           styles.logo,
@@ -72,21 +72,19 @@ export default props => (
             ownProjects {
               client
             }
-            titleTemplate
           }
         }
       }
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects, otherProjects, titleTemplate },
+        siteMetadata: { mainProjects, otherProjects },
       },
     }) => (
       <ProjectsOverviewPage
         projects={[...mainProjects, ...otherProjects].map(
           ({ client }) => client
         )}
-        titleTemplate={titleTemplate}
         {...props}
       />
     )}

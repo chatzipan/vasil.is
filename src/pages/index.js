@@ -19,7 +19,7 @@ import { useUI } from '../hooks'
 
 import styles from './index.module.css'
 
-const HomePage = ({ projects, titleTemplate }) => {
+const HomePage = ({ projects }) => {
   const {
     homepage: { setProjectPreviewOpen },
     theme: { theme },
@@ -76,7 +76,7 @@ const HomePage = ({ projects, titleTemplate }) => {
 
   return (
     <>
-      <Helmet title={titleTemplate.replace('%s', t('PAGE_TITLE_HOME'))} />
+      <Helmet title={t('PAGE_TITLE_HOME')} />
       <ProjectPreview
         focusedProject={focusedClient}
         lastFocusedProject={lastFocusedClient}
@@ -176,7 +176,6 @@ export default props => (
       query {
         site {
           siteMetadata {
-            titleTemplate
             mainProjects {
               client
             }
@@ -189,14 +188,8 @@ export default props => (
     `}
     render={({
       site: {
-        siteMetadata: { mainProjects, titleTemplate },
+        siteMetadata: { mainProjects },
       },
-    }) => (
-      <HomePage
-        projects={mainProjects}
-        titleTemplate={titleTemplate}
-        {...props}
-      />
-    )}
+    }) => <HomePage projects={mainProjects} {...props} />}
   />
 )
