@@ -65,7 +65,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
   } = useUI()
   const { t } = useTranslation()
   console.log('language', language)
-  const FlagIcon = flags[language] || FlagEn
+  const FlagIcon = flags[language]
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const isAboutPage = ['/about', '/about/'].includes(location.pathname)
   const isProjectsPage = ['/projects', '/projects/'].includes(location.pathname)
@@ -140,7 +140,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
         onClick={changeLanguage}
         title={`Switch to ${languageFull[nextLang]}`}
       >
-        <FlagIcon className={styles.icon} />
+        {FlagIcon && <FlagIcon className={styles.icon} />}
       </button>
     </>
   )
