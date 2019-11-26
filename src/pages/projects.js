@@ -63,6 +63,8 @@ export default props => (
       query {
         site {
           siteMetadata {
+            description
+            keywords
             mainProjects {
               client
             }
@@ -72,6 +74,11 @@ export default props => (
             ownProjects {
               client
             }
+            siteUrl
+            title
+            titleTemplate
+            twitterUsername
+            image
           }
         }
       }

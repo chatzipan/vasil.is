@@ -176,12 +176,19 @@ export default props => (
       query {
         site {
           siteMetadata {
+            description
+            keywords
             mainProjects {
               client
             }
             ownProjects {
               client
             }
+            siteUrl
+            title
+            titleTemplate
+            twitterUsername
+            image
           }
         }
       }
