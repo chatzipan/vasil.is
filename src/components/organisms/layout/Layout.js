@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import InternalProvider from 'gatsby-plugin-transition-link/context/InternalProvider'
 
+import logos from '../../../assets/images/logos.png'
 import '../../../i18n'
 
 import { UIProvider } from '../../../context/UIContext'
@@ -63,12 +64,12 @@ class Layout extends Component {
           <meta name="keywords" content={keywords} />
           <meta property="og:url" content={url} />
           <meta property="og:title" content={title} />
-          <meta property="og:image" content={image} />
+          <meta property="og:image" content={logos} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:creator" content={twitterUsername} />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={image} />
+          <meta name="twitter:image" content={logos} />
         </Helmet>
         <UIProvider location={location}>
           <AppShell
