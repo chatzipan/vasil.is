@@ -19,17 +19,17 @@ import styles from './ThemeSideBar.module.css'
 
 const flags = {
   'de-DE': FlagDe,
-  'en-EN': FlagEn,
+  'en-GB': FlagEn,
   el: FlagGr,
 }
 
 const languageFull = {
   'de-DE': 'German',
-  'en-EN': 'English',
+  'en-GB': 'English',
   el: 'Greek',
 }
 
-const langs = ['en-EN', 'de-DE', 'el']
+const langs = ['en-GB', 'de-DE', 'el']
 
 const mode = mode =>
   ({
@@ -50,7 +50,11 @@ const getNextLang = current => {
   const count = langs.length
   const currentInd = langs.indexOf(current)
 
-  return currentInd === count - 1 ? langs[0] : langs[currentInd + 1]
+  return currentInd === -1
+    ? langs[1]
+    : currentInd === count - 1
+    ? langs[0]
+    : langs[currentInd + 1]
 }
 
 const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
@@ -60,7 +64,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
     theme: { changeTheme, theme },
   } = useUI()
   const { t } = useTranslation()
-  const FlagIcon = flags[language] || FlagGr
+  const FlagIcon = flags[language] || FlagEn
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const isAboutPage = ['/about', '/about/'].includes(location.pathname)
   const isProjectsPage = ['/projects', '/projects/'].includes(location.pathname)

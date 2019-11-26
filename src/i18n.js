@@ -10,7 +10,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en-EN',
+    fallbackLng: 'en-GB',
     debug: process.env.NODE_ENV === 'development',
     react: {
       useSuspense: false,
