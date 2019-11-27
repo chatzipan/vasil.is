@@ -18,18 +18,15 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
     language: { language },
     theme: { theme },
   } = useUI()
-  console.log({ language })
   const previousPathname = usePrevious(location.pathname)
   const isAboutPage = ['/about/', '/about'].includes(location.pathname)
   const isProjects = ['/projects/', '/projects'].includes(location.pathname)
   const [isNavOpen, setIsNavOpen] = useState(false)
-  console.log('language === el', language === 'el')
   const classes = cx(styles.app, styles[theme], {
     [styles.isProjectPage]: isProjectPage && !isAboutPage && !isProjects,
     [styles.navOpen]: isNavOpen,
     [styles.greekFont]: language === 'el',
   })
-  console.log({ classes })
   const menuClasses = cx(styles.menu, styles[theme], {
     [styles.navOpen]: isNavOpen,
   })
