@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 
 import { usePrevious } from '../hooks'
+import track from '../utils/track'
 
 const UIContext = createContext({
   homepage: {
@@ -55,6 +56,11 @@ export const UIProvider = ({ children, location }) => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     window.localStorage.setItem('theme', newTheme)
     setTheme(newTheme)
+
+    track('change_theme', {
+      event_category: 'ui_options',
+      value: newTheme,
+    })
   }, [theme])
 
   const handleLinkClick = useCallback(() => {

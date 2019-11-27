@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 import { StaticQuery, graphql } from 'gatsby'
@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 import { ProjectPreview } from '../components/molecules'
 import { useUI } from '../hooks'
+import track from '../utils/track'
 
 import aboutyou_desktop from '../assets/images/aboutyou_desktop.png'
 import aboutyou_mobile from '../assets/images/aboutyou_mobile.png'
@@ -61,11 +62,18 @@ const ProjectPage = ({ project, projects }) => {
   } = useUI()
   const { t } = useTranslation()
   const { desktop, mobile } = screenshots[project] || screenshots.Xing
+  const { url } = projects.find(({ client }) => client === project)
   const projectClass = cx(styles.project, {
     [styles.hide]: linkClicked,
   })
 
-  const { url } = projects.find(({ client }) => client === project)
+  const handleLinkClick = useCallback(() => {
+    track('click_visit_page', {
+      event_category: 'ui_options',
+      value: project,
+    })
+  }, [])
+
   return (
     <main className={styles.main}>
       <Helmet title={`${project} Project`} />
@@ -80,6 +88,7 @@ const ProjectPage = ({ project, projects }) => {
           className={styles.link}
           href={url}
           rel="noopener noreferrer"
+          onClick={handleLinkClick}
           target="_blank"
         >
           {t('PROJECT_PAGE_VISIT')}

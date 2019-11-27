@@ -5,8 +5,6 @@ import { Link } from 'gatsby'
 import TransitionLink from 'gatsby-plugin-transition-link'
 import { useTranslation } from 'react-i18next'
 
-import { useUI } from '../../../hooks'
-
 import Moon from '../../../assets/svgs/moon.svg'
 import FlagEn from '../../../assets/svgs/flag_englang.svg'
 import FlagDe from '../../../assets/svgs/flag_germany.svg'
@@ -14,6 +12,8 @@ import FlagGr from '../../../assets/svgs/flag_greece.svg'
 import Home from '../../../assets/svgs/home.svg'
 import ArrowRight from '../../../assets/svgs/chevron_right.svg'
 import ArrowLeft from '../../../assets/svgs/chevron_left.svg'
+import { useUI } from '../../../hooks'
+import track from '../../../utils/track'
 
 import styles from './ThemeSideBar.module.css'
 
@@ -86,7 +86,25 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
 
   const changeLanguage = useCallback(() => {
     selectLanguage(nextLang)
+    track('change_language', {
+      event_category: 'ui_options',
+      value: nextLang,
+    })
   }, [nextLang])
+
+  const handleArrowsClick = useCallback(() => {
+    handleLinkClick()
+    track('click_arrow_navigation', {
+      event_category: 'ui_options',
+    })
+  }, [])
+
+  const handleHomeClick = useCallback(() => {
+    handleLinkClick()
+    track('click_home_button', {
+      event_category: 'ui_options',
+    })
+  }, [])
 
   return (
     <>
@@ -109,7 +127,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
               <TransitionLink
                 className={styles.link}
                 exit={{ delay: transitionDelay }}
-                onClick={handleLinkClick}
+                onClick={handleHomeClick}
                 to="/"
               >
                 <Home alt={theme} className={styles.icon} />
@@ -117,7 +135,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
               <TransitionLink
                 className={styles.link}
                 exit={{ delay: transitionDelay }}
-                onClick={handleLinkClick}
+                onClick={handleArrowsClick}
                 to={`/projects/${next}`}
               >
                 <ArrowRight alt={theme} className={styles.icon} />
@@ -125,7 +143,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
               <TransitionLink
                 className={styles.link}
                 exit={{ delay: transitionDelay }}
-                onClick={handleLinkClick}
+                onClick={handleArrowsClick}
                 to={`/projects/${previous}`}
               >
                 <ArrowLeft alt={theme} className={styles.icon} />
