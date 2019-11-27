@@ -19,6 +19,7 @@ i18n
 
 i18n.addResourceBundle('en', 'translation', translation_en)
 i18n.addResourceBundle('en-GB', 'translation', translation_en)
+i18n.addResourceBundle('en-US', 'translation', translation_en)
 i18n.addResourceBundle('de', 'translation', translation_de)
 i18n.addResourceBundle('de-CH', 'translation', translation_de)
 i18n.addResourceBundle('de-DE', 'translation', translation_de)

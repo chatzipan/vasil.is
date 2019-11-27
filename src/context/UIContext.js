@@ -23,6 +23,8 @@ const UIContext = createContext({
   },
 })
 
+const supportedLanguages = ['en-GB', 'de-DE', 'el']
+
 export const UIProvider = ({ children, location }) => {
   const [, i18n] = useTranslation()
   const [language, setLanguage] = useState(i18n.language)
@@ -30,7 +32,7 @@ export const UIProvider = ({ children, location }) => {
   const [linkClicked, setLinkClicked] = useState(false)
   const [projectPreviewOpen, setProjectPreviewOpen] = useState(false)
   const previousPathname = usePrevious(location.pathname)
-
+  console.log({ language })
   useEffect(() => {
     if (previousPathname !== location.pathname) {
       setLinkClicked(false)
@@ -66,6 +68,22 @@ export const UIProvider = ({ children, location }) => {
     },
     [i18n, setLanguage]
   )
+
+  useEffect(() => {
+    if (language.includes('en-' && language !== 'en-GB')) {
+      selectLanguage('en-GB')
+      return
+    }
+
+    if (language.includes('de-' && language !== 'de-DE')) {
+      selectLanguage('de-DE')
+      return
+    }
+
+    if (!supportedLanguages.includes(language)) {
+      selectLanguage('en-GB')
+    }
+  }, [language])
 
   const providedValues = {
     homepage: {
