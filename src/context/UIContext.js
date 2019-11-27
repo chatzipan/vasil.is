@@ -44,8 +44,8 @@ export const UIProvider = ({ children, location }) => {
       window !== 'undefined' && 'localStorage' in window
         ? window.localStorage.getItem('theme')
         : 'light'
-    setTheme('light')
 
+    setTheme(initialTheme)
     if (!window.localStorage.getItem('theme')) {
       window.localStorage.setItem('theme', 'light')
     }
