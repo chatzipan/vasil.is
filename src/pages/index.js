@@ -155,7 +155,7 @@ const HomePage = ({ projects }) => {
               >
                 {t('HOME_ABOUT_ME')}
               </TransitionLink>
-              &nbsp;{t('LABEL_OR')}&nbsp;
+              &nbsp;{t('HOME_OR')}&nbsp;
               <a
                 className={styles.clientBtn}
                 href={`mailto:vchatzipan@gmail.com?${t('LABEL_EMAIL_SUBJECT')}`}
