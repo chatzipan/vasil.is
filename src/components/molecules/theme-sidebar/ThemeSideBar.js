@@ -64,7 +64,6 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
     theme: { changeTheme, theme },
   } = useUI()
   const { t } = useTranslation()
-  console.log('language', language)
   const FlagIcon = flags[language]
   const transitionDelay = location.pathname === '/projects' ? 0.5 : 1
   const isAboutPage = ['/about', '/about/'].includes(location.pathname)
