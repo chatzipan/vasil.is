@@ -32,7 +32,7 @@ export const UIProvider = ({ children, location }) => {
   const [linkClicked, setLinkClicked] = useState(false)
   const [projectPreviewOpen, setProjectPreviewOpen] = useState(false)
   const previousPathname = usePrevious(location.pathname)
-  console.log({ language })
+
   useEffect(() => {
     if (previousPathname !== location.pathname) {
       setLinkClicked(false)

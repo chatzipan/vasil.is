@@ -18,6 +18,7 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
     language: { language },
     theme: { theme },
   } = useUI()
+  console.log({ language })
   const previousPathname = usePrevious(location.pathname)
   const isAboutPage = ['/about/', '/about'].includes(location.pathname)
   const isProjects = ['/projects/', '/projects'].includes(location.pathname)
