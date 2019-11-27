@@ -80,6 +80,11 @@ export const UIProvider = ({ children, location }) => {
       return
     }
 
+    if (language === 'el') {
+      selectLanguage('el')
+      return
+    }
+
     if (!supportedLanguages.includes(language)) {
       selectLanguage('en-GB')
     }
