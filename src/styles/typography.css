@@ -3,5 +3,6 @@ body,
 h1,
 h2,
 h3 {
-  font-family: 'Optician-Sans', 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Mono', Arial, Helvetica Neue, Helvetica, sans-serif,
+    monospace;
 }

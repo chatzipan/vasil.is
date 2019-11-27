@@ -89,14 +89,6 @@
   @media (--mobile) {
     margin-bottom: 3vw;
   }
-
-  &.greekFont {
-    width: 50%;
-
-    @media (--tablet) {
-      width: 100%;
-    }
-  }
 }
 
 .hi {
@@ -151,12 +143,6 @@
 
   &.dark {
     color: var(--white);
-  }
-
-  &.greekFont {
-    @media (--mobile) {
-      line-height: 1.6;
-    }
   }
 }
 

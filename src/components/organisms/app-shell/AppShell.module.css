@@ -40,10 +40,6 @@
       transform: translateX(calc(88vw + 2px));
     }
   }
-
-  &.greekFont {
-    font-family: helvetica;
-  }
 }
 
 .light {

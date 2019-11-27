@@ -22,7 +22,6 @@ import styles from './index.module.css'
 const HomePage = ({ projects }) => {
   const {
     homepage: { setProjectPreviewOpen },
-    language: { language },
     theme: { theme },
   } = useUI()
   const [lastFocusedClient, setLastFocusedClient] = useState('')
@@ -32,7 +31,6 @@ const HomePage = ({ projects }) => {
   const [timeout] = useState(false)
   const [linkClicked, setLinkClicked] = useState(false)
   const lineClass = cx(styles.backgroundLine, { [styles.show]: focusedClient })
-  const introClass = cx(styles.intro, { [styles.greekFont]: language === 'el' })
   const nameClass = cx(styles.name, { [styles.dark]: theme === 'dark' })
   const yearsExperience = new Date().getFullYear() - 2014
   const mainClass = cx(styles.row, {
@@ -43,11 +41,9 @@ const HomePage = ({ projects }) => {
   })
   const clientsClass = cx(styles.clients, {
     [styles.dark]: theme === 'dark',
-    [styles.greekFont]: language === 'el',
   })
   const experienceClass = cx(styles.experience, {
     [styles.dark]: theme === 'dark',
-    [styles.greekFont]: language === 'el',
   })
 
   const handleClientHover = useCallback(client => {
@@ -89,7 +85,7 @@ const HomePage = ({ projects }) => {
       />
       <main className={mainClass}>
         <div className={styles.main}>
-          <h2 className={introClass}>
+          <h2 className={styles.intro}>
             <span className={styles.hi}>{t('HOME_HALLO')}</span>
             <span className={nameClass}>{t('HOME_ΝΑΜΕ')},</span>
           </h2>
