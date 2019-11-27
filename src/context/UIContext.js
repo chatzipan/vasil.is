@@ -81,6 +81,7 @@ export const UIProvider = ({ children, location }) => {
     }
 
     if (language === 'el') {
+      selectLanguage('en-GB')
       selectLanguage('el')
       return
     }
