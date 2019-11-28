@@ -59,7 +59,7 @@ export const UIProvider = ({ children, location }) => {
 
     track('change_theme', {
       event_category: 'ui_options',
-      value: newTheme,
+      value: newTheme === 'light' ? 1 : 0,
     })
   }, [theme])
 

@@ -88,7 +88,7 @@ const ThemeSideBar = ({ isProjectPage, location, projects, toggleNav }) => {
     selectLanguage(nextLang)
     track('change_language', {
       event_category: 'ui_options',
-      value: nextLang,
+      value: langs.indexOf(nextLang) + 1,
     })
   }, [nextLang])
 

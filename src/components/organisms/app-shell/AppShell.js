@@ -33,7 +33,7 @@ const AppShell = ({ children, isProjectPage, location, projects }) => {
   const toggleNav = useCallback(() => {
     track('toggle_menu', {
       event_category: 'ui_options',
-      value: !isNavOpen,
+      value: !isNavOpen ? 0 : 1,
     })
     setIsNavOpen(!isNavOpen)
   }, [isNavOpen])

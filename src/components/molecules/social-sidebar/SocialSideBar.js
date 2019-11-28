@@ -18,22 +18,18 @@ import styles from './SocialSideBar.module.css'
 const logos = [
   {
     Logo: LinkedIn,
-    name: 'linkedin',
     url: 'https://www.linkedin.com/in/vasilis-chatzipanagiotis',
   },
   {
     Logo: Twitter,
-    name: 'twitter',
     url: 'https://twitter.com/__vasilis',
   },
   {
     Logo: Github,
-    name: 'github',
     url: 'https://github.com/chatzipan',
   },
   {
     Logo: Xing,
-    name: 'xing',
     url: 'https://www.xing.com/profile/Vasilis_Chatzipanagiotis/cv',
   },
 ]
@@ -48,10 +44,10 @@ const SocialSideBar = () => {
     [styles.covered]: projectPreviewOpen,
   })
 
-  const handleSocialIconClick = useCallback(icon => {
+  const handleSocialIconClick = useCallback(value => {
     track('click_social_icon', {
       event_category: 'ui_options',
-      value: icon,
+      value,
     })
   }, [])
 
@@ -62,7 +58,7 @@ const SocialSideBar = () => {
           <a
             className={styles.link}
             href={cv_url}
-            onClick={() => handleSocialIconClick('cv')}
+            onClick={() => handleSocialIconClick(1)}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -73,19 +69,19 @@ const SocialSideBar = () => {
           <a
             href={`mailto:vchatzipan@gmail.com?${t('LABEL_EMAIL_SUBJECT')}`}
             rel="noopener noreferrer"
-            onClick={() => handleSocialIconClick('email')}
+            onClick={() => handleSocialIconClick(2)}
             target="_blank"
             className={styles.link}
           >
             <Email className={cx(styles.logo, styles[theme])} />
           </a>
         </li>
-        {logos.map(({ Logo, name, url }, i) => (
+        {logos.map(({ Logo, url }, i) => (
           <li className={styles.listItem} key={i}>
             <a
               href={url}
               rel="noopener noreferrer"
-              onClick={() => handleSocialIconClick(name)}
+              onClick={() => handleSocialIconClick(i + 2)}
               target="_blank"
             >
               <Logo className={cx(styles.logo, styles[theme])} />

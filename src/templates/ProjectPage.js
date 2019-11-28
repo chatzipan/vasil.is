@@ -70,7 +70,7 @@ const ProjectPage = ({ project, projects }) => {
   const handleLinkClick = useCallback(() => {
     track('click_visit_page', {
       event_category: 'ui_options',
-      value: project,
+      value: projects.findIndex(({ client }) => client === project),
     })
   }, [])
 
