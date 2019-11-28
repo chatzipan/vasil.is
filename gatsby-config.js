@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate:
       '%s · Vasilis Chatzipanagiotis | Freelance Software Engineer',
     description:
-      'Portfolio by Vasilis Chatzipanagiotis. Freelance Senior Sofware Engineer based in Zurich Hamburg. I helped build new products for companies such as Volkswagen, Zalando, Otto, AboutYou, XING and more.',
+      'Portfolio by Vasilis Chatzipanagiotis. Freelance Senior Sofware Engineer based in Zurich. I helped build new products for companies such as Volkswagen, Zalando, Otto, AboutYou, XING and more.',
     keywords:
       'freelancer, web developer, software engineer, digital agency, frontend engineer, frontend architect, react developer, remote, Zurich, Switzerland, Germany, Hamburg, javascript',
     mainProjects: [
