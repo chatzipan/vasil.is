@@ -6,7 +6,7 @@ module.exports = {
     description:
       'Portfolio by Vasilis Chatzipanagiotis. Freelance Senior Software Engineer based in Zurich. I helped build new products for companies such as Volkswagen, Zalando, Otto, AboutYou, XING and more.',
     keywords:
-      'freelancer, web developer, software engineer, digital agency, frontend engineer, frontend architect, react developer, remote, Zurich, Switzerland, Germany, Hamburg, javascript',
+      'freelancer, web developer, software engineer, Vasilis Chatzipanagiotis, digital agency, frontend engineer, frontend architect, react developer, remote, Zurich, Switzerland, Germany, Hamburg, javascript',
     mainProjects: [
       {
         agency: 'SinnerSchrader',
