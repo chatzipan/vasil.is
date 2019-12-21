@@ -17,5 +17,8 @@
 		"statusBar.background": "#ffff00",
 		"statusBarItem.hoverBackground": "#cccc00",
 		"statusBar.foreground": "#15202b"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
 	}
 }
