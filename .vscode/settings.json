@@ -16,7 +16,10 @@
 		"titleBar.inactiveForeground": "#15202b99",
 		"statusBar.background": "#ffff00",
 		"statusBarItem.hoverBackground": "#cccc00",
-		"statusBar.foreground": "#15202b"
+		"statusBar.foreground": "#15202b",
+		"activityBar.activeBackground": "#ffff33",
+		"statusBar.border": "#ffff00",
+		"titleBar.border": "#ffff00"
 	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true

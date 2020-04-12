@@ -137,6 +137,15 @@ module.exports = {
         stack: 'Typescript, ReactJS, React Hooks, graphQL, SASS',
         url: 'https://www.raiffeisen.ch/',
       },
+      {
+        client: 'Sanitas',
+        agency: 'Infocentric Research AG',
+        period: '2020',
+        sector: 'Insurance',
+        position: 'Senior Frontend Engineer',
+        stack: 'VueJS, Vuex, PostCSS',
+        url: 'https://www.sanitas.com',
+      },
     ],
     ownProjects: [
       {

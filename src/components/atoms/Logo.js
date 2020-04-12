@@ -10,6 +10,7 @@ import LeicaGeosystemsLogo from '../../assets/svgs/leica_geosystems_logo.svg'
 import OasaLogo from '../../assets/svgs/oasa_logo.svg'
 import OttoLogo from '../../assets/svgs/otto_logo.svg'
 import ReiffeisenLogo from '../../assets/svgs/raiffeisen_logo.svg'
+import SanitasLogo from '../../assets/svgs/sanitas_logo.svg'
 import SinnerSchraderLogo from '../../assets/svgs/sinnerschrader_logo.svg'
 import TVSpielfilmLogo from '../../assets/svgs/tvspielfilm-logo.svg'
 import XingLogo from '../../assets/svgs/xing_logo.svg'
@@ -26,6 +27,7 @@ const logos = {
   Oasa: OasaLogo,
   OTTO: OttoLogo,
   Reiffeisen: ReiffeisenLogo,
+  Sanitas: SanitasLogo,
   SinnerSchrader: SinnerSchraderLogo,
   TVSpielfilm: TVSpielfilmLogo,
   Xing: XingLogo,
