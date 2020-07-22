@@ -212,7 +212,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: ['UA-136581091-1'],
+        trackingIds: ['UA-153388529-1'],
       },
     },
     'gatsby-plugin-sitemap',
